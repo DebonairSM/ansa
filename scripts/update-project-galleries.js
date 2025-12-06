@@ -13,21 +13,41 @@ const mappingFile = path.join(__dirname, 'image-mapping.json');
 const mappingData = JSON.parse(fs.readFileSync(mappingFile, 'utf-8'));
 const mapping = mappingData.mapping;
 
-// Enhanced mapping with all images for each project
-const projectImageMap = {
-  'lar-santa-monica': [
-    ...(mapping['lar-santa-monica'] || []),
+// Build project image map from mapping data
+const projectImageMap = {};
+
+// Helper to add /uploads prefix if missing
+function addUploadsPrefix(path) {
+  if (typeof path === 'object' && path.path) {
+    path = path.path;
+  }
+  if (path.startsWith('/uploads/')) return path;
+  if (path.startsWith('/')) return '/uploads' + path;
+  return '/uploads/' + path;
+}
+
+// Process mapped images
+for (const [projectKey, images] of Object.entries(mapping)) {
+  if (projectKey === '_generic') continue;
+  
+  projectImageMap[projectKey] = (images || []).map(addUploadsPrefix);
+}
+
+// Add additional images based on date/context
+// Lar Santa Monica - add images from 2019/01 folder
+if (projectImageMap['lar-santa-monica']) {
+  projectImageMap['lar-santa-monica'].push(
     '/uploads/2019/01/image46.png',
     '/uploads/2019/01/image47.png',
     '/uploads/2019/01/image48.jpg',
     '/uploads/2019/01/image49.jpg',
-    '/uploads/2019/01/image50.jpg',
-  ],
-  'lar-pequeno-assis': mapping['lar-pequeno-assis'] || [],
-  'associacao-paulo-vi': mapping['associacao-paulo-vi'] || [],
-  'maria-mae-vida-quixada': mapping['maria-mae-vida-quixada'] || [],
-  'maria-mae-vida-juazeiro': [
-    ...(mapping['maria-mae-vida-juazeiro'] || []),
+    '/uploads/2019/01/image50.jpg'
+  );
+}
+
+// Maria Mae da Vida Juazeiro - add PHOTO series from 2021/04
+if (projectImageMap['maria-mae-vida-juazeiro']) {
+  projectImageMap['maria-mae-vida-juazeiro'].push(
     '/uploads/2021/04/PHOTO-2021-04-01-11-29-55.jpg',
     '/uploads/2021/04/PHOTO-2021-04-01-11-29-55-1.jpg',
     '/uploads/2021/04/PHOTO-2021-04-01-11-29-55-2.jpg',
@@ -38,81 +58,96 @@ const projectImageMap = {
     '/uploads/2021/04/PHOTO-2021-04-01-11-34-59-1.jpg',
     '/uploads/2021/04/PHOTO-2021-04-01-11-40-50.jpg',
     '/uploads/2021/04/PHOTO-2021-04-01-11-40-50-1.jpg',
-  ],
-  'solar-menino-luz': mapping['solar-menino-luz'] || [],
-  'caminho-de-luz-apae': [
-    ...(mapping['caminho-de-luz-apae'] || []),
-    '/uploads/2017/04/image12.png',
-  ],
-  'centro-educacao-joao-manoel': [
-    ...(mapping['centro-educacao-joao-manoel'] || []),
+    '/uploads/2021/04/Juazeiro-5.jpg',
+    '/uploads/2021/04/Juazeiro-5-1.jpg'
+  );
+}
+
+// Caminho de Luz APAE - add image12.png
+if (projectImageMap['caminho-de-luz-apae']) {
+  projectImageMap['caminho-de-luz-apae'].push('/uploads/2017/04/image12.png');
+}
+
+// Centro Educacao - add generic images from 2016/11
+if (projectImageMap['centro-educacao-joao-manoel']) {
+  projectImageMap['centro-educacao-joao-manoel'].push(
     '/uploads/2016/11/image15.jpg',
-    '/uploads/2016/11/image16.jpg',
-  ],
-  'escola-castro-alves': [
-    ...(mapping['escola-castro-alves'] || []),
+    '/uploads/2016/11/image16.jpg'
+  );
+}
+
+// Escola Castro Alves - add generic images from 2016/02
+if (projectImageMap['escola-castro-alves']) {
+  projectImageMap['escola-castro-alves'].push(
     '/uploads/2016/02/image17.jpg',
-    '/uploads/2016/02/image18.jpg',
-  ],
-  'menino-jesus-praga': mapping['menino-jesus-praga'] || [],
-  'serrinha-minha-infancia': mapping['serrinha-minha-infancia'] || [],
-  'fundacao-sao-jose': mapping['fundacao-sao-jose'] || [],
-  'associacao-artistica': mapping['associacao-artistica'] || [],
-  'projeto-papai-noel': mapping['projeto-papai-noel'] || [],
-  'pastoral-da-crianca': mapping['menino-jesus-praga'] || [], // Shares Geleias images
-  'banco-de-leite': [
-    '/uploads/2015/12/image19.png',
-    '/uploads/2017/04/image13.png',
-    '/uploads/2017/04/image14.png',
-  ],
-  'escola-filhos-misericordia': [
-    '/uploads/2015/12/image1.jpg',
-    '/uploads/2015/12/image3.jpg',
-    '/uploads/2015/12/image4.jpg',
-  ],
-  'casa-sopa-joanna-angelis': [
-    '/uploads/2017/12/image24.jpg',
-    '/uploads/2017/12/image25.jpg',
-    '/uploads/2017/12/image26.jpg',
-    '/uploads/2017/12/image27.jpg',
-    '/uploads/2017/12/image28.jpg',
-    '/uploads/2017/12/image29.jpg',
-  ],
-  'comunidade-ilha-maruim': [
-    '/uploads/2018/02/image22.jpg',
-    '/uploads/2018/02/image23.jpg',
-  ],
-  'instituto-pobres-irmas-capuchinhas': [
-    '/uploads/2018/02/image22.jpg',
-    '/uploads/2018/02/image23.jpg',
-    '/uploads/2018/04/image21.jpg',
-    '/uploads/2018/04/image53.jpg',
-  ],
-  'associacao-boa-agua': [
-    '/uploads/2015/08/image8.jpg',
-    '/uploads/2015/08/image9.jpg',
-    '/uploads/2015/08/image10.jpg',
-    '/uploads/2015/08/image5.jpg',
-    '/uploads/2015/08/image6.jpg',
-  ],
-  'sitio-paraiso': [
-    '/uploads/2015/08/image7.jpg',
-    '/uploads/2015/08/image5.jpg',
-    '/uploads/2015/08/image6.jpg',
-    '/uploads/2015/08/image39.jpg',
-    '/uploads/2015/08/image40.jpg',
-  ],
-  'educacao-infantil-os-pias': [
-    '/uploads/2015/12/image1.jpg',
-    '/uploads/2015/12/image2.png',
-    '/uploads/2015/12/image3.jpg',
-  ],
-  'orfanato-santa-rita-cassia': [
-    '/uploads/2015/12/image4.jpg',
-    '/uploads/2015/12/image1.jpg',
-    '/uploads/2015/12/image3.jpg',
-  ],
-};
+    '/uploads/2016/02/image18.jpg'
+  );
+}
+
+// Projects that don't have pattern-based mapping but have known images
+projectImageMap['banco-de-leite'] = [
+  '/uploads/2015/12/image19.png',
+  '/uploads/2017/04/image13.png',
+  '/uploads/2017/04/image14.png'
+];
+
+projectImageMap['escola-filhos-misericordia'] = [
+  '/uploads/2015/12/image1.jpg',
+  '/uploads/2015/12/image3.jpg',
+  '/uploads/2015/12/image4.jpg'
+];
+
+projectImageMap['casa-sopa-joanna-angelis'] = [
+  '/uploads/2017/12/image24.jpg',
+  '/uploads/2017/12/image25.jpg',
+  '/uploads/2017/12/image26.jpg',
+  '/uploads/2017/12/image27.jpg',
+  '/uploads/2017/12/image28.jpg',
+  '/uploads/2017/12/image29.jpg'
+];
+
+projectImageMap['comunidade-ilha-maruim'] = [
+  '/uploads/2018/02/image22.jpg',
+  '/uploads/2018/02/image23.jpg'
+];
+
+projectImageMap['instituto-pobres-irmas-capuchinhas'] = [
+  '/uploads/2018/02/image22.jpg',
+  '/uploads/2018/02/image23.jpg',
+  '/uploads/2018/04/image21.jpg',
+  '/uploads/2018/04/image53.jpg'
+];
+
+projectImageMap['associacao-boa-agua'] = [
+  '/uploads/2015/08/image8.jpg',
+  '/uploads/2015/08/image9.jpg',
+  '/uploads/2015/08/image10.jpg',
+  '/uploads/2015/08/image5.jpg',
+  '/uploads/2015/08/image6.jpg'
+];
+
+projectImageMap['sitio-paraiso'] = [
+  '/uploads/2015/08/image7.jpg',
+  '/uploads/2015/08/image5.jpg',
+  '/uploads/2015/08/image6.jpg',
+  '/uploads/2015/08/image39.jpg',
+  '/uploads/2015/08/image40.jpg'
+];
+
+projectImageMap['educacao-infantil-os-pias'] = [
+  '/uploads/2015/12/image1.jpg',
+  '/uploads/2015/12/image2.png',
+  '/uploads/2015/12/image3.jpg'
+];
+
+projectImageMap['orfanato-santa-rita-cassia'] = [
+  '/uploads/2015/12/image4.jpg',
+  '/uploads/2015/12/image1.jpg',
+  '/uploads/2015/12/image3.jpg'
+];
+
+// Pastoral da Crianca shares Geleias images with menino-jesus-praga
+projectImageMap['pastoral-da-crianca'] = projectImageMap['menino-jesus-praga'] || [];
 
 // Normalize image paths (ensure they start with /uploads/)
 function normalizePath(imgPath) {

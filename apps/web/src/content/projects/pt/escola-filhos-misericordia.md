@@ -1,18 +1,18 @@
 ---
-slug: "escola-filhos-misericordia"
-title: "Escolinha Filhos da Misericórdia"
-locale: "pt"
-category: "Educação"
-location: "Campo Grande, Mato Grosso do Sul"
-donation: "R$ 12.137 / US$ 2,960"
-description: "Instituto Misericordes Sicut Pater: Abriga 80 crianças carentes, filhos de catadores de lixo, oferecendo atividades acadêmicas e 3 refeições por dia."
-featuredImage: "/uploads/2015/12/image1.jpg"
+slug: escola-filhos-misericordia
+title: Escolinha Filhos da Misericórdia
+locale: pt
+category: Educação
+location: 'Campo Grande, Mato Grosso do Sul'
+donation: 'R$ 12.137 / US$ 2,960'
+description: 'Instituto Misericordes Sicut Pater: Abriga 80 crianças carentes, filhos de catadores de lixo, oferecendo atividades acadêmicas e 3 refeições por dia.'
+featuredImage: /uploads/2015/12/image1.jpg
 gallery:
-  - "/uploads/2015/12/image1.jpg"
-  - "/uploads/2015/12/image3.jpg"
-  - "/uploads/2015/12/image4.jpg"
-createdAt: "2024-01-01T00:00:00.000Z"
-updatedAt: "2024-01-01T00:00:00.000Z"
+  - /uploads/2015/12/image1.jpg
+  - /uploads/2015/12/image3.jpg
+  - /uploads/2015/12/image4.jpg
+createdAt: '2024-01-01T00:00:00.000Z'
+updatedAt: '2024-01-01T00:00:00.000Z'
 ---
 
 A **Escolinha Filhos da Misericórdia** (Instituto Misericordes Sicut Pater) está localizada em Campo Grande, Mato Grosso do Sul.

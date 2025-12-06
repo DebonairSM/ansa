@@ -1,21 +1,26 @@
 ---
-slug: "maria-mae-vida-quixada"
-title: "Maria Mother of Life Association - Quixadá"
-locale: "en"
-category: "Social Assistance"
-location: "Quixadá, Ceará"
-year: "2020"
-donation: "R$ 8,858 / US$ 1,780"
-description: "Protecting Life Project: Serves pregnant teenagers living in at-risk areas, aiming for family reintegration and return to school."
-featuredImage: "/uploads/2021/03/PROTEGENDO-A-VIDA1.jpg"
+slug: maria-mae-vida-quixada
+title: Maria Mother of Life Association - Quixadá
+locale: en
+category: Social Assistance
+location: 'Quixadá, Ceará'
+year: '2020'
+donation: 'R$ 8,858 / US$ 1,780'
+description: 'Protecting Life Project: Serves pregnant teenagers living in at-risk areas, aiming for family reintegration and return to school.'
+featuredImage: /uploads/2021/03/PROTEGENDO-A-VIDA1.jpg
 gallery:
-  - "/uploads/2021/03/PROTEGENDO-A-VIDA1.jpg"
-  - "/uploads/2021/03/PROTEGENDO-A-VIDA2.jpg"
-  - "/uploads/2021/03/PROTEGENDO-A-VIDA3.jpg"
-  - "/uploads/2021/03/PROTEGENDO-A-VIDA4.jpg"
-  - "/uploads/2021/03/PROTEGENDO-A-VIDA5.jpg"
-createdAt: "2020-06-01T00:00:00.000Z"
-updatedAt: "2020-06-01T00:00:00.000Z"
+  - /uploads/2020/06/PROTEGENDO-A-VIDA1.jpg
+  - /uploads/2020/06/PROTEGENDO-A-VIDA2.jpg
+  - /uploads/2020/06/PROTEGENDO-A-VIDA3.jpg
+  - /uploads/2020/06/PROTEGENDO-A-VIDA4.jpg
+  - /uploads/2020/06/PROTEGENDO-A-VIDA5.jpg
+  - /uploads/2021/03/PROTEGENDO-A-VIDA1.jpg
+  - /uploads/2021/03/PROTEGENDO-A-VIDA2.jpg
+  - /uploads/2021/03/PROTEGENDO-A-VIDA3.jpg
+  - /uploads/2021/03/PROTEGENDO-A-VIDA4.jpg
+  - /uploads/2021/03/PROTEGENDO-A-VIDA5.jpg
+createdAt: '2020-06-01T00:00:00.000Z'
+updatedAt: '2020-06-01T00:00:00.000Z'
 ---
 
 The **Maria Mother of Life Association** is located in Quixadá, Ceará, and received a donation from ANSA of **R$ 8,858 (US$ 1,780)**.

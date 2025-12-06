@@ -1,18 +1,20 @@
 ---
-slug: "menino-jesus-praga"
-title: "Associação Comunitária Menino Jesus de Praga"
-locale: "pt"
-category: "Desenvolvimento Comunitário"
-location: "Pacoti, Ceará"
-year: "2020"
-donation: "R$ 10.264 / US$ 2,000"
-description: "Comunidade em Ação, Projeto Cozinhar Faz Bem: Construção de cozinha industrial para a comunidade trabalhar com frutas da região."
-featuredImage: "/uploads/2021/03/Geleias1.jpeg"
+slug: menino-jesus-praga
+title: Associação Comunitária Menino Jesus de Praga
+locale: pt
+category: Desenvolvimento Comunitário
+location: 'Pacoti, Ceará'
+year: '2020'
+donation: 'R$ 10.264 / US$ 2,000'
+description: 'Comunidade em Ação, Projeto Cozinhar Faz Bem: Construção de cozinha industrial para a comunidade trabalhar com frutas da região.'
+featuredImage: /uploads/2021/03/Geleias1.jpeg
 gallery:
-  - "/uploads/2021/03/Geleias1.jpeg"
-  - "/uploads/2021/03/Geleias2.jpeg"
-createdAt: "2020-06-01T00:00:00.000Z"
-updatedAt: "2020-06-01T00:00:00.000Z"
+  - /uploads/2020/06/Geleias1.jpeg
+  - /uploads/2020/06/Geleias2.jpeg
+  - /uploads/2021/03/Geleias1.jpeg
+  - /uploads/2021/03/Geleias2.jpeg
+createdAt: '2020-06-01T00:00:00.000Z'
+updatedAt: '2020-06-01T00:00:00.000Z'
 ---
 
 A **Associação Comunitária Menino Jesus de Praga** está localizada em Pacoti, Ceará, e recebeu uma doação da ANSA de **R$ 10.264 reais (US$ 2,000)**.
