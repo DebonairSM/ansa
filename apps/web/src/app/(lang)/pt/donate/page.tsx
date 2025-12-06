@@ -10,36 +10,176 @@ export default function DonatePT() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white py-20 px-4">
+      <section className="bg-gradient-to-r from-red-600 to-red-700 text-white py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">Sua Doação Acelera o Progresso</h1>
-          <p className="text-2xl">
-            A pobreza infantil caiu de 6 em cada 10 para 5 em cada 10 crianças.<br />
-            Você pode manter essa curva descendente.
+          <h1 className="text-5xl font-bold mb-6">28,8 Milhões de Crianças Ainda Precisam de Você</h1>
+          <p className="text-2xl mb-4">
+            Mais da metade das crianças brasileiras (55,9%) vivem em pobreza multidimensional.<br />
+            <strong>9,8 milhões estão em situação extrema.</strong>
+          </p>
+          <p className="text-xl opacity-90">
+            Apesar do progresso, o trabalho está longe de terminar.
           </p>
         </div>
       </section>
 
-      {/* Main Donation Section */}
+      {/* The Reality Now - Lead with Scale */}
       <section className="py-20 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">A Realidade Agora</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Os números mostram a urgência: milhões de crianças brasileiras ainda enfrentam múltiplas privações simultâneas
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="bg-red-50 border-2 border-red-200 rounded-xl p-8 text-center">
+              <p className="text-5xl font-bold text-red-600 mb-2">28,8</p>
+              <p className="text-2xl font-semibold text-gray-800 mb-2">milhões</p>
+              <p className="text-gray-700">de crianças e adolescentes (0-17 anos) em pobreza multidimensional</p>
+              <p className="text-sm text-gray-500 mt-3 italic">Equivale à população do Peru ou Venezuela</p>
+            </div>
+            <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-8 text-center">
+              <p className="text-5xl font-bold text-orange-600 mb-2">9,8</p>
+              <p className="text-2xl font-semibold text-gray-800 mb-2">milhões</p>
+              <p className="text-gray-700">em pobreza multidimensional extrema</p>
+              <p className="text-sm text-gray-500 mt-3 italic">Maior que a população de Portugal</p>
+            </div>
+            <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-8 text-center">
+              <p className="text-5xl font-bold text-yellow-600 mb-2">1 em 2</p>
+              <p className="text-2xl font-semibold text-gray-800 mb-2">crianças</p>
+              <p className="text-gray-700">ainda vive em situação de pobreza multidimensional</p>
+              <p className="text-sm text-gray-500 mt-3 italic">55,9% de todas as crianças brasileiras</p>
+            </div>
+          </div>
+
+          {/* Disproportionate Vulnerability */}
+          <div className="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-8 mb-12">
+            <h3 className="text-2xl font-bold mb-4 text-blue-900">Crianças Carregam o Peso da Pobreza Desproporcionalmente</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <p className="text-lg text-gray-700 mb-3">
+                  <strong className="text-blue-700">40,9%</strong> das crianças brasileiras (0-14 anos) vivem abaixo da linha de pobreza de renda, 
+                  comparado a apenas <strong className="text-blue-700">23%</strong> da população total.
+                </p>
+                <p className="text-gray-600">
+                  Crianças são quase <strong>2 vezes mais propensas</strong> a viverem na pobreza do que a população geral.
+                </p>
+              </div>
+              <div>
+                <p className="text-lg text-gray-700 mb-3">
+                  <strong className="text-blue-700">59%</strong> das crianças e jovens brasileiros pertencem aos 40% mais pobres da população.
+                </p>
+                <p className="text-gray-600">
+                  Isso representa aproximadamente <strong>29,5 milhões</strong> de crianças concentradas na base da pirâmide de renda.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Extreme Poverty Details */}
+          <div className="bg-red-50 border-2 border-red-300 rounded-xl p-8 mb-12">
+            <h3 className="text-2xl font-bold mb-4 text-red-900">Pobreza Multidimensional Extrema: O Que Isso Significa</h3>
+            <p className="text-lg text-gray-700 mb-4">
+              As <strong>9,8 milhões de crianças em pobreza extrema</strong> enfrentam privações simultâneas em múltiplas dimensões básicas:
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-600 font-bold mt-1">•</span>
+                  <span>Falta de acesso a <strong>água potável E saneamento básico</strong></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-600 font-bold mt-1">•</span>
+                  <span>Privação de <strong>educação E informação</strong></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-600 font-bold mt-1">•</span>
+                  <span>Moradia inadequada <strong>E falta de proteção</strong> contra trabalho infantil</span>
+                </li>
+              </ul>
+              <ul className="space-y-2 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-600 font-bold mt-1">•</span>
+                  <span>Renda familiar insuficiente <strong>E múltiplas privações</strong> simultâneas</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-600 font-bold mt-1">•</span>
+                  <span>Essas crianças representam os casos <strong>mais vulneráveis</strong>, exigindo intervenção imediata</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Progress Reframed as Work Remaining */}
+          <div className="bg-green-50 border-2 border-green-200 rounded-xl p-8 mb-12">
+            <h3 className="text-2xl font-bold mb-4 text-green-900">Progresso Feito, Trabalho Restante</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xl font-semibold mb-3 text-green-800">O Que Conseguimos (2017-2023)</h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold mt-1">✓</span>
+                    <span><strong>5,5 milhões de crianças</strong> saíram da pobreza multidimensional</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold mt-1">✓</span>
+                    <span>Redução de <strong>62,5% para 55,9%</strong> (queda de 6,6 pontos percentuais)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold mt-1">✓</span>
+                    <span>Pobreza extrema caiu de <strong>23,8% para 18,8%</strong></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold mt-1">✓</span>
+                    <span>Políticas como <strong>Bolsa Família</strong> e melhor acesso à informação contribuíram</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold mb-3 text-orange-800">O Que Ainda Precisamos Fazer</h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 font-bold mt-1">→</span>
+                    <span><strong>28,8 milhões de crianças</strong> ainda aguardam ajuda</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 font-bold mt-1">→</span>
+                    <span>Isso representa <strong>5 vezes</strong> o número de crianças que já foram ajudadas</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 font-bold mt-1">→</span>
+                    <span>Mais da <strong>metade</strong> de todas as crianças brasileiras ainda precisa de apoio</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 font-bold mt-1">→</span>
+                    <span>O progresso deve <strong>continuar acelerando</strong> para alcançar todas as crianças</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
           <div className="bg-yellow-50 rounded-2xl p-12 mb-12">
             <h2 className="text-3xl font-bold mb-6 text-center">Por que sua doação importa agora</h2>
             <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-              Entre 2017 e 2023, a pobreza multidimensional entre crianças e adolescentes no Brasil 
-              caiu de <strong>62,5% para 55,9%</strong> (dados UNICEF). Isso significa que milhões de 
-              crianças tiveram acesso a educação, água potável, saneamento e proteção.
+              Organizações como a ANSA mantêm esse progresso em movimento, apoiando creches, escolas, orfanatos e 
+              programas comunitários em 10+ estados. Mas precisamos de mais recursos para alcançar as <strong>28,8 milhões de crianças</strong> que ainda aguardam.
             </p>
             <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-              <strong>Mas mais de 30 milhões de crianças ainda vivem na pobreza.</strong> Organizações 
-              como a ANSA mantêm esse progresso em movimento, apoiando creches, escolas, orfanatos e 
-              programas comunitários em 10+ estados.
-            </p>
-            <p className="text-xl text-gray-700 leading-relaxed">
               Quando você doa para a ANSA, <strong>100% do valor vai direto para os projetos</strong> – 
               sem custos administrativos, porque somos totalmente voluntários. Você não está apenas 
               "ajudando". <strong>Você está acelerando uma mudança que os dados já comprovam.</strong>
             </p>
+            <div className="bg-white rounded-lg p-6 border-2 border-yellow-200">
+              <p className="text-lg text-gray-700 text-center">
+                <strong className="text-yellow-700">Fontes:</strong> Dados UNICEF Brasil (2017–2023), 
+                Comunicado de imprensa do UNICEF (16/01/2025), Síntese de Indicadores Sociais 2024 – IBGE, 
+                Banco Mundial/SEDLAC, Estudo IPEA/UNICEF (nov. 2025)
+              </p>
+            </div>
           </div>
 
           <div className="mb-12">

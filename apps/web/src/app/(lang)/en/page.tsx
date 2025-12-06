@@ -426,12 +426,12 @@ export default function EnHome() {
       </div>
 
       {/* Divider Line */}
-      <div className="flex justify-center py-8 bg-white">
+      <div className="flex justify-center py-10 bg-white">
         <div 
           style={{ 
-            width: '200px',
-            height: '3px',
-            background: 'linear-gradient(90deg, transparent, #eab308, transparent)',
+            width: '280px',
+            height: '4px',
+            background: '#eab308',
             borderRadius: '2px'
           }}
         />
@@ -468,7 +468,15 @@ export default function EnHome() {
               <ul className="space-y-3 text-lg text-gray-700">
                 <li className="flex items-start gap-3">
                   <span className="text-yellow-600 font-bold mt-1">→</span>
-                  <span>More than <strong>30 million children</strong> still live in multidimensional poverty</span>
+                  <span><strong>28.8 million children</strong> still live in multidimensional poverty</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-600 font-bold mt-1">→</span>
+                  <span><strong>9.8 million</strong> are in extreme situations (multiple simultaneous deprivations)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-600 font-bold mt-1">→</span>
+                  <span>Children are <strong>nearly 2 times more likely</strong> to be poor than the general population</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-yellow-600 font-bold mt-1">→</span>
@@ -476,11 +484,7 @@ export default function EnHome() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-yellow-600 font-bold mt-1">→</span>
-                  <span>Daycare centers, schools, and community programs need <strong>ongoing resources</strong></span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-600 font-bold mt-1">→</span>
-                  <span>Each donation keeps this <strong>progress moving forward</strong></span>
+                  <span>Each donation keeps this <strong>progress moving forward</strong> and accelerates change</span>
                 </li>
               </ul>
             </div>

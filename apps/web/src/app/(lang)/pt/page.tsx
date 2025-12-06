@@ -149,7 +149,15 @@ export default function PtHome() {
               <ul className="space-y-3 text-lg text-gray-700">
                 <li className="flex items-start gap-3">
                   <span className="text-yellow-600 font-bold mt-1">→</span>
-                  <span>Mais de <strong>30 milhões de crianças</strong> ainda vivem em pobreza multidimensional</span>
+                  <span><strong>28,8 milhões de crianças</strong> ainda vivem em pobreza multidimensional</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-600 font-bold mt-1">→</span>
+                  <span><strong>9,8 milhões</strong> estão em situação extrema (múltiplas privações simultâneas)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-yellow-600 font-bold mt-1">→</span>
+                  <span>Crianças são <strong>quase 2 vezes mais propensas</strong> à pobreza que a população geral</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-yellow-600 font-bold mt-1">→</span>
@@ -157,11 +165,7 @@ export default function PtHome() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-yellow-600 font-bold mt-1">→</span>
-                  <span>Creches, escolas e programas comunitários precisam de <strong>recursos contínuos</strong></span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-yellow-600 font-bold mt-1">→</span>
-                  <span>Cada doação mantém esse <strong>progresso em movimento</strong></span>
+                  <span>Cada doação mantém esse <strong>progresso em movimento</strong> e acelera a mudança</span>
                 </li>
               </ul>
             </div>
