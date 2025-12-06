@@ -79,13 +79,40 @@ export default function AboutPt() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xl text-gray-700 leading-relaxed mb-6">
-            Dedicamos nosso tempo e esforços para auxiliar na missão da ANSA. Amamos o que fazemos 
-            e acreditamos que podemos fazer a diferença, especialmente no futuro das crianças no Brasil.
+            A <strong>Associação Nossa Senhora Aparecida (ANSA)</strong> é uma associação criada em 1982, 
+            mantida por meio de doações e trabalho voluntário, com custo administrativo zero.
+          </p>
+          <p className="text-xl text-gray-700 leading-relaxed mb-6">
+            A ANSA auxilia crianças e mulheres brasileiras carentes por meio de instituições como 
+            creches, orfanatos, escolas e grupos comunitários.
           </p>
           <p className="text-xl text-gray-700 leading-relaxed">
-            A ANSA tem muitos outros voluntários e colaboradores, que participam ativamente e são 
-            muito importantes para manter esta associação.
+            Todos os membros da ANSA, sem exceção, são voluntários que generosamente colaboram nesta missão.
           </p>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-12 px-4 bg-yellow-500 text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <p className="text-5xl font-bold mb-2">43+</p>
+              <p className="text-lg">Anos de Missão</p>
+            </div>
+            <div>
+              <p className="text-5xl font-bold mb-2">300+</p>
+              <p className="text-lg">Famílias/Ano</p>
+            </div>
+            <div>
+              <p className="text-5xl font-bold mb-2">24</p>
+              <p className="text-lg">Projetos</p>
+            </div>
+            <div>
+              <p className="text-5xl font-bold mb-2">0</p>
+              <p className="text-lg">Custos Administrativos</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -135,24 +162,34 @@ export default function AboutPt() {
         </div>
       </section>
 
+      {/* Quote Section */}
+      <section className="py-16 px-4 bg-gray-900 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <blockquote className="text-2xl md:text-3xl font-serif italic mb-6">
+            "Tudo que fazemos é uma gota d'água no oceano, mas se não o fizermos essa gota se perderá para sempre."
+          </blockquote>
+          <p className="text-lg">-Madre Teresa de Calcuta</p>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-yellow-500 text-white">
+      <section className="py-16 px-4 bg-yellow-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Quer fazer parte da nossa equipe?</h2>
-          <p className="text-xl mb-8">
+          <p className="text-xl text-gray-700 mb-8">
             Estamos sempre em busca de voluntários dedicados que compartilham nossa paixão por ajudar o Brasil.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/pt/contact"
-              className="inline-block bg-white text-yellow-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors"
+              className="inline-block bg-white text-yellow-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors border-2 border-yellow-500"
             >
               Entre em Contato
             </Link>
             <Link
               href="https://www.paypal.com/US/fundraiser/charity/2006255"
               target="_blank"
-              className="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-8 py-4 rounded-lg transition-colors border-2 border-white"
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-8 py-4 rounded-lg transition-colors"
             >
               Fazer uma Doação
             </Link>

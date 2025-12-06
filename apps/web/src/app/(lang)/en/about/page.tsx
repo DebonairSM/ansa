@@ -124,13 +124,13 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
               <div key={member.name} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="relative h-64 w-full bg-gray-200">
+                <div className="relative h-80 w-full bg-gray-200">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                   />
                 </div>
                 <div className="p-6">

@@ -17,106 +17,429 @@ export const metadata: Metadata = {
 export default function PtHome() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - based on hero-mockup.html */}
-      <section className="hero-container">
-        {/* Image Section - Left */}
-        <div className="hero-image-section">
-          <Image
+      {/* Hero Section - matching hero-mockup.html exactly */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.1); }
+        }
+        .hero-container {
+          display: flex;
+          flex-direction: column;
+        }
+        .hero-img-section {
+          width: 100%;
+          height: 40vh;
+          position: relative;
+          overflow: hidden;
+          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        }
+        .hero-txt-section {
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          padding: 2.5rem 1.5rem;
+          background: linear-gradient(160deg, #fefce8 0%, #fffdf7 40%, #ffffff 100%);
+        }
+        @media (min-width: 1024px) {
+          .hero-container {
+            flex-direction: row;
+            align-items: stretch;
+          }
+          .hero-img-section {
+            width: 50%;
+            height: auto;
+            min-height: 560px;
+          }
+          .hero-txt-section {
+            width: 50%;
+            padding: 2.5rem 3rem;
+            align-items: flex-start;
+          }
+        }
+        @media (min-width: 1440px) {
+          .hero-txt-section {
+            padding: 3rem 4rem;
+          }
+        }
+      `}} />
+      <div className="hero-container">
+        {/* Image Section - Left (2/3 on desktop) */}
+        <div className="hero-img-section relative" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+          <img
             src="/uploads/2020/11/Ansa-Pic.jpg"
             alt="Crianças brasileiras sorrindo em um projeto social"
-            fill
-            className="object-cover"
-            priority
-            quality={90}
-            sizes="(max-width: 1024px) 100vw, 66.666vw"
+            className="w-full object-cover"
+            style={{ 
+              maxHeight: '100%', 
+              position: 'relative', 
+              zIndex: 1,
+              maskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)'
+            }}
+          />
+          {/* Bottom gradient on mobile - stronger for content blend */}
+          <div 
+            className="absolute bottom-0 left-0 right-0 pointer-events-none lg:hidden"
+            style={{ 
+              background: 'linear-gradient(to bottom, transparent 0%, rgba(254, 243, 199, 0.6) 50%, #fef8e8 100%)',
+              height: '40%',
+              zIndex: 20
+            }}
+          />
+          {/* Right gradient on desktop - blends into content */}
+          <div 
+            className="absolute top-0 bottom-0 right-0 pointer-events-none hidden lg:block"
+            style={{ 
+              background: 'linear-gradient(to right, transparent 0%, rgba(254, 243, 199, 0.6) 50%, #fef8e8 100%)',
+              width: '40%',
+              zIndex: 20
+            }}
           />
         </div>
 
-        {/* Content Section - Right */}
-        <div className="hero-content-section">
-          <div className="w-full max-w-md">
-            {/* Headline */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 leading-tight">
-              A pobreza infantil no Brasil caiu.
+        {/* Content Section - Right (1/3 on desktop) - 2025 UI/UX */}
+        <div className="hero-txt-section">
+          <div className="w-full max-w-[36rem]">
+            {/* Eyebrow label */}
+            <div 
+              className="inline-flex items-center gap-2 mb-4"
+              style={{
+                padding: '0.375rem 0.875rem',
+                background: 'rgba(245, 158, 11, 0.12)',
+                borderRadius: '100px',
+                fontSize: 'clamp(0.7rem, 0.85vw, 0.8rem)',
+                fontWeight: 600,
+                color: '#b45309',
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase'
+              }}
+            >
+              <span style={{ 
+                width: '6px', 
+                height: '6px', 
+                background: '#f59e0b', 
+                borderRadius: '50%',
+                animation: 'pulse 2s infinite'
+              }} />
+              Fazendo a diferença desde 1982
+            </div>
+
+            {/* Headline - tight tracking, dramatic weight */}
+            <h1 
+              className="leading-[1.05] mb-3"
+              style={{ 
+                fontSize: 'clamp(2rem, 3vw, 3rem)', 
+                fontWeight: 800,
+                color: '#0f172a',
+                letterSpacing: '-0.025em'
+              }}
+            >
+              A pobreza infantil no Brasil
+              <span style={{ display: 'block', color: '#047857' }}>caiu.</span>
             </h1>
 
-            {/* Sub-headline */}
-            <p className="text-xl sm:text-2xl font-bold text-amber-600 mb-5">
-              Com você, pode cair muito mais.
+            {/* Sub-headline - gradient text effect */}
+            <p 
+              className="mb-5"
+              style={{ 
+                fontSize: 'clamp(1.125rem, 1.5vw, 1.375rem)', 
+                fontWeight: 700,
+                background: 'linear-gradient(135deg, #d97706 0%, #ea580c 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
+              Com você, pode cair ainda mais.
             </p>
 
-            {/* Lede */}
-            <p className="text-base text-gray-700 mb-3 leading-relaxed">
-              Desde 2017, o índice de pobreza infantil reduziu, mas milhões de crianças ainda precisam de apoio diário.
+            {/* Body copy - refined line height */}
+            <p 
+              className="mb-6"
+              style={{ 
+                fontSize: 'clamp(0.95rem, 1.1vw, 1.0625rem)', 
+                color: '#475569', 
+                lineHeight: 1.7,
+                maxWidth: '32rem'
+              }}
+            >
+              Desde 2017, a pobreza infantil diminuiu—mas milhões de crianças ainda precisam de apoio diário. 
+              Sua doação transforma dados em ação: educação, proteção e nutrição.
             </p>
 
-            {/* Supporting */}
-            <p className="text-base text-gray-600 mb-8 leading-relaxed">
-              Com a sua doação, transformamos dados em ações concretas: acesso à educação, proteção e alimentação.
-            </p>
+            {/* Metrics Card - Glass morphism 2025 */}
+            <div 
+              className="rounded-2xl mb-6"
+              style={{ 
+                padding: 'clamp(1.25rem, 1.75vw, 1.75rem)',
+                background: 'rgba(255, 255, 255, 0.7)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(251, 191, 36, 0.25)',
+                boxShadow: '0 4px 24px -4px rgba(251, 191, 36, 0.15), 0 0 0 1px rgba(255,255,255,0.5) inset'
+              }}
+            >
+              {/* Progress badge */}
+              <div 
+                className="mb-4"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.375rem',
+                  padding: '0.25rem 0.625rem',
+                  background: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
+                  borderRadius: '6px',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  color: '#166534'
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{ flexShrink: 0 }}>
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Redução de 16,7% alcançada</span>
+              </div>
 
-            {/* Metrics Card */}
-            <div className="bg-amber-50/50 border border-amber-200/50 rounded-xl p-5 mb-8">
-              <p className="text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">
-                PROGRESSO DESDE 2017
-              </p>
-              <p className="text-lg font-bold text-gray-900 mb-4">
-                Redução de 16,7% desde 2017
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-3">
+              <div className="grid grid-cols-2 gap-6">
                 {/* 2017 Metric */}
                 <div>
-                  <p className="text-xs font-semibold uppercase text-gray-500 mb-1">2017</p>
-                  <p className="text-3xl font-black text-gray-800 leading-none">6/10</p>
-                  <p className="text-xs text-gray-600 mt-1">crianças em pobreza</p>
+                  <p 
+                    className="uppercase mb-2"
+                    style={{ fontSize: '0.7rem', fontWeight: 600, color: '#64748b', letterSpacing: '0.1em' }}
+                  >
+                    2017
+                  </p>
+                  <div className="flex items-baseline gap-1">
+                    <span 
+                      style={{ 
+                        fontSize: 'clamp(2.25rem, 3vw, 3rem)', 
+                        fontWeight: 800, 
+                        color: '#334155',
+                        lineHeight: 1,
+                        fontVariantNumeric: 'tabular-nums'
+                      }}
+                    >
+                      6
+                    </span>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 600, color: '#64748b' }}>/10</span>
+                  </div>
+                  <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.25rem' }}>
+                    crianças em pobreza
+                  </p>
                 </div>
 
-                {/* Today Metric */}
-                <div>
-                  <p className="text-xs font-semibold uppercase text-emerald-600 mb-1">HOJE</p>
-                  <p className="text-3xl font-black text-emerald-600 leading-none">5/10</p>
-                  <p className="text-xs text-emerald-700 font-medium mt-1">crianças em pobreza</p>
+                {/* Today Metric - highlighted */}
+                <div 
+                  className="rounded-xl"
+                  style={{ 
+                    padding: '1rem',
+                    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.12) 100%)',
+                    marginLeft: '-0.5rem',
+                    marginRight: '-0.5rem'
+                  }}
+                >
+                  <p 
+                    className="uppercase mb-2"
+                    style={{ fontSize: '0.7rem', fontWeight: 700, color: '#059669', letterSpacing: '0.1em' }}
+                  >
+                    Hoje
+                  </p>
+                  <div className="flex items-baseline gap-1">
+                    <span 
+                      style={{ 
+                        fontSize: 'clamp(2.25rem, 3vw, 3rem)', 
+                        fontWeight: 800, 
+                        color: '#059669',
+                        lineHeight: 1,
+                        fontVariantNumeric: 'tabular-nums'
+                      }}
+                    >
+                      5
+                    </span>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10b981' }}>/10</span>
+                  </div>
+                  <p style={{ fontSize: '0.8rem', color: '#047857', fontWeight: 500, marginTop: '0.25rem' }}>
+                    crianças em pobreza
+                  </p>
                 </div>
               </div>
 
-              <p className="text-xs text-gray-500 italic">Dados UNICEF 2023</p>
+              {/* Source */}
+              <p 
+                className="mt-4 pt-3"
+                style={{ 
+                  fontSize: '0.7rem', 
+                  color: '#94a3b8',
+                  borderTop: '1px solid rgba(148, 163, 184, 0.2)'
+                }}
+              >
+                Fonte: Relatório UNICEF 2023
+              </p>
             </div>
 
-            {/* Primary CTA */}
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
-              className="block w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 rounded-lg text-center text-lg mb-4 shadow-md transition-colors"
-            >
-              Doe Agora
-            </Link>
-
-            {/* Secondary CTA */}
-            <Link
-              href="/pt/projects"
-              className="block w-full bg-white border-2 border-amber-400 text-amber-700 font-semibold py-3 rounded-lg text-center mb-6 hover:bg-amber-50 transition-colors"
-            >
-              Nossos Projetos
-            </Link>
-
-            {/* Trust Section */}
-            <p className="text-sm text-gray-600 font-medium mb-2">
-              Sua contribuição é processada de forma segura.
-            </p>
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500">
-              <span className="flex items-center gap-1">
-                <span className="text-emerald-600">✓</span> Pagamento seguro via PayPal
-              </span>
-              <span>100% voluntário</span>
-              <span>43 anos de missão</span>
-              <span className="flex items-center gap-1">
-                <span className="text-emerald-600">✓</span> 24 projetos ativos
-              </span>
-            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* CTA Section - Centered below hero */}
+      <div 
+        style={{ 
+          background: 'linear-gradient(180deg, #fef8e8 0%, #ffffff 100%)',
+          padding: '2rem 1.5rem 2.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}
+      >
+        {/* CTA Buttons */}
+        <div 
+          style={{ 
+            display: 'flex',
+            gap: '1rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap'
+          }}
+        >
+          <Link
+            href="https://www.paypal.com/US/fundraiser/charity/2006255"
+            target="_blank"
+            className="group flex items-center justify-center gap-2 text-center transition-all duration-200 hover:scale-105"
+            style={{ 
+              background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+              color: '#ffffff',
+              fontWeight: 700,
+              fontSize: '1rem',
+              padding: '1rem 2.5rem',
+              borderRadius: '100px',
+              boxShadow: '0 8px 24px -4px rgba(245, 158, 11, 0.4), 0 2px 8px -2px rgba(0,0,0,0.1)'
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            Doe Agora
+          </Link>
+          <Link
+            href="/pt/projects"
+            className="flex items-center justify-center gap-2 text-center transition-all duration-200 hover:bg-amber-50"
+            style={{ 
+              background: 'rgba(255, 255, 255, 0.95)',
+              color: '#92400e',
+              fontWeight: 600,
+              fontSize: '1rem',
+              padding: '1rem 2.5rem',
+              border: '2px solid #fcd34d',
+              borderRadius: '100px',
+              boxShadow: '0 2px 8px -2px rgba(0,0,0,0.05)'
+            }}
+          >
+            Nossos Projetos
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </Link>
+        </div>
+
+        {/* Trust Badges */}
+        <div 
+          style={{ 
+            display: 'flex',
+            gap: '0.75rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            marginTop: '1.25rem'
+          }}
+        >
+          <span 
+            className="inline-flex items-center gap-1.5"
+            style={{
+              padding: '0.375rem 0.75rem',
+              background: 'rgba(16, 185, 129, 0.08)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              color: '#047857',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Seguro via PayPal
+          </span>
+          <span 
+            className="inline-flex items-center gap-1.5"
+            style={{
+              padding: '0.375rem 0.75rem',
+              background: 'rgba(59, 130, 246, 0.08)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              color: '#1d4ed8',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            43 anos
+          </span>
+          <span 
+            className="inline-flex items-center gap-1.5"
+            style={{
+              padding: '0.375rem 0.75rem',
+              background: 'rgba(168, 85, 247, 0.08)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              color: '#7c3aed',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            100% voluntário
+          </span>
+          <span 
+            className="inline-flex items-center gap-1.5"
+            style={{
+              padding: '0.375rem 0.75rem',
+              background: 'rgba(245, 158, 11, 0.08)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              color: '#b45309',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            24 projetos
+          </span>
+        </div>
+      </div>
+
+      {/* Divider Line */}
+      <div className="flex justify-center py-10 bg-white">
+        <div 
+          style={{ 
+            width: '280px',
+            height: '4px',
+            background: '#eab308',
+            borderRadius: '2px'
+          }}
+        />
+      </div>
 
       {/* Progress & Impact Section */}
       <section className="py-16 px-4 bg-white border-b-4 border-yellow-500">
