@@ -40,3 +40,4 @@ console.log(`Found ${images.length} images (${originals.length} originals)`);
 console.log(`Saved to: ${jsonFile}`);
 
 
+

@@ -219,3 +219,4 @@ export function HeroSection({ heroImage, initialLang = 'pt' }: HeroSectionProps)
   );
 }
 
+

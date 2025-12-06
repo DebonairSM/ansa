@@ -61,3 +61,4 @@ console.log(`\n✓ Saved to: ${outputJson}`);
 console.log(`\nNow visit: http://localhost:4545/simple-gallery.html`);
 
 
+

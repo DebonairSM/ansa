@@ -17,7 +17,106 @@ export const metadata: Metadata = {
 export default function PtHome() {
   return (
     <div className="min-h-screen">
-      {/* TODO: New hero section will be implemented here based on hero-mockup.html */}
+      {/* Hero Section - based on hero-mockup.html */}
+      <section className="hero-container">
+        {/* Image Section - Left */}
+        <div className="hero-image-section">
+          <Image
+            src="/uploads/2020/11/Ansa-Pic.jpg"
+            alt="Crianças brasileiras sorrindo em um projeto social"
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+            sizes="(max-width: 1024px) 100vw, 66.666vw"
+          />
+        </div>
+
+        {/* Content Section - Right */}
+        <div className="hero-content-section">
+          <div className="w-full max-w-md">
+            {/* Headline */}
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 leading-tight">
+              A pobreza infantil no Brasil caiu.
+            </h1>
+
+            {/* Sub-headline */}
+            <p className="text-xl sm:text-2xl font-bold text-amber-600 mb-5">
+              Com você, pode cair muito mais.
+            </p>
+
+            {/* Lede */}
+            <p className="text-base text-gray-700 mb-3 leading-relaxed">
+              Desde 2017, o índice de pobreza infantil reduziu, mas milhões de crianças ainda precisam de apoio diário.
+            </p>
+
+            {/* Supporting */}
+            <p className="text-base text-gray-600 mb-8 leading-relaxed">
+              Com a sua doação, transformamos dados em ações concretas: acesso à educação, proteção e alimentação.
+            </p>
+
+            {/* Metrics Card */}
+            <div className="bg-amber-50/50 border border-amber-200/50 rounded-xl p-5 mb-8">
+              <p className="text-xs font-bold uppercase tracking-wider text-gray-600 mb-2">
+                PROGRESSO DESDE 2017
+              </p>
+              <p className="text-lg font-bold text-gray-900 mb-4">
+                Redução de 16,7% desde 2017
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 mb-3">
+                {/* 2017 Metric */}
+                <div>
+                  <p className="text-xs font-semibold uppercase text-gray-500 mb-1">2017</p>
+                  <p className="text-3xl font-black text-gray-800 leading-none">6/10</p>
+                  <p className="text-xs text-gray-600 mt-1">crianças em pobreza</p>
+                </div>
+
+                {/* Today Metric */}
+                <div>
+                  <p className="text-xs font-semibold uppercase text-emerald-600 mb-1">HOJE</p>
+                  <p className="text-3xl font-black text-emerald-600 leading-none">5/10</p>
+                  <p className="text-xs text-emerald-700 font-medium mt-1">crianças em pobreza</p>
+                </div>
+              </div>
+
+              <p className="text-xs text-gray-500 italic">Dados UNICEF 2023</p>
+            </div>
+
+            {/* Primary CTA */}
+            <Link
+              href="https://www.paypal.com/US/fundraiser/charity/2006255"
+              target="_blank"
+              className="block w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 rounded-lg text-center text-lg mb-4 shadow-md transition-colors"
+            >
+              Doe Agora
+            </Link>
+
+            {/* Secondary CTA */}
+            <Link
+              href="/pt/projects"
+              className="block w-full bg-white border-2 border-amber-400 text-amber-700 font-semibold py-3 rounded-lg text-center mb-6 hover:bg-amber-50 transition-colors"
+            >
+              Nossos Projetos
+            </Link>
+
+            {/* Trust Section */}
+            <p className="text-sm text-gray-600 font-medium mb-2">
+              Sua contribuição é processada de forma segura.
+            </p>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500">
+              <span className="flex items-center gap-1">
+                <span className="text-emerald-600">✓</span> Pagamento seguro via PayPal
+              </span>
+              <span>100% voluntário</span>
+              <span>43 anos de missão</span>
+              <span className="flex items-center gap-1">
+                <span className="text-emerald-600">✓</span> 24 projetos ativos
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Progress & Impact Section */}
       <section className="py-16 px-4 bg-white border-b-4 border-yellow-500">
