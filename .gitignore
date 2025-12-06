@@ -113,10 +113,11 @@ license.txt
 # Uploads & Media
 ############################
 
-public/uploads/*
-!public/uploads/.gitkeep
-**/uploads/*
-!**/uploads/.gitkeep
+# Allow uploads for the web app (needed for deployment)
+# public/uploads/*
+# !public/uploads/.gitkeep
+# **/uploads/*
+# !**/uploads/.gitkeep
 
 ############################
 # Databases
