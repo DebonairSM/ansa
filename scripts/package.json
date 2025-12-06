@@ -8,8 +8,11 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
+    "node-fetch": "^3.3.2",
     "tsx": "^4.7.1",
-    "xml2js": "^0.6.2",
-    "node-fetch": "^3.3.2"
+    "xml2js": "^0.6.2"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
   }
 }

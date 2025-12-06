@@ -1,0 +1,921 @@
+{
+  "mapping": {
+    "_generic": [
+      {
+        "path": "/2015/08/image10.jpg",
+        "date": "2015/08"
+      },
+      {
+        "path": "/2015/08/image36.jpg",
+        "date": "2015/08"
+      },
+      {
+        "path": "/2015/08/image39.jpg",
+        "date": "2015/08"
+      },
+      {
+        "path": "/2015/08/image40.jpg",
+        "date": "2015/08"
+      },
+      {
+        "path": "/2015/08/image5.jpg",
+        "date": "2015/08"
+      },
+      {
+        "path": "/2015/08/image6.jpg",
+        "date": "2015/08"
+      },
+      {
+        "path": "/2015/08/image7.jpg",
+        "date": "2015/08"
+      },
+      {
+        "path": "/2015/08/image8.jpg",
+        "date": "2015/08"
+      },
+      {
+        "path": "/2015/08/image9.jpg",
+        "date": "2015/08"
+      },
+      {
+        "path": "/2015/12/image1.jpg",
+        "date": "2015/12"
+      },
+      {
+        "path": "/2015/12/image19.png",
+        "date": "2015/12"
+      },
+      {
+        "path": "/2015/12/image2.png",
+        "date": "2015/12"
+      },
+      {
+        "path": "/2015/12/image20.png",
+        "date": "2015/12"
+      },
+      {
+        "path": "/2015/12/image3.jpg",
+        "date": "2015/12"
+      },
+      {
+        "path": "/2015/12/image4.jpg",
+        "date": "2015/12"
+      },
+      {
+        "path": "/2016/02/image17.jpg",
+        "date": "2016/02"
+      },
+      {
+        "path": "/2016/02/image18.jpg",
+        "date": "2016/02"
+      },
+      {
+        "path": "/2016/11/image15.jpg",
+        "date": "2016/11"
+      },
+      {
+        "path": "/2016/11/image16.jpg",
+        "date": "2016/11"
+      },
+      {
+        "path": "/2017/04/image12.png",
+        "date": "2017/04"
+      },
+      {
+        "path": "/2017/04/image13.png",
+        "date": "2017/04"
+      },
+      {
+        "path": "/2017/04/image14.png",
+        "date": "2017/04"
+      },
+      {
+        "path": "/2017/07/image11.jpg",
+        "date": "2017/07"
+      },
+      {
+        "path": "/2017/07/image30.jpg",
+        "date": "2017/07"
+      },
+      {
+        "path": "/2017/12/image24.jpg",
+        "date": "2017/12"
+      },
+      {
+        "path": "/2017/12/image25.jpg",
+        "date": "2017/12"
+      },
+      {
+        "path": "/2017/12/image26.jpg",
+        "date": "2017/12"
+      },
+      {
+        "path": "/2017/12/image27.jpg",
+        "date": "2017/12"
+      },
+      {
+        "path": "/2017/12/image28.jpg",
+        "date": "2017/12"
+      },
+      {
+        "path": "/2017/12/image29.jpg",
+        "date": "2017/12"
+      },
+      {
+        "path": "/2018/02/image22.jpg",
+        "date": "2018/02"
+      },
+      {
+        "path": "/2018/02/image23.jpg",
+        "date": "2018/02"
+      },
+      {
+        "path": "/2018/04/image21.jpg",
+        "date": "2018/04"
+      },
+      {
+        "path": "/2018/04/image53.jpg",
+        "date": "2018/04"
+      },
+      {
+        "path": "/2018/09/image51.jpg",
+        "date": "2018/09"
+      },
+      {
+        "path": "/2018/09/image52.jpg",
+        "date": "2018/09"
+      },
+      {
+        "path": "/2019/01/image46.png",
+        "date": "2019/01"
+      },
+      {
+        "path": "/2019/01/image47.png",
+        "date": "2019/01"
+      },
+      {
+        "path": "/2019/01/image48.jpg",
+        "date": "2019/01"
+      },
+      {
+        "path": "/2019/01/image49.jpg",
+        "date": "2019/01"
+      },
+      {
+        "path": "/2019/01/image50.jpg",
+        "date": "2019/01"
+      },
+      {
+        "path": "/2019/08/image43.png",
+        "date": "2019/08"
+      },
+      {
+        "path": "/2019/08/image44.png",
+        "date": "2019/08"
+      },
+      {
+        "path": "/2019/12/image37.jpg",
+        "date": "2019/12"
+      },
+      {
+        "path": "/2019/12/image41.jpg",
+        "date": "2019/12"
+      },
+      {
+        "path": "/2019/12/image42.jpg",
+        "date": "2019/12"
+      },
+      {
+        "path": "/2019/12/image45.jpg",
+        "date": "2019/12"
+      },
+      {
+        "path": "/2020/06/image31.jpg",
+        "date": "2020/06"
+      },
+      {
+        "path": "/2020/06/image32.jpg",
+        "date": "2020/06"
+      },
+      {
+        "path": "/2020/06/image33.jpg",
+        "date": "2020/06"
+      },
+      {
+        "path": "/2020/06/image35.jpg",
+        "date": "2020/06"
+      },
+      {
+        "path": "/2020/11/image1.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image10.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image11.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image12.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image13.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image14.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image15.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image16.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image17.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image18.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image19.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image2.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image20.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image21.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image22.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image23.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image24.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image25.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image26.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image27.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image28.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image29.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image3.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image30.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image36.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image37.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image39.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image4.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image40.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image41.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image42.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image43.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image44.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image45.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image46.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image47.png",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image48.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image49.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image5.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image50.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image51.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image52.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image53.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image6.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image7.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image8.jpg",
+        "date": "2020/11"
+      },
+      {
+        "path": "/2020/11/image9.jpg",
+        "date": "2020/11"
+      }
+    ],
+    "escola-castro-alves": [
+      "/2016/02/Biblioteca-Rolador1-1.jpeg",
+      "/2016/02/Biblioteca-Rolador1.jpeg",
+      "/2016/02/Biblioteca-Rolador2-1.jpeg",
+      "/2016/02/Biblioteca-Rolador2.jpeg"
+    ],
+    "centro-educacao-joao-manoel": [
+      "/2016/11/Lab1-1.jpg",
+      "/2016/11/Lab1.jpg",
+      "/2016/11/Lab2-1.jpg",
+      "/2016/11/Lab2.jpg",
+      "/2016/11/Lab3-1.jpg",
+      "/2016/11/Lab3.jpg",
+      "/2016/11/Lab4-1.jpg",
+      "/2016/11/Lab4.jpg"
+    ],
+    "caminho-de-luz-apae": [
+      "/2017/04/APAE-1.jpeg",
+      "/2017/04/APAE.jpeg"
+    ],
+    "lar-santa-monica": [
+      "/2019/01/Lar-Sta-Monica1-1.jpeg",
+      "/2019/01/Lar-Sta-Monica1.jpeg",
+      "/2019/01/Lar-Sta-Monica10-1.jpeg",
+      "/2019/01/Lar-Sta-Monica10.jpeg",
+      "/2019/01/Lar-Sta-Monica12.jpeg-1.jpg",
+      "/2019/01/Lar-Sta-Monica12.jpeg.jpg",
+      "/2019/01/Lar-Sta-Monica13-1.jpeg",
+      "/2019/01/Lar-Sta-Monica13.jpeg",
+      "/2019/01/Lar-Sta-Monica14-1.jpeg.jpg-1.jpeg",
+      "/2019/01/Lar-Sta-Monica14.jpeg.jpg.jpeg",
+      "/2019/01/Lar-Sta-Monica4-1.jpeg",
+      "/2019/01/Lar-Sta-Monica4.jpeg",
+      "/2019/01/Lar-Sta-Monica5-1.jpeg",
+      "/2019/01/Lar-Sta-Monica5.jpeg",
+      "/2019/01/Lar-Sta-Monica7-1.jpeg",
+      "/2019/01/Lar-Sta-Monica7.jpeg",
+      "/2019/01/Lar-Sta-Monica8-1.jpeg",
+      "/2019/01/Lar-Sta-Monica8.jpeg",
+      "/2019/01/Lar-Sta-Monica9.jpeg"
+    ],
+    "associacao-artistica": [
+      "/2019/12/Foto-Ass-Artistica-Cultural-Redencao-1.jpeg",
+      "/2019/12/Foto-Ass-Artistica-Cultural-Redencao.jpeg"
+    ],
+    "serrinha-minha-infancia": [
+      "/2020/06/Ascopar1.jpg",
+      "/2020/06/Ascopar2.jpg",
+      "/2020/06/Ascopar3.jpg",
+      "/2021/03/Ascopar1.jpg",
+      "/2021/03/Ascopar2.jpg",
+      "/2021/03/Ascopar3.jpg"
+    ],
+    "menino-jesus-praga": [
+      "/2020/06/Geleias1.jpeg",
+      "/2020/06/Geleias2.jpeg",
+      "/2021/03/Geleias1.jpeg",
+      "/2021/03/Geleias2.jpeg"
+    ],
+    "maria-mae-vida-juazeiro": [
+      "/2020/06/Mae-da-Vida-Juazeiro1.png",
+      "/2021/03/Mae-da-Vida-Juazeiro1.png",
+      "/2021/04/Mae-da-Vida-Juazeiro1-1.png",
+      "/2021/04/Mae-da-Vida-Juazeiro1.png",
+      "/2021/04/Mae-da-Vida-Juazeiro2-1.jpg",
+      "/2021/04/Mae-da-Vida-Juazeiro2.jpg"
+    ],
+    "associacao-paulo-vi": [
+      "/2020/06/Paulo-VI.Foto-4.jpg",
+      "/2020/06/Paulo-VI.Foto-5.jpg",
+      "/2020/06/Paulo-VI.Foto-muro1.jpg",
+      "/2020/06/Paulo-VI.Foto-muro2.jpg",
+      "/2021/03/Paulo-VI.Foto-3-1.jpg",
+      "/2021/03/Paulo-VI.Foto-3.jpg",
+      "/2021/03/Paulo-VI.Foto-4-1.jpg",
+      "/2021/03/Paulo-VI.Foto-4.jpg",
+      "/2021/03/Paulo-VI.Foto-5-1.jpg",
+      "/2021/03/Paulo-VI.Foto-5.jpg",
+      "/2021/03/Paulo-VI.Foto-muro1-1.jpg",
+      "/2021/03/Paulo-VI.Foto-muro1.jpg",
+      "/2021/03/Paulo-VI.Foto-muro2-1.jpg",
+      "/2021/03/Paulo-VI.Foto-muro2.jpg"
+    ],
+    "lar-pequeno-assis": [
+      "/2020/06/Pequeno-Assis1.jpeg",
+      "/2020/06/Pequeno-Assis2.jpeg",
+      "/2020/06/Pequeno-Assis4.jpeg",
+      "/2020/06/Pequeno-Assis5.jpeg",
+      "/2021/03/Pequeno-Assis1.jpeg",
+      "/2021/03/Pequeno-Assis2.jpeg",
+      "/2021/03/Pequeno-Assis4.jpeg",
+      "/2021/03/Pequeno-Assis5.jpeg",
+      "/2021/03/Pequeno-Assis6.jpeg",
+      "/2021/04/Pequeno-Assis6.jpeg"
+    ],
+    "maria-mae-vida-quixada": [
+      "/2020/06/PROTEGENDO-A-VIDA1.jpg",
+      "/2020/06/PROTEGENDO-A-VIDA2.jpg",
+      "/2020/06/PROTEGENDO-A-VIDA3.jpg",
+      "/2020/06/PROTEGENDO-A-VIDA4.jpg",
+      "/2020/06/PROTEGENDO-A-VIDA5.jpg",
+      "/2021/03/PROTEGENDO-A-VIDA1.jpg",
+      "/2021/03/PROTEGENDO-A-VIDA2.jpg",
+      "/2021/03/PROTEGENDO-A-VIDA3.jpg",
+      "/2021/03/PROTEGENDO-A-VIDA4.jpg",
+      "/2021/03/PROTEGENDO-A-VIDA5.jpg"
+    ],
+    "solar-menino-luz": [
+      "/2020/06/Solar-Menino-da-Luz1.jpg",
+      "/2020/06/Solar-Menino-da-Luz2.jpg",
+      "/2020/06/Solar-Menino-da-Luz3.jpg",
+      "/2020/11/Solar-Meninos-De-Luz-1-1.jpg",
+      "/2020/11/Solar-Meninos-De-Luz-1.jpg",
+      "/2020/11/Solar-Meninos-De-Luz-2-1.jpg",
+      "/2020/11/Solar-Meninos-De-Luz-2.jpg",
+      "/2020/11/Solar-Meninos-De-Luz-3-1.jpg",
+      "/2020/11/Solar-Meninos-De-Luz-3.jpg",
+      "/2021/03/Solar-Menino-da-Luz1.jpg",
+      "/2021/03/Solar-Menino-da-Luz2.jpg",
+      "/2021/03/Solar-Menino-da-Luz3.jpg"
+    ],
+    "fundacao-sao-jose": [
+      "/2020/11/Fundacao-Sao-Jose-1-1.jpg",
+      "/2020/11/Fundacao-Sao-Jose-1-2.jpg",
+      "/2020/11/Fundacao-Sao-Jose-1.jpg",
+      "/2020/11/Fundacao-Sao-Jose-2-1.jpg",
+      "/2020/11/Fundacao-Sao-Jose-2.jpg"
+    ],
+    "projeto-papai-noel": [
+      "/2021/03/Papai-Noel-2.jpg"
+    ]
+  },
+  "allImages": [
+    "/2015/08/image10.jpg",
+    "/2015/08/image36.jpg",
+    "/2015/08/image39.jpg",
+    "/2015/08/image40-e1605870341621.jpg",
+    "/2015/08/image40.jpg",
+    "/2015/08/image5.jpg",
+    "/2015/08/image6.jpg",
+    "/2015/08/image7.jpg",
+    "/2015/08/image8.jpg",
+    "/2015/08/image9.jpg",
+    "/2015/12/image1.jpg",
+    "/2015/12/image19.png",
+    "/2015/12/image2.png",
+    "/2015/12/image20.png",
+    "/2015/12/image3.jpg",
+    "/2015/12/image4.jpg",
+    "/2016/02/Biblioteca-Rolador1-1.jpeg",
+    "/2016/02/Biblioteca-Rolador1.jpeg",
+    "/2016/02/Biblioteca-Rolador2-1.jpeg",
+    "/2016/02/Biblioteca-Rolador2.jpeg",
+    "/2016/02/image17-e1605872963853.jpg",
+    "/2016/02/image17.jpg",
+    "/2016/02/image18.jpg",
+    "/2016/02/Rolador1-1.jpg",
+    "/2016/02/Rolador1.jpg",
+    "/2016/11/image15.jpg",
+    "/2016/11/image16.jpg",
+    "/2016/11/Lab1-1.jpg",
+    "/2016/11/Lab1.jpg",
+    "/2016/11/Lab2-1.jpg",
+    "/2016/11/Lab2.jpg",
+    "/2016/11/Lab3-1.jpg",
+    "/2016/11/Lab3.jpg",
+    "/2016/11/Lab4-1.jpg",
+    "/2016/11/Lab4.jpg",
+    "/2017/04/APAE-1.jpeg",
+    "/2017/04/APAE.jpeg",
+    "/2017/04/image12.png",
+    "/2017/04/image13.png",
+    "/2017/04/image14.png",
+    "/2017/07/image11.jpg",
+    "/2017/07/image30.jpg",
+    "/2017/12/2-1.jpg",
+    "/2017/12/2.jpg",
+    "/2017/12/4-1.jpg",
+    "/2017/12/4.jpg",
+    "/2017/12/image24.jpg",
+    "/2017/12/image25.jpg",
+    "/2017/12/image26.jpg",
+    "/2017/12/image27.jpg",
+    "/2017/12/image28.jpg",
+    "/2017/12/image29.jpg",
+    "/2017/12/IMG_0867-1-scaled.jpg",
+    "/2017/12/IMG_0867-1.jpg",
+    "/2017/12/IMG_0867-scaled.jpg",
+    "/2017/12/IMG_0867.jpg",
+    "/2017/12/IMG_0875-1-scaled.jpg",
+    "/2017/12/IMG_0875-1.jpg",
+    "/2017/12/IMG_0875-scaled.jpg",
+    "/2017/12/IMG_0875.jpg",
+    "/2017/12/IMG_0884-1-scaled.jpg",
+    "/2017/12/IMG_0884-1.jpg",
+    "/2017/12/IMG_0884-scaled.jpg",
+    "/2017/12/IMG_0884.jpg",
+    "/2018/02/image22.jpg",
+    "/2018/02/image23.jpg",
+    "/2018/04/image21.jpg",
+    "/2018/04/image53.jpg",
+    "/2018/09/image51.jpg",
+    "/2018/09/image52.jpg",
+    "/2019/01/image46.png",
+    "/2019/01/image47.png",
+    "/2019/01/image48.jpg",
+    "/2019/01/image49.jpg",
+    "/2019/01/image50.jpg",
+    "/2019/01/Lar-Sta-Monica1-1.jpeg",
+    "/2019/01/Lar-Sta-Monica1.jpeg",
+    "/2019/01/Lar-Sta-Monica10-1.jpeg",
+    "/2019/01/Lar-Sta-Monica10.jpeg",
+    "/2019/01/Lar-Sta-Monica12.jpeg-1.jpg",
+    "/2019/01/Lar-Sta-Monica12.jpeg.jpg",
+    "/2019/01/Lar-Sta-Monica13-1.jpeg",
+    "/2019/01/Lar-Sta-Monica13.jpeg",
+    "/2019/01/Lar-Sta-Monica14-1.jpeg.jpg-1.jpeg",
+    "/2019/01/Lar-Sta-Monica14.jpeg.jpg.jpeg",
+    "/2019/01/Lar-Sta-Monica4-1.jpeg",
+    "/2019/01/Lar-Sta-Monica4.jpeg",
+    "/2019/01/Lar-Sta-Monica5-1.jpeg",
+    "/2019/01/Lar-Sta-Monica5.jpeg",
+    "/2019/01/Lar-Sta-Monica7-1.jpeg",
+    "/2019/01/Lar-Sta-Monica7.jpeg",
+    "/2019/01/Lar-Sta-Monica8-1.jpeg",
+    "/2019/01/Lar-Sta-Monica8.jpeg",
+    "/2019/01/Lar-Sta-Monica9.jpeg",
+    "/2019/08/image43.png",
+    "/2019/08/image44.png",
+    "/2019/12/Foto-Ass-Artistica-Cultural-Redencao-1.jpeg",
+    "/2019/12/Foto-Ass-Artistica-Cultural-Redencao.jpeg",
+    "/2019/12/image37.jpg",
+    "/2019/12/image41.jpg",
+    "/2019/12/image42.jpg",
+    "/2019/12/image45.jpg",
+    "/2019/12/PHOTO-2021-03-24-12-28-17-1.jpg",
+    "/2019/12/PHOTO-2021-03-24-12-28-17.jpg",
+    "/2019/12/PHOTO-2021-03-24-12-28-18-1.jpg",
+    "/2019/12/PHOTO-2021-03-24-12-28-18.jpg",
+    "/2020/06/Ascopar1.jpg",
+    "/2020/06/Ascopar2.jpg",
+    "/2020/06/Ascopar3.jpg",
+    "/2020/06/Geleias1.jpeg",
+    "/2020/06/Geleias2.jpeg",
+    "/2020/06/image31-1.jpg",
+    "/2020/06/image31.jpg",
+    "/2020/06/image32-1.jpg",
+    "/2020/06/image32.jpg",
+    "/2020/06/image33-1.jpg",
+    "/2020/06/image33.jpg",
+    "/2020/06/image35-1.jpg",
+    "/2020/06/image35.jpg",
+    "/2020/06/Mae-da-Vida-Juazeiro1.png",
+    "/2020/06/Paulo-VI.Foto-4.jpg",
+    "/2020/06/Paulo-VI.Foto-5.jpg",
+    "/2020/06/Paulo-VI.Foto-muro1.jpg",
+    "/2020/06/Paulo-VI.Foto-muro2.jpg",
+    "/2020/06/Pequeno-Assis1.jpeg",
+    "/2020/06/Pequeno-Assis2.jpeg",
+    "/2020/06/Pequeno-Assis4.jpeg",
+    "/2020/06/Pequeno-Assis5.jpeg",
+    "/2020/06/PROTEGENDO-A-VIDA1.jpg",
+    "/2020/06/PROTEGENDO-A-VIDA2.jpg",
+    "/2020/06/PROTEGENDO-A-VIDA3.jpg",
+    "/2020/06/PROTEGENDO-A-VIDA4.jpg",
+    "/2020/06/PROTEGENDO-A-VIDA5.jpg",
+    "/2020/06/ROSA-MISTICA1.jpg",
+    "/2020/06/ROSA-MISTICA2.jpg",
+    "/2020/06/ROSA-MISTICA3.jpg",
+    "/2020/06/Solar-Menino-da-Luz1.jpg",
+    "/2020/06/Solar-Menino-da-Luz2.jpg",
+    "/2020/06/Solar-Menino-da-Luz3.jpg",
+    "/2020/06/thumbnail_image.png",
+    "/2020/10/ANSA-Logo.png",
+    "/2020/10/Normas-de-apres-pedidos-da-Ansa-pdf.jpg",
+    "/2020/11/Ansa-children-photo.jpg",
+    "/2020/11/Ansa-Children.jpg",
+    "/2020/11/Ansa-English-Header-1.png",
+    "/2020/11/Ansa-English-Header.png",
+    "/2020/11/ANSA-logo.png",
+    "/2020/11/Ansa-Old-Logo.png",
+    "/2020/11/Ansa-Pic.jpg",
+    "/2020/11/Ansa-Portuguese-Header-1.png",
+    "/2020/11/Ansa-Portuguese-Header.png",
+    "/2020/11/Ansa-Volunteers.jpg",
+    "/2020/11/CKGK3731-1.jpg",
+    "/2020/11/CKGK3731-2.jpg",
+    "/2020/11/CKGK3731.jpg",
+    "/2020/11/Copy-of-Ansa-English.png",
+    "/2020/11/Copy-of-Portuguese-Header.png",
+    "/2020/11/CYSH1367-1.jpg",
+    "/2020/11/CYSH1367.jpg",
+    "/2020/11/EDHJ0789-1.jpg",
+    "/2020/11/EDHJ0789.jpg",
+    "/2020/11/Fatima-1.jpg",
+    "/2020/11/Fundacao-Sao-Jose-1-1.jpg",
+    "/2020/11/Fundacao-Sao-Jose-1-2.jpg",
+    "/2020/11/Fundacao-Sao-Jose-1.jpg",
+    "/2020/11/Fundacao-Sao-Jose-2-1.jpg",
+    "/2020/11/Fundacao-Sao-Jose-2.jpg",
+    "/2020/11/image1.jpg",
+    "/2020/11/image10.jpg",
+    "/2020/11/image11.jpg",
+    "/2020/11/image12.png",
+    "/2020/11/image13.png",
+    "/2020/11/image14.png",
+    "/2020/11/image15.jpg",
+    "/2020/11/image16.jpg",
+    "/2020/11/image17-e1605873023116.jpg",
+    "/2020/11/image17.jpg",
+    "/2020/11/image18.jpg",
+    "/2020/11/image19.png",
+    "/2020/11/image2.png",
+    "/2020/11/image20.png",
+    "/2020/11/image21.jpg",
+    "/2020/11/image22.jpg",
+    "/2020/11/image23.jpg",
+    "/2020/11/image24.jpg",
+    "/2020/11/image25.jpg",
+    "/2020/11/image26.jpg",
+    "/2020/11/image27.jpg",
+    "/2020/11/image28.jpg",
+    "/2020/11/image29.jpg",
+    "/2020/11/image3.jpg",
+    "/2020/11/image30.jpg",
+    "/2020/11/image36.jpg",
+    "/2020/11/image37.jpg",
+    "/2020/11/image39.jpg",
+    "/2020/11/image4.jpg",
+    "/2020/11/image40-e1605870698230.jpg",
+    "/2020/11/image40.jpg",
+    "/2020/11/image41.jpg",
+    "/2020/11/image42.jpg",
+    "/2020/11/image43.png",
+    "/2020/11/image44.png",
+    "/2020/11/image45.jpg",
+    "/2020/11/image46.png",
+    "/2020/11/image47.png",
+    "/2020/11/image48.jpg",
+    "/2020/11/image49.jpg",
+    "/2020/11/image5.jpg",
+    "/2020/11/image50.jpg",
+    "/2020/11/image51.jpg",
+    "/2020/11/image52.jpg",
+    "/2020/11/image53.jpg",
+    "/2020/11/image6.jpg",
+    "/2020/11/image7.jpg",
+    "/2020/11/image8.jpg",
+    "/2020/11/image9.jpg",
+    "/2020/11/Neusa.jpg",
+    "/2020/11/Nilma-1.jpg",
+    "/2020/11/Nilma.jpg",
+    "/2020/11/Pe.-Charles-1.jpg",
+    "/2020/11/Pe.-Charles.jpg",
+    "/2020/11/PHOTO-2020-11-17-10-11-57.jpg",
+    "/2020/11/Portuguese-Header.png",
+    "/2020/11/Selfless-giving-is-the-art-of-living.-1.png",
+    "/2020/11/Selfless-giving-is-the-art-of-living.-2.png",
+    "/2020/11/Solar-Meninos-De-Luz-1-1.jpg",
+    "/2020/11/Solar-Meninos-De-Luz-1.jpg",
+    "/2020/11/Solar-Meninos-De-Luz-2-1.jpg",
+    "/2020/11/Solar-Meninos-De-Luz-2.jpg",
+    "/2020/11/Solar-Meninos-De-Luz-3-1.jpg",
+    "/2020/11/Solar-Meninos-De-Luz-3.jpg",
+    "/2020/11/Tania-1.jpg",
+    "/2020/12/Ansa-Kids.jpg",
+    "/2020/12/Ansa-Portuguese-Header.png",
+    "/2020/12/CKGK3731.jpg",
+    "/2021/02/Ansa.jpg",
+    "/2021/02/Ansa.png",
+    "/2021/02/Backdrop.png",
+    "/2021/02/brazil-1020924_1280.png",
+    "/2021/02/brazil-50308_1280.jpg",
+    "/2021/02/charity-13.png",
+    "/2021/02/charity-25.jpg",
+    "/2021/02/Fatima-2-1.jpg",
+    "/2021/02/Fatima-2.jpg",
+    "/2021/02/Girl-Brasil-Flag.png",
+    "/2021/02/Hands.png",
+    "/2021/02/Ines-2-1.jpg",
+    "/2021/02/Ines-2.jpg",
+    "/2021/02/Marilza-Ansa-foto-2-2.jpg",
+    "/2021/02/Myriam.jpg",
+    "/2021/02/neusapic1.png",
+    "/2021/02/pecharles-1.png",
+    "/2021/02/pecharles.png",
+    "/2021/02/Tania-2-1.jpg",
+    "/2021/02/Tania-2.jpg",
+    "/2021/02/Teresinha.pic1_-1.jpg",
+    "/2021/02/Teresinha.pic1_.jpg",
+    "/2021/02/Teresinha.pic_.jpg",
+    "/2021/03/Ascopar1.jpg",
+    "/2021/03/Ascopar2.jpg",
+    "/2021/03/Ascopar3.jpg",
+    "/2021/03/Geleias1.jpeg",
+    "/2021/03/Geleias2.jpeg",
+    "/2021/03/Mae-da-Vida-Juazeiro1.png",
+    "/2021/03/Papai-Noel-2.jpg",
+    "/2021/03/Paulo-VI.Foto-3-1.jpg",
+    "/2021/03/Paulo-VI.Foto-3.jpg",
+    "/2021/03/Paulo-VI.Foto-4-1.jpg",
+    "/2021/03/Paulo-VI.Foto-4.jpg",
+    "/2021/03/Paulo-VI.Foto-5-1.jpg",
+    "/2021/03/Paulo-VI.Foto-5.jpg",
+    "/2021/03/Paulo-VI.Foto-muro1-1.jpg",
+    "/2021/03/Paulo-VI.Foto-muro1.jpg",
+    "/2021/03/Paulo-VI.Foto-muro2-1.jpg",
+    "/2021/03/Paulo-VI.Foto-muro2.jpg",
+    "/2021/03/Pequeno-Assis1.jpeg",
+    "/2021/03/Pequeno-Assis2.jpeg",
+    "/2021/03/Pequeno-Assis4.jpeg",
+    "/2021/03/Pequeno-Assis5.jpeg",
+    "/2021/03/Pequeno-Assis6.jpeg",
+    "/2021/03/PROTEGENDO-A-VIDA1.jpg",
+    "/2021/03/PROTEGENDO-A-VIDA2.jpg",
+    "/2021/03/PROTEGENDO-A-VIDA3.jpg",
+    "/2021/03/PROTEGENDO-A-VIDA4.jpg",
+    "/2021/03/PROTEGENDO-A-VIDA5.jpg",
+    "/2021/03/ROSA-MISTICA1.jpg",
+    "/2021/03/ROSA-MISTICA2.jpg",
+    "/2021/03/ROSA-MISTICA3.jpg",
+    "/2021/03/Solar-Menino-da-Luz1.jpg",
+    "/2021/03/Solar-Menino-da-Luz2.jpg",
+    "/2021/03/Solar-Menino-da-Luz3.jpg",
+    "/2021/03/thumbnail_image.png",
+    "/2021/04/Juazeiro-5-1.jpg",
+    "/2021/04/Juazeiro-5.jpg",
+    "/2021/04/Mae-da-Vida-Juazeiro1-1.png",
+    "/2021/04/Mae-da-Vida-Juazeiro1.png",
+    "/2021/04/Mae-da-Vida-Juazeiro2-1.jpg",
+    "/2021/04/Mae-da-Vida-Juazeiro2.jpg",
+    "/2021/04/Pequeno-Assis6.jpeg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-1-2.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-1.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-2-1.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-2.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-3-2.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-3.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-4-3.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-4.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-5-1.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-5.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55-7.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-29-55.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-34-59-1.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-40-50-1.jpg",
+    "/2021/04/PHOTO-2021-04-01-11-40-50.jpg"
+  ],
+  "usedImages": [
+    "/uploads/2019/12/Foto-Ass-Artistica-Cultural-Redencao.jpeg",
+    "/uploads/2015/12/image2.png",
+    "/uploads/2015/12/image3.jpg",
+    "/uploads/2015/08/image8.jpg",
+    "/uploads/2015/08/image9.jpg",
+    "/uploads/2015/08/image10.jpg",
+    "/uploads/2015/08/image5.jpg",
+    "/uploads/2015/08/image6.jpg",
+    "/uploads/2021/03/Paulo-VI.Foto-4.jpg",
+    "/uploads/2021/03/Paulo-VI.Foto-3.jpg",
+    "/uploads/2021/03/Paulo-VI.Foto-5.jpg",
+    "/uploads/2021/03/Paulo-VI.Foto-muro1.jpg",
+    "/uploads/2021/03/Paulo-VI.Foto-muro2.jpg",
+    "/uploads/2015/12/image19.png",
+    "/uploads/2017/04/image13.png",
+    "/uploads/2017/04/image14.png",
+    "/uploads/2017/04/APAE.jpeg",
+    "/uploads/2017/04/APAE-1.jpeg",
+    "/uploads/2017/12/image24.jpg",
+    "/uploads/2017/12/image25.jpg",
+    "/uploads/2017/12/image26.jpg",
+    "/uploads/2017/12/image27.jpg",
+    "/uploads/2017/12/image28.jpg",
+    "/uploads/2017/12/image29.jpg",
+    "/uploads/2016/11/Lab1.jpg",
+    "/uploads/2016/11/Lab2.jpg",
+    "/uploads/2016/11/Lab3.jpg",
+    "/uploads/2016/11/Lab4.jpg",
+    "/uploads/2018/02/image22.jpg",
+    "/uploads/2018/02/image23.jpg",
+    "/uploads/2015/12/image1.jpg",
+    "/uploads/2016/02/Biblioteca-Rolador1.jpeg",
+    "/uploads/2016/02/Biblioteca-Rolador2.jpeg",
+    "/uploads/2015/12/image4.jpg",
+    "/uploads/2020/11/Fundacao-Sao-Jose-1.jpg",
+    "/uploads/2020/11/Fundacao-Sao-Jose-2.jpg",
+    "/uploads/2018/04/image21.jpg",
+    "/uploads/2021/03/Pequeno-Assis1.jpeg",
+    "/uploads/2021/03/Pequeno-Assis2.jpeg",
+    "/uploads/2021/03/Pequeno-Assis4.jpeg",
+    "/uploads/2021/03/Pequeno-Assis5.jpeg",
+    "/uploads/2021/03/Pequeno-Assis6.jpeg",
+    "/uploads/2019/01/Lar-Sta-Monica1.jpeg",
+    "/uploads/2019/01/Lar-Sta-Monica4.jpeg",
+    "/uploads/2019/01/Lar-Sta-Monica5.jpeg",
+    "/uploads/2019/01/Lar-Sta-Monica7.jpeg",
+    "/uploads/2019/01/Lar-Sta-Monica8.jpeg",
+    "/uploads/2019/01/Lar-Sta-Monica9.jpeg",
+    "/uploads/2019/01/Lar-Sta-Monica10.jpeg",
+    "/uploads/2019/01/Lar-Sta-Monica13.jpeg",
+    "/uploads/2021/04/Mae-da-Vida-Juazeiro1.png",
+    "/uploads/2021/04/Mae-da-Vida-Juazeiro2.jpg",
+    "/uploads/2021/04/Juazeiro-5.jpg",
+    "/uploads/2021/03/PROTEGENDO-A-VIDA1.jpg",
+    "/uploads/2021/03/PROTEGENDO-A-VIDA2.jpg",
+    "/uploads/2021/03/PROTEGENDO-A-VIDA3.jpg",
+    "/uploads/2021/03/PROTEGENDO-A-VIDA4.jpg",
+    "/uploads/2021/03/PROTEGENDO-A-VIDA5.jpg",
+    "/uploads/2021/03/Geleias1.jpeg",
+    "/uploads/2021/03/Geleias2.jpeg",
+    "/uploads/2021/03/Papai-Noel-2.jpg",
+    "/uploads/2015/12/image20.png",
+    "/uploads/2021/03/Ascopar1.jpg",
+    "/uploads/2021/03/Ascopar2.jpg",
+    "/uploads/2021/03/Ascopar3.jpg",
+    "/uploads/2015/08/image7.jpg",
+    "/uploads/2015/08/image39.jpg",
+    "/uploads/2015/08/image40.jpg",
+    "/uploads/2021/03/Solar-Menino-da-Luz1.jpg",
+    "/uploads/2021/03/Solar-Menino-da-Luz2.jpg",
+    "/uploads/2021/03/Solar-Menino-da-Luz3.jpg",
+    "/uploads/2020/11/Solar-Meninos-De-Luz-1.jpg",
+    "/uploads/2020/11/Solar-Meninos-De-Luz-2.jpg",
+    "/uploads/2020/11/Solar-Meninos-De-Luz-3.jpg"
+  ]
+}
