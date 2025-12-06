@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function EnHome() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #fef3c7 0%, #fefce8 15%, #fffdf7 30%, #ffffff 50%)' }}>
       {/* Hero Section - matching hero-mockup.html exactly */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes pulse {
@@ -26,13 +26,14 @@ export default function EnHome() {
         .hero-container {
           display: flex;
           flex-direction: column;
+          background: linear-gradient(180deg, #fef3c7 0%, #fefce8 30%, #fffdf7 60%, #ffffff 100%);
         }
         .hero-img-section {
           width: 100%;
           height: 40vh;
           position: relative;
           overflow: hidden;
-          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+          background: transparent;
         }
         .hero-txt-section {
           width: 100%;
@@ -40,12 +41,13 @@ export default function EnHome() {
           align-items: flex-start;
           justify-content: center;
           padding: 2.5rem 1.5rem;
-          background: linear-gradient(160deg, #fefce8 0%, #fffdf7 40%, #ffffff 100%);
+          background: transparent;
         }
         @media (min-width: 1024px) {
           .hero-container {
             flex-direction: row;
             align-items: stretch;
+            background: linear-gradient(135deg, #fef3c7 0%, #fefce8 40%, #ffffff 100%);
           }
           .hero-img-section {
             width: 50%;
@@ -75,16 +77,16 @@ export default function EnHome() {
               maxHeight: '100%', 
               position: 'relative', 
               zIndex: 1,
-              maskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 85%, transparent 100%)'
+              maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)'
             }}
           />
-          {/* Bottom gradient on mobile - stronger for content blend */}
+          {/* Bottom gradient on mobile - blends image into page gradient */}
           <div 
             className="absolute bottom-0 left-0 right-0 pointer-events-none lg:hidden"
             style={{ 
-              background: 'linear-gradient(to bottom, transparent 0%, rgba(254, 243, 199, 0.6) 50%, #fef8e8 100%)',
-              height: '40%',
+              background: 'linear-gradient(to bottom, transparent 0%, rgba(254, 243, 199, 0.4) 40%, rgba(254, 252, 232, 0.8) 70%, #fefce8 100%)',
+              height: '50%',
               zIndex: 20
             }}
           />
@@ -92,7 +94,7 @@ export default function EnHome() {
           <div 
             className="absolute top-0 bottom-0 right-0 pointer-events-none hidden lg:block"
             style={{ 
-              background: 'linear-gradient(to right, transparent 0%, rgba(254, 243, 199, 0.6) 50%, #fef8e8 100%)',
+              background: 'linear-gradient(to right, transparent 0%, rgba(254, 252, 232, 0.5) 50%, rgba(255, 253, 247, 0.9) 100%)',
               width: '40%',
               zIndex: 20
             }}
@@ -286,7 +288,7 @@ export default function EnHome() {
       {/* CTA Section - Centered below hero */}
       <div 
         style={{ 
-          background: 'linear-gradient(180deg, #fef8e8 0%, #ffffff 100%)',
+          background: 'transparent',
           padding: '2rem 1.5rem 2.5rem',
           display: 'flex',
           flexDirection: 'column',
