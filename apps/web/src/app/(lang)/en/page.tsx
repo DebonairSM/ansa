@@ -77,28 +77,35 @@ export default function EnHome() {
       `}} />
       <div className="hero-container">
         {/* Image Section - Left (2/3 on desktop) */}
-        <div className="hero-img-section" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="hero-img-section relative" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <img
             src="/uploads/2020/11/Ansa-Pic.jpg"
             alt="Brazilian children smiling at a social project"
             className="w-full object-cover"
-            style={{ maxHeight: '100%' }}
-          />
-          {/* Gradient overlay - blends image into content */}
-          {/* Bottom gradient on mobile */}
-          <div 
-            className="absolute bottom-0 left-0 right-0 pointer-events-none z-10 lg:hidden"
             style={{ 
-              background: 'linear-gradient(to bottom, transparent 0%, rgba(254, 243, 199, 0.6) 50%, #fef8e8 100%)',
-              height: '40%'
+              maxHeight: '100%', 
+              position: 'relative', 
+              zIndex: 1,
+              maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
             }}
           />
-          {/* Right gradient on desktop */}
+          {/* Bottom gradient on mobile - stronger for content blend */}
           <div 
-            className="absolute top-0 bottom-0 right-0 pointer-events-none z-10 hidden lg:block"
+            className="absolute bottom-0 left-0 right-0 pointer-events-none lg:hidden"
+            style={{ 
+              background: 'linear-gradient(to bottom, transparent 0%, rgba(254, 243, 199, 0.6) 50%, #fef8e8 100%)',
+              height: '40%',
+              zIndex: 20
+            }}
+          />
+          {/* Right gradient on desktop - blends into content */}
+          <div 
+            className="absolute top-0 bottom-0 right-0 pointer-events-none hidden lg:block"
             style={{ 
               background: 'linear-gradient(to right, transparent 0%, rgba(254, 243, 199, 0.6) 50%, #fef8e8 100%)',
-              width: '40%'
+              width: '40%',
+              zIndex: 20
             }}
           />
         </div>
