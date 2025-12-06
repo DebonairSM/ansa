@@ -1,0 +1,9 @@
+---
+slug: "pastoral-da-crianca"
+title: "Pastoral da Criança"
+locale: undefined
+location: "Viamão, Rio Grande do Sul"
+year: "2015"
+description: "Projeto Comunitário Partilhar - Com a doação da Ansa, a Paróquia Santa Isabel fez aquisição de equipamentos para a instalação de uma cozinha industrial. Essa cozinha faz produção de alimentos para a comunidade."
+---
+

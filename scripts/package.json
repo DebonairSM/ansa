@@ -1,0 +1,15 @@
+{
+  "name": "ansa-scripts",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "import": "tsx wp-import.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "tsx": "^4.7.1",
+    "xml2js": "^0.6.2",
+    "node-fetch": "^3.3.2"
+  }
+}

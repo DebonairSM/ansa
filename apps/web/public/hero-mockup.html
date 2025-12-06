@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section Mockup - 2025 Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #ffffff;
+        }
+
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-container {
+                flex-direction: row;
+                height: 100vh;
+                max-height: 900px;
+            }
+        }
+
+        /* Image Section - Left */
+        .hero-image {
+            width: 100%;
+            height: 50vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        }
+
+        @media (min-width: 1024px) {
+            .hero-image {
+                width: 66.666%;
+                height: 100%;
+            }
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 40%;
+            background: linear-gradient(to right, transparent 0%, rgba(254, 243, 199, 0.6) 50%, #fef8e8 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @media (max-width: 1023px) {
+            .hero-image::after {
+                top: auto;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 40%;
+                background: linear-gradient(to bottom, transparent 0%, rgba(254, 243, 199, 0.6) 50%, #fef8e8 100%);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Content Section - Right */
+        .hero-content {
+            width: 100%;
+            background: linear-gradient(135deg, #fef8e8 0%, #fffdf7 50%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            overflow-y: auto;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                width: 33.333%;
+                height: 100%;
+                padding: 4rem 2.5rem;
+            }
+        }
+
+        .content-wrapper {
+            max-width: 28rem;
+            width: 100%;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .subheadline {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #d97706;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (min-width: 640px) {
+            .subheadline {
+                font-size: 1.5rem;
+            }
+        }
+
+        .lede {
+            font-size: 1rem;
+            color: #374151;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .supporting {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Metrics Card */
+        .metrics-card {
+            background: rgba(254, 243, 199, 0.3);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metrics-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #4b5563;
+            margin-bottom: 0.75rem;
+        }
+
+        .metrics-delta {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .metrics-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .metric-item {
+            text-align: left;
+        }
+
+        .metric-year {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #4b5563;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-year.today {
+            color: #047857;
+        }
+
+        .metric-ratio {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+            line-height: 1;
+        }
+
+        .metric-ratio.today {
+            color: #047857;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: #374151;
+        }
+
+        .metric-label.today {
+            color: #065f46;
+            font-weight: 500;
+        }
+
+        .metrics-source {
+            font-size: 0.75rem;
+            color: #4b5563;
+            font-style: italic;
+        }
+
+        /* Buttons */
+        .cta-primary {
+            display: block;
+            width: 100%;
+            background: #f59e0b;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.125rem;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            transition: background-color 0.2s;
+            min-height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-primary:hover {
+            background: #d97706;
+        }
+
+        .cta-primary:focus {
+            outline: 2px solid #f59e0b;
+            outline-offset: 2px;
+        }
+
+        .cta-secondary {
+            display: block;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            color: #92400e;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.75rem 2rem;
+            border: 2px solid #fbbf24;
+            border-radius: 0.5rem;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.2s;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(254, 243, 199, 0.5);
+        }
+
+        .cta-secondary:focus {
+            outline: 2px solid #6b7280;
+            outline-offset: 2px;
+        }
+
+        /* Trust Section */
+        .trust-note {
+            font-size: 0.875rem;
+            color: #4b5563;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .trust-check {
+            color: #059669;
+            font-size: 1rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .hero-content {
+                padding: 2rem 1.25rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .subheadline {
+                font-size: 1.125rem;
+            }
+
+            .metrics-card {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <!-- Image Section - Left -->
+        <div class="hero-image">
+            <img src="/uploads/2020/11/Ansa-Pic.jpg" alt="Brazilian children smiling at a social project" loading="eager">
+        </div>
+
+        <!-- Content Section - Right -->
+        <div class="hero-content">
+            <div class="content-wrapper">
+                <!-- Headline -->
+                <h1>Child poverty in Brazil has fallen.</h1>
+
+                <!-- Sub-headline -->
+                <p class="subheadline">With you, it can fall even further.</p>
+
+                <!-- Lede -->
+                <p class="lede">Since 2017, child poverty has decreased, but millions of children still need daily support.</p>
+
+                <!-- Supporting -->
+                <p class="supporting">Your donation turns data into action: access to education, protection, and nutrition.</p>
+
+                <!-- Metrics Card -->
+                <div class="metrics-card">
+                    <p class="metrics-label">PROGRESS SINCE 2017</p>
+                    <p class="metrics-delta">16.7% reduction since 2017</p>
+
+                    <div class="metrics-comparison">
+                        <div class="metric-item">
+                            <p class="metric-year">2017</p>
+                            <p class="metric-ratio">6/10</p>
+                            <p class="metric-label">children in poverty</p>
+                        </div>
+                        <div class="metric-item">
+                            <p class="metric-year today">TODAY</p>
+                            <p class="metric-ratio today">5/10</p>
+                            <p class="metric-label today">children in poverty</p>
+                        </div>
+                    </div>
+
+                    <p class="metrics-source">UNICEF 2023 Data</p>
+                </div>
+
+                <!-- Primary CTA -->
+                <a href="#" class="cta-primary" aria-label="Donate Now - Opens donation page">Donate Now</a>
+
+                <!-- Secondary CTA -->
+                <a href="#" class="cta-secondary" aria-label="View our projects">Our Projects</a>
+
+                <!-- Trust Section -->
+                <p class="trust-note">Your contribution is processed securely.</p>
+                <div class="trust-badges">
+                    <span class="trust-badge">
+                        <span class="trust-check">✓</span>
+                        <span>Secure payment via PayPal</span>
+                    </span>
+                    <span class="trust-badge">100% volunteer-led</span>
+                    <span class="trust-badge">43 years of mission</span>
+                    <span class="trust-badge">
+                        <span class="trust-check">✓</span>
+                        <span>24 active projects</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
