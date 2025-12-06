@@ -19,6 +19,10 @@ export default function EnHome() {
     <div className="min-h-screen">
       {/* Hero Section - matching hero-mockup.html exactly */}
       <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.6; transform: scale(1.1); }
+        }
         .hero-container {
           display: flex;
           flex-direction: column;
@@ -35,16 +39,19 @@ export default function EnHome() {
           display: flex;
           align-items: flex-start;
           justify-content: center;
-          padding: 2rem 1.5rem;
-          background: linear-gradient(135deg, #fef8e8 0%, #fffdf7 50%, #ffffff 100%);
+          padding: 2.5rem 1.5rem;
+          background: linear-gradient(160deg, #fefce8 0%, #fffdf7 40%, #ffffff 100%);
         }
         .hero-buttons {
           display: flex;
-          gap: 1rem;
-          margin-bottom: 1.5rem;
+          gap: 0.875rem;
+          margin-bottom: 0;
         }
         .hero-buttons a {
           flex: 1;
+        }
+        .hero-buttons a:hover {
+          transform: translateY(-2px);
         }
         @media (min-width: 1024px) {
           .hero-container {
@@ -54,23 +61,28 @@ export default function EnHome() {
           .hero-img-section {
             width: 50%;
             height: auto;
-            min-height: 500px;
+            min-height: 560px;
           }
           .hero-txt-section {
             width: 50%;
-            padding: 1.5rem 2.5rem;
+            padding: 2.5rem 3rem;
             align-items: flex-start;
+          }
+        }
+        @media (min-width: 1440px) {
+          .hero-txt-section {
+            padding: 3rem 4rem;
           }
         }
       `}} />
       <div className="hero-container">
         {/* Image Section - Left (2/3 on desktop) */}
-        <div className="hero-img-section">
+        <div className="hero-img-section" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <img
             src="/uploads/2020/11/Ansa-Pic.jpg"
             alt="Brazilian children smiling at a social project"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 30%' }}
+            className="w-full object-cover"
+            style={{ maxHeight: '100%' }}
           />
           {/* Gradient overlay - blends image into content */}
           {/* Bottom gradient on mobile */}
@@ -91,163 +103,302 @@ export default function EnHome() {
           />
         </div>
 
-        {/* Content Section - Right (1/3 on desktop) */}
+        {/* Content Section - Right (1/3 on desktop) - 2025 UI/UX */}
         <div className="hero-txt-section">
-          <div className="w-full max-w-[32rem]">
-            {/* Headline - responsive */}
-            <h1 
-              className="font-bold leading-[1.15] mb-3"
-              style={{ fontSize: 'clamp(1.75rem, 2.5vw, 2.5rem)', color: '#111827' }}
+          <div className="w-full max-w-[36rem]">
+            {/* Eyebrow label */}
+            <div 
+              className="inline-flex items-center gap-2 mb-4"
+              style={{
+                padding: '0.375rem 0.875rem',
+                background: 'rgba(245, 158, 11, 0.12)',
+                borderRadius: '100px',
+                fontSize: 'clamp(0.7rem, 0.85vw, 0.8rem)',
+                fontWeight: 600,
+                color: '#b45309',
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase'
+              }}
             >
-              Child poverty in Brazil has fallen.
+              <span style={{ 
+                width: '6px', 
+                height: '6px', 
+                background: '#f59e0b', 
+                borderRadius: '50%',
+                animation: 'pulse 2s infinite'
+              }} />
+              Making an impact since 1982
+            </div>
+
+            {/* Headline - tight tracking, dramatic weight */}
+            <h1 
+              className="leading-[1.05] mb-3"
+              style={{ 
+                fontSize: 'clamp(2rem, 3vw, 3rem)', 
+                fontWeight: 800,
+                color: '#0f172a',
+                letterSpacing: '-0.025em'
+              }}
+            >
+              Child poverty in Brazil
+              <span style={{ display: 'block', color: '#047857' }}>has fallen.</span>
             </h1>
 
-            {/* Sub-headline - responsive */}
+            {/* Sub-headline - gradient text effect */}
             <p 
-              className="font-bold mb-4"
-              style={{ fontSize: 'clamp(1.125rem, 1.5vw, 1.5rem)', color: '#d97706' }}
+              className="mb-5"
+              style={{ 
+                fontSize: 'clamp(1.125rem, 1.5vw, 1.375rem)', 
+                fontWeight: 700,
+                background: 'linear-gradient(135deg, #d97706 0%, #ea580c 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
             >
               With you, it can fall even further.
             </p>
 
-            {/* Lede - responsive */}
+            {/* Body copy - refined line height */}
             <p 
-              className="mb-3"
-              style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.125rem)', color: '#374151', lineHeight: 1.6 }}
-            >
-              Since 2017, child poverty has decreased, but millions of children still need daily support.
-            </p>
-
-            {/* Supporting - responsive */}
-            <p 
-              className="mb-5"
-              style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.125rem)', color: '#4b5563', lineHeight: 1.6 }}
-            >
-              Your donation turns data into action: access to education, protection, and nutrition.
-            </p>
-
-            {/* Metrics Card - responsive */}
-            <div 
-              className="rounded-xl mb-5"
+              className="mb-6"
               style={{ 
-                padding: 'clamp(1rem, 1.5vw, 1.5rem)',
-                background: 'rgba(254, 243, 199, 0.3)',
-                border: '1px solid rgba(251, 191, 36, 0.2)'
+                fontSize: 'clamp(0.95rem, 1.1vw, 1.0625rem)', 
+                color: '#475569', 
+                lineHeight: 1.7,
+                maxWidth: '32rem'
               }}
             >
-              <p 
-                className="uppercase tracking-wider mb-2"
-                style={{ fontSize: 'clamp(0.7rem, 0.8vw, 0.8rem)', fontWeight: 700, color: '#4b5563' }}
-              >
-                PROGRESS SINCE 2017
-              </p>
-              <p 
-                className="font-bold mb-3"
-                style={{ fontSize: 'clamp(1rem, 1.2vw, 1.25rem)', color: '#111827' }}
-              >
-                16.7% reduction since 2017
-              </p>
+              Since 2017, child poverty has decreased—but millions of children still need daily support. 
+              Your donation turns data into action: education, protection, and nutrition.
+            </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-2">
+            {/* Metrics Card - Glass morphism 2025 */}
+            <div 
+              className="rounded-2xl mb-6"
+              style={{ 
+                padding: 'clamp(1.25rem, 1.75vw, 1.75rem)',
+                background: 'rgba(255, 255, 255, 0.7)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(251, 191, 36, 0.25)',
+                boxShadow: '0 4px 24px -4px rgba(251, 191, 36, 0.15), 0 0 0 1px rgba(255,255,255,0.5) inset'
+              }}
+            >
+              {/* Progress badge */}
+              <div 
+                className="mb-4"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.375rem',
+                  padding: '0.25rem 0.625rem',
+                  background: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
+                  borderRadius: '6px',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  color: '#166534'
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{ flexShrink: 0 }}>
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>16.7% reduction achieved</span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-6">
                 {/* 2017 Metric */}
-                <div className="text-left">
+                <div>
                   <p 
-                    className="uppercase mb-1"
-                    style={{ fontSize: '0.75rem', fontWeight: 600, color: '#4b5563' }}
+                    className="uppercase mb-2"
+                    style={{ fontSize: '0.7rem', fontWeight: 600, color: '#64748b', letterSpacing: '0.1em' }}
                   >
                     2017
                   </p>
-                  <p 
-                    className="leading-none mb-1"
-                    style={{ fontSize: 'clamp(1.75rem, 2.5vw, 2.5rem)', fontWeight: 900, color: '#1f2937' }}
-                  >
-                    6/10
-                  </p>
-                  <p style={{ fontSize: 'clamp(0.7rem, 0.9vw, 0.875rem)', color: '#374151' }}>
+                  <div className="flex items-baseline gap-1">
+                    <span 
+                      style={{ 
+                        fontSize: 'clamp(2.25rem, 3vw, 3rem)', 
+                        fontWeight: 800, 
+                        color: '#334155',
+                        lineHeight: 1,
+                        fontVariantNumeric: 'tabular-nums'
+                      }}
+                    >
+                      6
+                    </span>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 600, color: '#64748b' }}>/10</span>
+                  </div>
+                  <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.25rem' }}>
                     children in poverty
                   </p>
                 </div>
 
-                {/* Today Metric */}
-                <div className="text-left">
+                {/* Today Metric - highlighted */}
+                <div 
+                  className="rounded-xl"
+                  style={{ 
+                    padding: '1rem',
+                    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.12) 100%)',
+                    marginLeft: '-0.5rem',
+                    marginRight: '-0.5rem'
+                  }}
+                >
                   <p 
-                    className="uppercase mb-1"
-                    style={{ fontSize: '0.75rem', fontWeight: 600, color: '#047857' }}
+                    className="uppercase mb-2"
+                    style={{ fontSize: '0.7rem', fontWeight: 700, color: '#059669', letterSpacing: '0.1em' }}
                   >
-                    TODAY
+                    Today
                   </p>
-                  <p 
-                    className="leading-none mb-1"
-                    style={{ fontSize: 'clamp(1.75rem, 2.5vw, 2.5rem)', fontWeight: 900, color: '#047857' }}
-                  >
-                    5/10
-                  </p>
-                  <p style={{ fontSize: 'clamp(0.7rem, 0.9vw, 0.875rem)', color: '#065f46', fontWeight: 500 }}>
+                  <div className="flex items-baseline gap-1">
+                    <span 
+                      style={{ 
+                        fontSize: 'clamp(2.25rem, 3vw, 3rem)', 
+                        fontWeight: 800, 
+                        color: '#059669',
+                        lineHeight: 1,
+                        fontVariantNumeric: 'tabular-nums'
+                      }}
+                    >
+                      5
+                    </span>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10b981' }}>/10</span>
+                  </div>
+                  <p style={{ fontSize: '0.8rem', color: '#047857', fontWeight: 500, marginTop: '0.25rem' }}>
                     children in poverty
                   </p>
                 </div>
               </div>
 
-              <p style={{ fontSize: '0.75rem', color: '#4b5563', fontStyle: 'italic' }}>
-                UNICEF 2023 Data
+              {/* Source */}
+              <p 
+                className="mt-4 pt-3"
+                style={{ 
+                  fontSize: '0.7rem', 
+                  color: '#94a3b8',
+                  borderTop: '1px solid rgba(148, 163, 184, 0.2)'
+                }}
+              >
+                Source: UNICEF 2023 Report
               </p>
             </div>
 
-            {/* CTA Buttons - side by side, responsive */}
+            {/* CTA Buttons - 2025 pill style with depth */}
             <div className="hero-buttons">
               <Link
                 href="https://www.paypal.com/US/fundraiser/charity/2006255"
                 target="_blank"
-                className="flex items-center justify-center rounded-lg text-center transition-colors hover:opacity-90"
+                className="group flex items-center justify-center gap-2 text-center transition-all duration-200"
                 style={{ 
-                  background: '#f59e0b',
+                  background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
                   color: '#ffffff',
                   fontWeight: 700,
-                  fontSize: 'clamp(0.9rem, 1vw, 1.125rem)',
-                  padding: 'clamp(0.6rem, 1vw, 1rem) clamp(1rem, 1.5vw, 2rem)',
-                  minHeight: 'clamp(2.5rem, 3.5vw, 3.5rem)',
-                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                  fontSize: 'clamp(0.9rem, 1vw, 1rem)',
+                  padding: 'clamp(0.875rem, 1.25vw, 1rem) clamp(1.5rem, 2vw, 2rem)',
+                  borderRadius: '100px',
+                  boxShadow: '0 8px 24px -4px rgba(245, 158, 11, 0.4), 0 2px 8px -2px rgba(0,0,0,0.1)'
                 }}
               >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
                 Donate Now
               </Link>
               <Link
                 href="/en/projects"
-                className="flex items-center justify-center rounded-lg text-center transition-colors hover:bg-amber-50"
+                className="flex items-center justify-center gap-2 text-center transition-all duration-200 hover:bg-amber-50"
                 style={{ 
-                  background: 'rgba(255, 255, 255, 0.8)',
+                  background: 'rgba(255, 255, 255, 0.9)',
                   color: '#92400e',
                   fontWeight: 600,
-                  fontSize: 'clamp(0.9rem, 1vw, 1.125rem)',
-                  padding: 'clamp(0.6rem, 1vw, 1rem) clamp(1rem, 1.5vw, 2rem)',
-                  border: '2px solid #fbbf24',
-                  minHeight: 'clamp(2.5rem, 3.5vw, 3.5rem)'
+                  fontSize: 'clamp(0.9rem, 1vw, 1rem)',
+                  padding: 'clamp(0.875rem, 1.25vw, 1rem) clamp(1.5rem, 2vw, 2rem)',
+                  border: '2px solid #fcd34d',
+                  borderRadius: '100px',
+                  boxShadow: '0 2px 8px -2px rgba(0,0,0,0.05)'
                 }}
               >
                 Our Projects
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
               </Link>
             </div>
 
-            {/* Trust Section - responsive */}
-            <p 
-              className="mb-1"
-              style={{ fontSize: 'clamp(0.75rem, 0.9vw, 0.9rem)', color: '#4b5563', fontWeight: 500 }}
-            >
-              Your contribution is processed securely.
-            </p>
+            {/* Trust Badges - 2025 minimal badges */}
             <div 
-              className="flex flex-wrap gap-3"
-              style={{ fontSize: 'clamp(0.75rem, 0.9vw, 0.9rem)', color: '#4b5563' }}
+              className="flex flex-wrap gap-2"
+              style={{ marginTop: '1.25rem' }}
             >
-              <span className="flex items-center gap-1">
-                <span style={{ color: '#059669' }}>✓</span>
-                <span>Secure payment via PayPal</span>
+              <span 
+                className="inline-flex items-center gap-1.5"
+                style={{
+                  padding: '0.375rem 0.75rem',
+                  background: 'rgba(16, 185, 129, 0.08)',
+                  borderRadius: '100px',
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  color: '#047857'
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                Secure via PayPal
               </span>
-              <span>100% volunteer-led</span>
-              <span>43 years of mission</span>
-              <span className="flex items-center gap-1">
-                <span style={{ color: '#059669' }}>✓</span>
-                <span>24 active projects</span>
+              <span 
+                className="inline-flex items-center gap-1.5"
+                style={{
+                  padding: '0.375rem 0.75rem',
+                  background: 'rgba(59, 130, 246, 0.08)',
+                  borderRadius: '100px',
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  color: '#1d4ed8'
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                43 years
+              </span>
+              <span 
+                className="inline-flex items-center gap-1.5"
+                style={{
+                  padding: '0.375rem 0.75rem',
+                  background: 'rgba(168, 85, 247, 0.08)',
+                  borderRadius: '100px',
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  color: '#7c3aed'
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                100% volunteer
+              </span>
+              <span 
+                className="inline-flex items-center gap-1.5"
+                style={{
+                  padding: '0.375rem 0.75rem',
+                  background: 'rgba(245, 158, 11, 0.08)',
+                  borderRadius: '100px',
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  color: '#b45309'
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                24 projects
               </span>
             </div>
           </div>
