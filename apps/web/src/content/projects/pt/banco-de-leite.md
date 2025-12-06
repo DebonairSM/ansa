@@ -7,6 +7,10 @@ location: "Quixadá, Ceará"
 donation: "R$ 7.464 / US$ 2,000"
 description: "Projeto Banco de Leite que ajuda mães carentes da região a amamentar seus filhos para que cresçam saudáveis."
 featuredImage: "/uploads/2015/12/image19.png"
+gallery:
+  - "/uploads/2015/12/image19.png"
+  - "/uploads/2017/04/image13.png"
+  - "/uploads/2017/04/image14.png"
 createdAt: "2024-01-01T00:00:00.000Z"
 updatedAt: "2024-01-01T00:00:00.000Z"
 ---

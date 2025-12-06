@@ -7,7 +7,10 @@ location: "Pacoti, Ceará"
 year: "2020"
 donation: "R$ 10.264 / US$ 2,000"
 description: "Comunidade em Ação, Projeto Cozinhar Faz Bem: Construção de cozinha industrial para a comunidade trabalhar com frutas da região."
-featuredImage: "/uploads/2015/12/image19.png"
+featuredImage: "/uploads/2021/03/Geleias1.jpeg"
+gallery:
+  - "/uploads/2021/03/Geleias1.jpeg"
+  - "/uploads/2021/03/Geleias2.jpeg"
 createdAt: "2020-06-01T00:00:00.000Z"
 updatedAt: "2020-06-01T00:00:00.000Z"
 ---

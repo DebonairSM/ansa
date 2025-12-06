@@ -7,7 +7,11 @@ location: "Juazeiro do Norte, Ceará"
 year: "2021"
 donation: "R$ 11,100 / US$ 3,000"
 description: "Therapeutic Center Project: Reintegration of young people in situations of social vulnerability and chemical dependency."
-featuredImage: "/uploads/2015/12/image2.png"
+featuredImage: "/uploads/2021/04/Mae-da-Vida-Juazeiro1.png"
+gallery:
+  - "/uploads/2021/04/Mae-da-Vida-Juazeiro1.png"
+  - "/uploads/2021/04/Mae-da-Vida-Juazeiro2.jpg"
+  - "/uploads/2021/04/Juazeiro-5.jpg"
 createdAt: "2021-04-01T00:00:00.000Z"
 updatedAt: "2021-04-01T00:00:00.000Z"
 ---

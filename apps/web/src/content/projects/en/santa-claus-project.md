@@ -6,7 +6,10 @@ category: "Social Action"
 location: "Serra de Redenção, Ceará"
 year: "2020"
 description: "Bringing joy and gifts to 150 children, children of small sugarcane farmers in Serra de Redenção."
-featuredImage: "/uploads/2015/12/image20.png"
+featuredImage: "/uploads/2021/03/Papai-Noel-2.jpg"
+gallery:
+  - "/uploads/2021/03/Papai-Noel-2.jpg"
+  - "/uploads/2015/12/image20.png"
 createdAt: "2024-01-01T00:00:00.000Z"
 updatedAt: "2024-01-01T00:00:00.000Z"
 ---

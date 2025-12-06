@@ -362,13 +362,14 @@ export default function EnHome() {
               fontSize: '0.75rem',
               fontWeight: 500,
               color: '#047857',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              flexShrink: 0
             }}
           >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ flexShrink: 0 }}>
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
-            Secure via PayPal
+            <span style={{ whiteSpace: 'nowrap' }}>Secure via PayPal</span>
           </span>
           <span 
             className="inline-flex items-center gap-1.5"
@@ -379,14 +380,15 @@ export default function EnHome() {
               fontSize: '0.75rem',
               fontWeight: 500,
               color: '#1d4ed8',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              flexShrink: 0
             }}
           >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ flexShrink: 0 }}>
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            43 years
+            <span style={{ whiteSpace: 'nowrap' }}>43 years</span>
           </span>
           <span 
             className="inline-flex items-center gap-1.5"
@@ -397,16 +399,17 @@ export default function EnHome() {
               fontSize: '0.75rem',
               fontWeight: 500,
               color: '#7c3aed',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              flexShrink: 0
             }}
           >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ flexShrink: 0 }}>
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
-            100% volunteer
+            <span style={{ whiteSpace: 'nowrap' }}>100% volunteer</span>
           </span>
           <span 
             className="inline-flex items-center gap-1.5"
@@ -417,14 +420,15 @@ export default function EnHome() {
               fontSize: '0.75rem',
               fontWeight: 500,
               color: '#b45309',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              flexShrink: 0
             }}
           >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ flexShrink: 0 }}>
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            24 projects
+            <span style={{ whiteSpace: 'nowrap' }}>24 projects</span>
           </span>
         </div>
       </div>

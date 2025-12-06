@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import type { Metadata } from 'next';
 import { getProjects, getProjectBySlug } from '@/lib/localProjects';
+import ProjectGallery from '@/components/ProjectGallery';
 
 type Props = {
   params: { slug: string };
@@ -114,6 +115,14 @@ export default function ProjectDetailEn({ params }: Props) {
               </ReactMarkdown>
             )}
           </article>
+
+          {/* Photo Gallery */}
+          {projectData.gallery && projectData.gallery.length > 0 && (
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold mb-6">Photo Gallery</h2>
+              <ProjectGallery images={projectData.gallery} title={projectData.title} />
+            </div>
+          )}
 
           {/* CTA */}
           <div className="mt-12 pt-8 border-t flex flex-col sm:flex-row gap-4 justify-between items-center">

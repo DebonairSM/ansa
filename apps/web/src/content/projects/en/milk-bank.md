@@ -7,6 +7,10 @@ location: "Quixadá, Ceará"
 donation: "R$ 7,464 / US$ 2,000"
 description: "Milk Bank project that helps underprivileged mothers in the region to breastfeed their children so they can grow up healthy."
 featuredImage: "/uploads/2015/12/image19.png"
+gallery:
+  - "/uploads/2015/12/image19.png"
+  - "/uploads/2017/04/image13.png"
+  - "/uploads/2017/04/image14.png"
 createdAt: "2024-01-01T00:00:00.000Z"
 updatedAt: "2024-01-01T00:00:00.000Z"
 ---

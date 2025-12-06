@@ -67,98 +67,123 @@ const teamMembers = [
 export default function AboutPt() {
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <section className="bg-yellow-500 text-white py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">Quem Somos</h1>
-          <p className="text-2xl">Somos um grupo de voluntários na região de Washington, DC, apaixonados pelo Brasil</p>
+      {/* Hero with Group Photo */}
+      <section className="bg-gray-900">
+        {/* Title */}
+        <div className="bg-yellow-500 text-white py-16 px-4">
+          <div className="max-w-5xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Quem Somos</h1>
+            <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">
+              Somos um grupo de voluntários na região de Washington, DC, apaixonados pelo Brasil
+            </p>
+          </div>
+        </div>
+        
+        {/* Group Photo - Contained width, no cropping */}
+        <div className="bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto">
+            <Image
+              src="/uploads/2020/11/Ansa-Volunteers.jpg"
+              alt="Voluntários da ANSA"
+              width={1920}
+              height={1080}
+              priority
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="w-full h-auto rounded-lg shadow-xl"
+            />
+          </div>
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xl text-gray-700 leading-relaxed mb-6">
-            A <strong>Associação Nossa Senhora Aparecida (ANSA)</strong> é uma associação criada em 1982, 
-            mantida por meio de doações e trabalho voluntário, com custo administrativo zero.
-          </p>
-          <p className="text-xl text-gray-700 leading-relaxed mb-6">
-            A ANSA auxilia crianças e mulheres brasileiras carentes por meio de instituições como 
-            creches, orfanatos, escolas e grupos comunitários.
-          </p>
-          <p className="text-xl text-gray-700 leading-relaxed">
-            Todos os membros da ANSA, sem exceção, são voluntários que generosamente colaboram nesta missão.
-          </p>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-12 px-4 bg-yellow-500 text-white">
+      {/* Intro & Stats Combined Section */}
+      <section className="py-20 px-4 bg-gradient-to-b from-white via-gray-50 to-white">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
             <div>
-              <p className="text-5xl font-bold mb-2">43+</p>
-              <p className="text-lg">Anos de Missão</p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Nossa Missão</h2>
+              <div className="space-y-5 text-gray-700 leading-relaxed">
+                <p className="text-lg">
+                  A <strong className="text-gray-900">Associação Nossa Senhora Aparecida (ANSA)</strong> é uma associação criada em 1982, 
+                  mantida por meio de doações e trabalho voluntário, com custo administrativo zero.
+                </p>
+                <p className="text-lg">
+                  A ANSA auxilia crianças e mulheres brasileiras carentes por meio de instituições como 
+                  creches, orfanatos, escolas e grupos comunitários.
+                </p>
+                <p className="text-lg">
+                  Todos os membros da ANSA, sem exceção, são voluntários que generosamente colaboram nesta missão.
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="text-5xl font-bold mb-2">300+</p>
-              <p className="text-lg">Famílias/Ano</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold mb-2">24</p>
-              <p className="text-lg">Projetos</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold mb-2">0</p>
-              <p className="text-lg">Custos Administrativos</p>
+            
+            <div className="bg-yellow-500 rounded-2xl p-8 md:p-10 shadow-lg">
+              <h3 className="text-2xl font-bold text-white mb-8 text-center">Nosso Impacto</h3>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center">
+                  <p className="text-5xl md:text-6xl font-bold text-white mb-2">43+</p>
+                  <p className="text-white/90 text-sm md:text-base">Anos de Missão</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-5xl md:text-6xl font-bold text-white mb-2">300+</p>
+                  <p className="text-white/90 text-sm md:text-base">Famílias/Ano</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-5xl md:text-6xl font-bold text-white mb-2">24</p>
+                  <p className="text-white/90 text-sm md:text-base">Projetos</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-5xl md:text-6xl font-bold text-white mb-2">0</p>
+                  <p className="text-white/90 text-sm md:text-base">Custos Administrativos</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Team Grid */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">Nossa Equipe</h2>
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="text-yellow-500 font-semibold text-sm uppercase tracking-wider">Conheça a Equipe</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nossa Equipe</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Voluntários dedicados que tornam nossa missão possível
+            </p>
+          </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {teamMembers.map((member) => (
-              <div key={member.name} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="relative h-64 w-full bg-gray-200">
+              <div 
+                key={member.name} 
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 group"
+              >
+                <div className="relative w-full bg-gradient-to-br from-gray-50 to-gray-100 px-8 pt-8 pb-6 flex items-center justify-center" style={{ minHeight: '320px' }}>
                   <Image
                     src={member.image}
                     alt={member.name}
-                    fill
+                    width={300}
+                    height={400}
+                    className="object-contain w-full h-auto max-h-[320px] transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-top"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-yellow-600 font-semibold mb-4">{member.role}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed line-clamp-4">{member.bio}</p>
+                <div className="p-6 lg:p-7">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-yellow-600 transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-yellow-600 font-semibold mb-4 text-sm uppercase tracking-wide">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {member.bio}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Group Photo */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="relative h-96 w-full mb-8">
-            <Image
-              src="/uploads/2020/11/Ansa-Volunteers.jpg"
-              alt="Voluntários da ANSA"
-              fill
-              sizes="(max-width: 768px) 100vw, 896px"
-              className="object-cover rounded-lg shadow-xl"
-            />
-          </div>
-          <p className="text-xl text-gray-700">
-            Juntos, fazemos a diferença na vida de centenas de famílias brasileiras todos os anos.
-          </p>
         </div>
       </section>
 

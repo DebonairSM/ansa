@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaCheckCircle } from 'react-icons/fa';
 
 export default function ContactEn() {
   const [formData, setFormData] = useState({
@@ -43,7 +44,7 @@ export default function ContactEn() {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">📍</span>
+                  <FaMapMarkerAlt className="w-6 h-6 text-yellow-600" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-1">Address</h3>
@@ -57,7 +58,7 @@ export default function ContactEn() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">📞</span>
+                  <FaPhone className="w-6 h-6 text-yellow-600" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-1">Phone</h3>
@@ -67,7 +68,7 @@ export default function ContactEn() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">✉️</span>
+                  <FaEnvelope className="w-6 h-6 text-yellow-600" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-1">Email</h3>
@@ -79,7 +80,7 @@ export default function ContactEn() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl">🌐</span>
+                  <FaGlobe className="w-6 h-6 text-yellow-600" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-1">Social Media</h3>
@@ -141,7 +142,9 @@ export default function ContactEn() {
             
             {submitted ? (
               <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
-                <div className="text-5xl mb-4">✅</div>
+                <div className="flex justify-center mb-4">
+                  <FaCheckCircle className="w-12 h-12 text-green-600" />
+                </div>
                 <h3 className="text-2xl font-bold text-green-800 mb-2">Message Sent!</h3>
                 <p className="text-green-700">
                   Thank you for reaching out. We will respond soon!

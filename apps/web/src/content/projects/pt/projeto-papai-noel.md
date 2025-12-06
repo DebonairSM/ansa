@@ -6,7 +6,10 @@ category: "Ação Social"
 location: "Serra de Redenção, Ceará"
 year: "2020"
 description: "Levando alegria e presentes para 150 crianças, filhos de pequenos agricultores plantadores de cana de açúcar na Serra de Redenção."
-featuredImage: "/uploads/2015/12/image20.png"
+featuredImage: "/uploads/2021/03/Papai-Noel-2.jpg"
+gallery:
+  - "/uploads/2021/03/Papai-Noel-2.jpg"
+  - "/uploads/2015/12/image20.png"
 createdAt: "2024-01-01T00:00:00.000Z"
 updatedAt: "2024-01-01T00:00:00.000Z"
 ---
