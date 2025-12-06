@@ -22,11 +22,10 @@ export default function EnHome() {
         .hero-container {
           display: flex;
           flex-direction: column;
-          min-height: 100vh;
         }
         .hero-img-section {
           width: 100%;
-          height: 50vh;
+          height: 40vh;
           position: relative;
           overflow: hidden;
           background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
@@ -34,26 +33,33 @@ export default function EnHome() {
         .hero-txt-section {
           width: 100%;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           justify-content: center;
-          padding: 3rem 1.5rem;
-          overflow-y: auto;
+          padding: 2rem 1.5rem;
           background: linear-gradient(135deg, #fef8e8 0%, #fffdf7 50%, #ffffff 100%);
+        }
+        .hero-buttons {
+          display: flex;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+        }
+        .hero-buttons a {
+          flex: 1;
         }
         @media (min-width: 1024px) {
           .hero-container {
             flex-direction: row;
-            height: 100vh;
-            max-height: 900px;
+            align-items: stretch;
           }
           .hero-img-section {
-            width: 66.666%;
-            height: 100%;
+            width: 50%;
+            height: auto;
+            min-height: 500px;
           }
           .hero-txt-section {
-            width: 33.333%;
-            height: 100%;
-            padding: 4rem 2.5rem;
+            width: 50%;
+            padding: 1.5rem 2.5rem;
+            align-items: flex-start;
           }
         }
       `}} />
@@ -63,7 +69,8 @@ export default function EnHome() {
           <img
             src="/uploads/2020/11/Ansa-Pic.jpg"
             alt="Brazilian children smiling at a social project"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 30%' }}
           />
           {/* Gradient overlay - blends image into content */}
           {/* Bottom gradient on mobile */}
@@ -86,61 +93,62 @@ export default function EnHome() {
 
         {/* Content Section - Right (1/3 on desktop) */}
         <div className="hero-txt-section">
-          <div className="w-full max-w-[28rem]">
-            {/* Headline - matching mockup: 2rem mobile, 2.5rem desktop */}
+          <div className="w-full max-w-[32rem]">
+            {/* Headline - responsive */}
             <h1 
-              className="font-bold leading-[1.2] mb-3"
-              style={{ fontSize: '2rem', color: '#111827' }}
+              className="font-bold leading-[1.15] mb-3"
+              style={{ fontSize: 'clamp(1.75rem, 2.5vw, 2.5rem)', color: '#111827' }}
             >
               Child poverty in Brazil has fallen.
             </h1>
 
-            {/* Sub-headline - matching mockup: 1.25rem mobile, 1.5rem desktop */}
+            {/* Sub-headline - responsive */}
             <p 
-              className="font-bold mb-5"
-              style={{ fontSize: '1.25rem', color: '#d97706' }}
+              className="font-bold mb-4"
+              style={{ fontSize: 'clamp(1.125rem, 1.5vw, 1.5rem)', color: '#d97706' }}
             >
               With you, it can fall even further.
             </p>
 
-            {/* Lede - matching mockup */}
+            {/* Lede - responsive */}
             <p 
               className="mb-3"
-              style={{ fontSize: '1rem', color: '#374151', lineHeight: 1.6 }}
+              style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.125rem)', color: '#374151', lineHeight: 1.6 }}
             >
               Since 2017, child poverty has decreased, but millions of children still need daily support.
             </p>
 
-            {/* Supporting - matching mockup */}
+            {/* Supporting - responsive */}
             <p 
-              className="mb-8"
-              style={{ fontSize: '1rem', color: '#4b5563', lineHeight: 1.6 }}
+              className="mb-5"
+              style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.125rem)', color: '#4b5563', lineHeight: 1.6 }}
             >
               Your donation turns data into action: access to education, protection, and nutrition.
             </p>
 
-            {/* Metrics Card - matching mockup exactly */}
+            {/* Metrics Card - responsive */}
             <div 
-              className="rounded-xl p-6 mb-8"
+              className="rounded-xl mb-5"
               style={{ 
+                padding: 'clamp(1rem, 1.5vw, 1.5rem)',
                 background: 'rgba(254, 243, 199, 0.3)',
                 border: '1px solid rgba(251, 191, 36, 0.2)'
               }}
             >
               <p 
-                className="uppercase tracking-wider mb-3"
-                style={{ fontSize: '0.75rem', fontWeight: 700, color: '#4b5563' }}
+                className="uppercase tracking-wider mb-2"
+                style={{ fontSize: 'clamp(0.7rem, 0.8vw, 0.8rem)', fontWeight: 700, color: '#4b5563' }}
               >
                 PROGRESS SINCE 2017
               </p>
               <p 
-                className="font-bold mb-4"
-                style={{ fontSize: '1.125rem', color: '#111827' }}
+                className="font-bold mb-3"
+                style={{ fontSize: 'clamp(1rem, 1.2vw, 1.25rem)', color: '#111827' }}
               >
                 16.7% reduction since 2017
               </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-3">
+              <div className="grid grid-cols-2 gap-4 mb-2">
                 {/* 2017 Metric */}
                 <div className="text-left">
                   <p 
@@ -151,11 +159,11 @@ export default function EnHome() {
                   </p>
                   <p 
                     className="leading-none mb-1"
-                    style={{ fontSize: '2rem', fontWeight: 900, color: '#1f2937' }}
+                    style={{ fontSize: 'clamp(1.75rem, 2.5vw, 2.5rem)', fontWeight: 900, color: '#1f2937' }}
                   >
                     6/10
                   </p>
-                  <p style={{ fontSize: '0.75rem', color: '#374151' }}>
+                  <p style={{ fontSize: 'clamp(0.7rem, 0.9vw, 0.875rem)', color: '#374151' }}>
                     children in poverty
                   </p>
                 </div>
@@ -170,11 +178,11 @@ export default function EnHome() {
                   </p>
                   <p 
                     className="leading-none mb-1"
-                    style={{ fontSize: '2rem', fontWeight: 900, color: '#047857' }}
+                    style={{ fontSize: 'clamp(1.75rem, 2.5vw, 2.5rem)', fontWeight: 900, color: '#047857' }}
                   >
                     5/10
                   </p>
-                  <p style={{ fontSize: '0.75rem', color: '#065f46', fontWeight: 500 }}>
+                  <p style={{ fontSize: 'clamp(0.7rem, 0.9vw, 0.875rem)', color: '#065f46', fontWeight: 500 }}>
                     children in poverty
                   </p>
                 </div>
@@ -185,51 +193,51 @@ export default function EnHome() {
               </p>
             </div>
 
-            {/* Primary CTA - matching mockup */}
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
-              className="flex items-center justify-center w-full rounded-lg text-center mb-4 transition-colors hover:opacity-90"
-              style={{ 
-                background: '#f59e0b',
-                color: '#ffffff',
-                fontWeight: 700,
-                fontSize: '1.125rem',
-                padding: '1rem 2rem',
-                minHeight: '3.5rem',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-              }}
-            >
-              Donate Now
-            </Link>
+            {/* CTA Buttons - side by side, responsive */}
+            <div className="hero-buttons">
+              <Link
+                href="https://www.paypal.com/US/fundraiser/charity/2006255"
+                target="_blank"
+                className="flex items-center justify-center rounded-lg text-center transition-colors hover:opacity-90"
+                style={{ 
+                  background: '#f59e0b',
+                  color: '#ffffff',
+                  fontWeight: 700,
+                  fontSize: 'clamp(0.9rem, 1vw, 1.125rem)',
+                  padding: 'clamp(0.6rem, 1vw, 1rem) clamp(1rem, 1.5vw, 2rem)',
+                  minHeight: 'clamp(2.5rem, 3.5vw, 3.5rem)',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+                Donate Now
+              </Link>
+              <Link
+                href="/en/projects"
+                className="flex items-center justify-center rounded-lg text-center transition-colors hover:bg-amber-50"
+                style={{ 
+                  background: 'rgba(255, 255, 255, 0.8)',
+                  color: '#92400e',
+                  fontWeight: 600,
+                  fontSize: 'clamp(0.9rem, 1vw, 1.125rem)',
+                  padding: 'clamp(0.6rem, 1vw, 1rem) clamp(1rem, 1.5vw, 2rem)',
+                  border: '2px solid #fbbf24',
+                  minHeight: 'clamp(2.5rem, 3.5vw, 3.5rem)'
+                }}
+              >
+                Our Projects
+              </Link>
+            </div>
 
-            {/* Secondary CTA - matching mockup */}
-            <Link
-              href="/en/projects"
-              className="flex items-center justify-center w-full rounded-lg text-center mb-6 transition-colors hover:bg-amber-50"
-              style={{ 
-                background: 'rgba(255, 255, 255, 0.8)',
-                color: '#92400e',
-                fontWeight: 600,
-                fontSize: '1rem',
-                padding: '0.75rem 2rem',
-                border: '2px solid #fbbf24',
-                minHeight: '3rem'
-              }}
-            >
-              Our Projects
-            </Link>
-
-            {/* Trust Section - matching mockup */}
+            {/* Trust Section - responsive */}
             <p 
-              className="mb-2"
-              style={{ fontSize: '0.875rem', color: '#4b5563', fontWeight: 500 }}
+              className="mb-1"
+              style={{ fontSize: 'clamp(0.75rem, 0.9vw, 0.9rem)', color: '#4b5563', fontWeight: 500 }}
             >
               Your contribution is processed securely.
             </p>
             <div 
-              className="flex flex-wrap gap-4"
-              style={{ fontSize: '0.875rem', color: '#4b5563' }}
+              className="flex flex-wrap gap-3"
+              style={{ fontSize: 'clamp(0.75rem, 0.9vw, 0.9rem)', color: '#4b5563' }}
             >
               <span className="flex items-center gap-1">
                 <span style={{ color: '#059669' }}>✓</span>
