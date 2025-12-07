@@ -13,7 +13,7 @@ const menuItems = {
     { href: '/pt/about', label: 'QUEM SOMOS' },
     { href: '/pt/projects', label: 'PROJETOS' },
     { href: '/pt/contact', label: 'CONTATO' },
-    { href: '/pt/regras', label: 'REGRAS' },
+    { href: '/pt/rules', label: 'REGRAS' },
     { href: 'https://www.paypal.com/US/fundraiser/charity/2006255', label: 'DOAR', external: true },
   ],
   en: [
