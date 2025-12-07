@@ -123,3 +123,5 @@ If you discover a security vulnerability, please report it responsibly:
 - Email: associacaonsraa@gmail.com
 - Do not disclose publicly until fixed
 
+
+

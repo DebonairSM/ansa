@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import type { Metadata } from 'next';
-import { getProjects, getProjectBySlug } from '@/lib/localProjects';
+import { getProjects, getProjectBySlug, getAllProjectSlugs } from '@/lib/localProjects';
 import ProjectGallery from '@/components/ProjectGallery';
 
 type Props = {
@@ -11,9 +11,9 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const projects = getProjects('pt');
-  return projects.map((project: any) => ({
-    slug: project.slug,
+  const slugs = getAllProjectSlugs('pt');
+  return slugs.map((slug) => ({
+    slug,
   }));
 }
 

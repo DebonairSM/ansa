@@ -131,3 +131,5 @@ Most images from these folders have been assigned to projects. Remaining images 
 2. Review generic images by date to assign them to appropriate projects
 3. Consider creating a general gallery page for site assets (team photos, logos, etc.)
 
+
+
