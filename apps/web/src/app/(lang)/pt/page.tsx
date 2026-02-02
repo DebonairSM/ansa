@@ -138,8 +138,8 @@ export default function PtHome() {
                 letterSpacing: '-0.025em'
               }}
             >
-              A pobreza infantil no Brasil
-              <span style={{ display: 'block', color: '#047857' }}>caiu.</span>
+              A pobreza infantil no{'\u00A0'}Brasil{'\u00A0'}
+              <span style={{ color: '#047857' }}>caiu.</span>
             </h1>
 
             {/* Sub-headline - gradient text effect */}
