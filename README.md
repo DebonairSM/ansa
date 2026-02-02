@@ -97,18 +97,9 @@ Full project content in Markdown format...
 
 ### Setup
 
-1. **Install dependencies**:
+1. **Install dependencies** (monorepo workspaces install all app dependencies from root):
 
 ```powershell
-# Install root dependencies
-npm install
-
-# Install web app dependencies
-cd apps/web
-npm install
-
-# Install API dependencies (optional)
-cd ../api
 npm install
 ```
 
@@ -138,11 +129,28 @@ Quick steps:
 
 ## Building for Production
 
+From the repository root:
+
 ```powershell
-cd apps/web
-npm run build
-npm start
+# Build the web app (output in apps/web/.next)
+npm run web:build
+
+# Run the production server (port 4545)
+cd apps/web && npm start
 ```
+
+The build does not require `RESEND_API_KEY`; the contact form API will return 503 at runtime if that variable is not set. For production deployment, set `RESEND_API_KEY` in your environment if you use the contact form.
+
+## Host locally with Cloudflare Tunnel
+
+To expose your local instance (port 4545) to the internet without deploying:
+
+1. Install **cloudflared** (e.g. `winget install Cloudflare.cloudflared`).
+2. Start the web app: `npm run web:dev` (or `cd apps/web && npm start` for production build).
+3. Run the quick tunnel: `.\scripts\cloudflared-quick-tunnel.ps1`  
+   You get a public `*.trycloudflare.com` URL; no Cloudflare account required.
+
+For a custom domain and named tunnel, see [docs/CLOUDFLARE_TUNNEL.md](docs/CLOUDFLARE_TUNNEL.md).
 
 ## Deployment to Render.com
 
@@ -172,6 +180,7 @@ git push origin main
 - `NEXT_PUBLIC_API_URL`: `https://ansa-api.onrender.com` (optional)
 - `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase URL (optional)
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase anon key (optional)
+- `RESEND_API_KEY`: Resend API key for contact form email (optional; form returns 503 if unset)
 
 **ansa-api** (optional):
 - `SUPABASE_URL`: Your Supabase URL

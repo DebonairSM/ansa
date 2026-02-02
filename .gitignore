@@ -198,6 +198,13 @@ backup/
 .pnp.*
 
 ############################
+# Cloudflare Tunnel
+############################
+
+cloudflared/config.yml
+cloudflared/*.json
+
+############################
 # Local Development
 ############################
 
