@@ -85,8 +85,9 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Desktop Language Switcher */}
-          <div className="hidden md:block">
+          {/* Desktop Language Switcher - fixed so it doesn't shift under cursor on language toggle */}
+          <div className="hidden md:block w-[11rem] shrink-0" aria-hidden="true" />
+          <div className="hidden md:block md:fixed md:top-4 md:right-6 lg:right-8 md:z-[60]">
             <LanguageSwitcher />
           </div>
 

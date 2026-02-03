@@ -9,6 +9,7 @@
   "scripts": {
     "web:dev": "cd apps/web && npm run dev",
     "web:build": "cd apps/web && npm run build",
+    "db:migrate": "cd apps/web && npm run db:migrate",
     "api:dev": "cd apps/api && npm run dev",
     "api:build": "cd apps/api && npm run build"
   },
