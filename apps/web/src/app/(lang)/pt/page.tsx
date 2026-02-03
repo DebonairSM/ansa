@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import NewsletterSignup from '@/components/newsletter/NewsletterSignup';
 
 export const metadata: Metadata = {
   title: 'ANSA Brasil - Início',
@@ -663,10 +664,11 @@ export default function PtHome() {
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Mantendo Contato</h3>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-gray-700 mb-6">
                 Junte-se à nossa lista de e-mails e nós o informaremos sobre os projetos e as
                 comunidades com as quais trabalhamos.
               </p>
+              <NewsletterSignup locale="pt" variant="inline" />
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Doando</h3>

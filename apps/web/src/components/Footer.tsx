@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import NewsletterSignup from '@/components/newsletter/NewsletterSignup';
 
 const footerContent = {
   pt: {
@@ -22,8 +22,6 @@ const footerContent = {
     },
     newsletter: {
       title: 'Fique por Dentro',
-      placeholder: 'Seu e-mail',
-      button: 'Inscrever-se',
     },
   },
   en: {
@@ -41,8 +39,6 @@ const footerContent = {
     },
     newsletter: {
       title: 'Stay Updated',
-      placeholder: 'Your email',
-      button: 'Subscribe',
     },
   },
 };
@@ -52,45 +48,6 @@ export default function Footer({ locale: localeProp }: { locale?: 'pt' | 'en' })
   const locale: 'pt' | 'en' =
     localeProp ?? (pathname?.startsWith('/en') ? 'en' : 'pt');
   const content = footerContent[locale];
-
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [message, setMessage] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setStatus('loading');
-    setMessage('');
-    try {
-      const res = await fetch('/api/newsletter/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), locale }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setStatus('error');
-        setMessage(data?.error ?? 'Something went wrong.');
-        return;
-      }
-      if (data.status === 'already_subscribed') {
-        setStatus('success');
-        setMessage(locale === 'en' ? 'You are already subscribed.' : 'Você já está inscrito.');
-        return;
-      }
-      setStatus('success');
-      setMessage(
-        locale === 'en'
-          ? 'Check your email to confirm your subscription.'
-          : 'Confira seu e-mail para confirmar a inscrição.'
-      );
-      setEmail('');
-    } catch {
-      setStatus('error');
-      setMessage(locale === 'en' ? 'Something went wrong.' : 'Algo deu errado.');
-    }
-  };
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -133,37 +90,7 @@ export default function Footer({ locale: localeProp }: { locale?: 'pt' | 'en' })
           {/* Newsletter */}
           <div>
             <h3 className="text-xl font-bold mb-6">{content.newsletter.title}</h3>
-            <form className="space-y-3" onSubmit={handleSubmit}>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={content.newsletter.placeholder}
-                disabled={status === 'loading'}
-                className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-yellow-500 disabled:opacity-70"
-                required
-              />
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:opacity-70 text-white font-semibold px-6 py-2 rounded transition-colors"
-              >
-                {status === 'loading'
-                  ? locale === 'en'
-                    ? 'Subscribing...'
-                    : 'Inscrevendo...'
-                  : content.newsletter.button}
-              </button>
-              {message && (
-                <p
-                  className={`text-sm ${
-                    status === 'error' ? 'text-red-400' : 'text-gray-300'
-                  }`}
-                >
-                  {message}
-                </p>
-              )}
-            </form>
+            <NewsletterSignup locale={locale} variant="footer" />
           </div>
         </div>
 

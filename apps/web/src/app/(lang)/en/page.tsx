@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import NewsletterSignup from '@/components/newsletter/NewsletterSignup';
 
 export const metadata: Metadata = {
   title: 'ANSA Brasil - Home',
@@ -662,10 +663,11 @@ export default function EnHome() {
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Staying in Touch</h3>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-gray-700 mb-6">
                 Join our email list and we will keep you informed about the projects and
                 communities we work with.
               </p>
+              <NewsletterSignup locale="en" variant="inline" />
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Donating</h3>
