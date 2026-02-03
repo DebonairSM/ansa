@@ -83,6 +83,12 @@ export default function Navigation() {
                 </Link>
               )
             ))}
+            <Link
+              href="/admin/newsletter"
+              className="text-sm font-semibold text-gray-500 hover:text-yellow-600 transition-colors no-underline"
+            >
+              Admin
+            </Link>
           </div>
 
           {/* Desktop Language Switcher - fixed so it doesn't shift under cursor on language toggle */}
@@ -136,6 +142,13 @@ export default function Navigation() {
                   </Link>
                 )
               ))}
+              <Link
+                href="/admin/newsletter"
+                className="text-base font-semibold text-gray-500 hover:text-yellow-600 transition-colors no-underline"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Admin
+              </Link>
               <div className="pt-4 border-t">
                 <LanguageSwitcher />
               </div>
