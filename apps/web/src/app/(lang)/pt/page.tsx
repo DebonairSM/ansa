@@ -668,12 +668,12 @@ export default function PtHome() {
                 Junte-se à nossa lista de e-mails e nós o informaremos sobre os projetos e as
                 comunidades com as quais trabalhamos (inscreva-se na seção abaixo).
               </p>
-              <Link
+              <a
                 href="#newsletter"
                 className="inline-block mt-4 text-yellow-600 font-semibold hover:text-yellow-700"
               >
                 Ir para a inscrição
-              </Link>
+              </a>
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Doando</h3>

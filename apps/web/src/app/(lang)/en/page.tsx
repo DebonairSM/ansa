@@ -667,12 +667,12 @@ export default function EnHome() {
                 Join our email list and we will keep you informed about the projects and
                 communities we work with (sign up in the section below).
               </p>
-              <Link
+              <a
                 href="#newsletter"
                 className="inline-block mt-4 text-yellow-600 font-semibold hover:text-yellow-700"
               >
                 Go to newsletter signup
-              </Link>
+              </a>
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Donating</h3>
