@@ -667,6 +667,12 @@ export default function EnHome() {
                 Join our email list and we will keep you informed about the projects and
                 communities we work with (sign up in the section below).
               </p>
+              <Link
+                href="#newsletter"
+                className="inline-block mt-4 text-yellow-600 font-semibold hover:text-yellow-700"
+              >
+                Go to newsletter signup
+              </Link>
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Donating</h3>
@@ -687,7 +693,7 @@ export default function EnHome() {
       </section>
 
       {/* Newsletter signup */}
-      <section className="py-16 px-4 bg-white border-y border-gray-200">
+      <section id="newsletter" className="py-16 px-4 bg-white border-y border-gray-200">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Stay Updated</h2>
           <p className="text-gray-600 mb-8">

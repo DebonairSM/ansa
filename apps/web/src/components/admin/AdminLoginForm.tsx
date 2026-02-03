@@ -2,7 +2,11 @@
 
 import { useState } from 'react';
 
-export default function AdminLoginForm() {
+type AdminLoginFormProps = {
+  redirectTo?: string;
+};
+
+export default function AdminLoginForm({ redirectTo = '/admin/newsletter' }: AdminLoginFormProps) {
   const [secret, setSecret] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,7 +27,7 @@ export default function AdminLoginForm() {
         throw new Error('Invalid secret');
       }
 
-      window.location.reload();
+      window.location.assign(redirectTo);
     } catch {
       setError('Invalid admin secret.');
     } finally {

@@ -47,8 +47,9 @@ export default function SubscribersTable({ subscribers }: { subscribers: Sub[] }
   };
 
   return (
-    <div>
-      <div className="mb-4 flex justify-end">
+    <div className="bg-white border border-gray-200 rounded-lg shadow-soft p-4">
+      <div className="mb-4 flex items-center justify-between">
+        <p className="text-sm text-gray-600">{subscribers.length} subscribers</p>
         <button
           type="button"
           onClick={downloadCSV}
@@ -57,7 +58,7 @@ export default function SubscribersTable({ subscribers }: { subscribers: Sub[] }
           Export CSV
         </button>
       </div>
-      <div className="overflow-x-auto border border-gray-200 rounded bg-white">
+      <div className="overflow-x-auto border border-gray-200 rounded">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
@@ -95,7 +96,6 @@ export default function SubscribersTable({ subscribers }: { subscribers: Sub[] }
           </tbody>
         </table>
       </div>
-      <p className="mt-2 text-sm text-gray-500">{subscribers.length} subscribers</p>
     </div>
   );
 }

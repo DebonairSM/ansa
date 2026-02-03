@@ -52,49 +52,53 @@ export default function NewsletterUnsubscribePage({ locale }: Props) {
 
   if (!token) {
     return (
-      <div className="max-w-xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">{content.title}</h1>
-        <p className="text-red-600 mb-6">{content.error}</p>
-        <Link
-          href={`/${locale}`}
-          className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded"
-        >
-          {content.back}
-        </Link>
+      <div className="max-w-xl mx-auto px-4 py-16">
+        <div className="bg-white border border-gray-200 rounded-lg shadow-soft p-8 text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-6">{content.title}</h1>
+          <p className="text-red-600 mb-6">{content.error}</p>
+          <Link
+            href={`/${locale}`}
+            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded"
+          >
+            {content.back}
+          </Link>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-xl mx-auto px-4 py-16 text-center">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">{content.title}</h1>
-      {status === 'idle' && (
-        <>
-          <p className="text-gray-700 mb-6">{content.confirm}</p>
-          <button
-            type="button"
-            onClick={handleUnsubscribe}
-            className="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-6 py-2 rounded"
+    <div className="max-w-xl mx-auto px-4 py-16">
+      <div className="bg-white border border-gray-200 rounded-lg shadow-soft p-8 text-center">
+        <h1 className="text-2xl font-bold text-gray-900 mb-6">{content.title}</h1>
+        {status === 'idle' && (
+          <>
+            <p className="text-gray-700 mb-6">{content.confirm}</p>
+            <button
+              type="button"
+              onClick={handleUnsubscribe}
+              className="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-6 py-2 rounded"
+            >
+              {content.button}
+            </button>
+          </>
+        )}
+        {status === 'loading' && <p className="text-gray-600">...</p>}
+        {status === 'success' && (
+          <p className="text-gray-700 mb-6">{content.success}</p>
+        )}
+        {status === 'error' && (
+          <p className="text-red-600 mb-6">{content.error}</p>
+        )}
+        {(status === 'success' || status === 'error') && (
+          <Link
+            href={`/${locale}`}
+            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded"
           >
-            {content.button}
-          </button>
-        </>
-      )}
-      {status === 'loading' && <p className="text-gray-600">...</p>}
-      {status === 'success' && (
-        <p className="text-gray-700 mb-6">{content.success}</p>
-      )}
-      {status === 'error' && (
-        <p className="text-red-600 mb-6">{content.error}</p>
-      )}
-      {(status === 'success' || status === 'error') && (
-        <Link
-          href={`/${locale}`}
-          className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded"
-        >
-          {content.back}
-        </Link>
-      )}
+            {content.back}
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

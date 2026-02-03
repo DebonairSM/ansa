@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import AdminLoginForm from './AdminLoginForm';
+import { redirect } from 'next/navigation';
 import { getAdminCookieName, isAdminSessionValid } from '@/lib/adminAuth';
 
 type AdminGateProps = {
@@ -21,13 +21,7 @@ export default function AdminGate({ children }: AdminGateProps) {
   const isAuthed = isAdminSessionValid(cookieValue, secret);
 
   if (!isAuthed) {
-    return (
-      <div className="max-w-xl mx-auto p-6 bg-white border border-gray-200 rounded shadow-sm">
-        <h2 className="text-2xl font-semibold mb-2">Admin sign-in</h2>
-        <p className="text-sm text-gray-600 mb-4">Enter the admin secret to continue.</p>
-        <AdminLoginForm />
-      </div>
-    );
+    redirect('/admin/login');
   }
 
   return <>{children}</>;

@@ -14,6 +14,7 @@ const menuItems = {
     { href: '/pt/projects', label: 'PROJETOS' },
     { href: '/pt/contact', label: 'CONTATO' },
     { href: '/pt/rules', label: 'REGRAS' },
+    { href: '/pt#newsletter', label: 'NEWSLETTER' },
     { href: 'https://www.paypal.com/US/fundraiser/charity/2006255', label: 'DOAR', external: true },
   ],
   en: [
@@ -22,6 +23,7 @@ const menuItems = {
     { href: '/en/projects', label: 'PROJECTS' },
     { href: '/en/contact', label: 'CONTACT' },
     { href: '/en/rules', label: 'TERMS' },
+    { href: '/en#newsletter', label: 'NEWSLETTER' },
     { href: 'https://www.paypal.com/US/fundraiser/charity/2006255', label: 'DONATE', external: true },
   ],
 };

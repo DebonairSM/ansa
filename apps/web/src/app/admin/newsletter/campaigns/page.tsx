@@ -39,9 +39,12 @@ export default async function AdminCampaignsPage() {
           New campaign
         </Link>
       </div>
-      <div className="border border-gray-200 rounded bg-white divide-y divide-gray-200">
+      <div className="border border-gray-200 rounded-lg bg-white divide-y divide-gray-200 shadow-soft">
         {list.length === 0 ? (
-          <p className="px-4 py-8 text-gray-500 text-center">No campaigns yet. Create one to get started.</p>
+          <div className="px-4 py-8 text-center">
+            <p className="text-gray-600">No campaigns yet. Create one to get started.</p>
+            <p className="text-sm text-gray-500 mt-2">Use the newsletter form on the homepage to grow your list.</p>
+          </div>
         ) : (
           list.map((c: { id: string; title: string; status: string; created_at?: string; sent_at?: string }) => (
             <Link

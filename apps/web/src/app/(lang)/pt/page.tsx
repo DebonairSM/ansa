@@ -668,6 +668,12 @@ export default function PtHome() {
                 Junte-se à nossa lista de e-mails e nós o informaremos sobre os projetos e as
                 comunidades com as quais trabalhamos (inscreva-se na seção abaixo).
               </p>
+              <Link
+                href="#newsletter"
+                className="inline-block mt-4 text-yellow-600 font-semibold hover:text-yellow-700"
+              >
+                Ir para a inscrição
+              </Link>
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Doando</h3>
@@ -688,7 +694,7 @@ export default function PtHome() {
       </section>
 
       {/* Newsletter signup */}
-      <section className="py-16 px-4 bg-white border-y border-gray-200">
+      <section id="newsletter" className="py-16 px-4 bg-white border-y border-gray-200">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Fique por Dentro</h2>
           <p className="text-gray-600 mb-8">

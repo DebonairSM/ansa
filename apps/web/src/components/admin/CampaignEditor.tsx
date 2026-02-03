@@ -111,6 +111,7 @@ export default function CampaignEditor({
 
   return (
     <div>
+      <p className="text-sm text-gray-500 mb-2">Campaigns</p>
       <div className="flex items-center gap-4 mb-6">
         <Link
           href="/admin/newsletter/campaigns"
@@ -125,32 +126,34 @@ export default function CampaignEditor({
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-4">
-          <BlockEditor content={content} onChange={setContent} />
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={handleSave}
-              disabled={saving}
-              className="bg-yellow-500 hover:bg-yellow-600 disabled:opacity-70 text-white font-semibold px-4 py-2 rounded"
-            >
-              {saving ? 'Saving...' : 'Save'}
-            </button>
-            {canSend && (
+          <div className="bg-white border border-gray-200 rounded-lg shadow-soft p-6">
+            <BlockEditor content={content} onChange={setContent} />
+            <div className="flex flex-wrap items-center gap-3 mt-6">
               <button
                 type="button"
-                onClick={handleSend}
-                disabled={sending}
-                className="bg-gray-800 hover:bg-gray-900 disabled:opacity-70 text-white font-semibold px-4 py-2 rounded"
+                onClick={handleSave}
+                disabled={saving}
+                className="bg-yellow-500 hover:bg-yellow-600 disabled:opacity-70 text-white font-semibold px-4 py-2 rounded"
               >
-                {sending ? 'Sending...' : 'Send campaign'}
+                {saving ? 'Saving...' : 'Save'}
               </button>
-            )}
+              {canSend && (
+                <button
+                  type="button"
+                  onClick={handleSend}
+                  disabled={sending}
+                  className="bg-gray-800 hover:bg-gray-900 disabled:opacity-70 text-white font-semibold px-4 py-2 rounded"
+                >
+                  {sending ? 'Sending...' : 'Send campaign'}
+                </button>
+              )}
+            </div>
+            {saveError && <p className="text-sm text-red-600 mt-3">{saveError}</p>}
+            {sendError && <p className="text-sm text-red-600 mt-3">{sendError}</p>}
           </div>
-          {saveError && <p className="text-sm text-red-600">{saveError}</p>}
-          {sendError && <p className="text-sm text-red-600">{sendError}</p>}
         </div>
 
-        <div className="border border-gray-200 rounded bg-white overflow-hidden">
+        <div className="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-soft">
           <div className="px-4 py-2 bg-gray-100 border-b border-gray-200 text-sm font-medium text-gray-700">
             Email preview
           </div>
