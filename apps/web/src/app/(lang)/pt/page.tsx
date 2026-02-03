@@ -664,11 +664,10 @@ export default function PtHome() {
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Mantendo Contato</h3>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-lg text-gray-700">
                 Junte-se à nossa lista de e-mails e nós o informaremos sobre os projetos e as
-                comunidades com as quais trabalhamos.
+                comunidades com as quais trabalhamos (inscreva-se na seção abaixo).
               </p>
-              <NewsletterSignup locale="pt" variant="inline" />
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-4">Doando</h3>
@@ -685,6 +684,17 @@ export default function PtHome() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Newsletter signup */}
+      <section className="py-16 px-4 bg-white border-y border-gray-200">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Fique por Dentro</h2>
+          <p className="text-gray-600 mb-8">
+            Junte-se à nossa lista de e-mails para receber notícias sobre os projetos e as comunidades com as quais trabalhamos.
+          </p>
+          <NewsletterSignup locale="pt" variant="inline" />
         </div>
       </section>
 
