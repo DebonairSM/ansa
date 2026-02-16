@@ -76,6 +76,15 @@ export default function AboutUs() {
             <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">
               We are a group of volunteers in the Washington, DC region, passionate about Brazil
             </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="https://www.paypal.com/US/fundraiser/charity/2006255"
+                target="_blank"
+                className="inline-block bg-white text-yellow-700 hover:bg-yellow-50 font-bold px-8 py-4 rounded-lg transition-colors"
+              >
+                Donate Now
+              </Link>
+            </div>
           </div>
         </div>
         

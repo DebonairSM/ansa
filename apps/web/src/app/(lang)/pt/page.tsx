@@ -18,273 +18,45 @@ export const metadata: Metadata = {
 export default function PtHome() {
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #fef3c7 0%, #fefce8 15%, #fffdf7 30%, #ffffff 50%)' }}>
-      {/* Hero Section - matching hero-mockup.html exactly */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(1.1); }
-        }
-        .hero-container {
-          display: flex;
-          flex-direction: column;
-          background: linear-gradient(180deg, #fef3c7 0%, #fefce8 30%, #fffdf7 60%, #ffffff 100%);
-        }
-        .hero-img-section {
-          width: 100%;
-          height: 40vh;
-          position: relative;
-          overflow: hidden;
-          background: transparent;
-        }
-        .hero-txt-section {
-          width: 100%;
-          display: flex;
-          align-items: flex-start;
-          justify-content: center;
-          padding: 2.5rem 1.5rem;
-          background: transparent;
-        }
-        @media (min-width: 1024px) {
-          .hero-container {
-            flex-direction: row;
-            align-items: stretch;
-            background: linear-gradient(135deg, #fef3c7 0%, #fefce8 40%, #ffffff 100%);
-          }
-          .hero-img-section {
-            width: 50%;
-            height: auto;
-            min-height: 560px;
-          }
-          .hero-txt-section {
-            width: 50%;
-            padding: 2.5rem 3rem;
-            align-items: flex-start;
-          }
-        }
-        @media (min-width: 1440px) {
-          .hero-txt-section {
-            padding: 3rem 4rem;
-          }
-        }
-      `}} />
-      <div className="hero-container">
-        {/* Image Section - Left (2/3 on desktop) */}
-        <div className="hero-img-section relative" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
-          <img
-            src="/uploads/2020/11/Ansa-Children.jpg"
-            alt="Crianças brasileiras sorrindo em um projeto social"
-            className="w-full object-cover"
-            style={{ 
-              maxHeight: '100%', 
-              position: 'relative', 
-              zIndex: 1,
-              maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)'
-            }}
-          />
-          {/* Bottom gradient on mobile - blends image into page gradient */}
-          <div 
-            className="absolute bottom-0 left-0 right-0 pointer-events-none lg:hidden"
-            style={{ 
-              background: 'linear-gradient(to bottom, transparent 0%, rgba(254, 243, 199, 0.4) 40%, rgba(254, 252, 232, 0.8) 70%, #fefce8 100%)',
-              height: '50%',
-              zIndex: 20
-            }}
-          />
-          {/* Right gradient on desktop - blends into content */}
-          <div 
-            className="absolute top-0 bottom-0 right-0 pointer-events-none hidden lg:block"
-            style={{ 
-              background: 'linear-gradient(to right, transparent 0%, rgba(254, 252, 232, 0.5) 50%, rgba(255, 253, 247, 0.9) 100%)',
-              width: '40%',
-              zIndex: 20
-            }}
-          />
-        </div>
-
-        {/* Content Section - Right (1/3 on desktop) - 2025 UI/UX */}
-        <div className="hero-txt-section">
-          <div className="w-full max-w-[36rem]">
-            {/* Eyebrow label */}
-            <div 
-              className="inline-flex items-center gap-2 mb-4"
-              style={{
-                padding: '0.375rem 0.875rem',
-                background: 'rgba(245, 158, 11, 0.12)',
-                borderRadius: '100px',
-                fontSize: 'clamp(0.7rem, 0.85vw, 0.8rem)',
-                fontWeight: 600,
-                color: '#b45309',
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase'
-              }}
-            >
-              <span style={{ 
-                width: '6px', 
-                height: '6px', 
-                background: '#f59e0b', 
-                borderRadius: '50%',
-                animation: 'pulse 2s infinite'
-              }} />
-              Fazendo a diferença desde 1982
-            </div>
-
-            {/* Headline - tight tracking, dramatic weight */}
-            <h1 
-              className="leading-[1.05] mb-3"
-              style={{ 
-                fontSize: 'clamp(2rem, 3vw, 3rem)', 
-                fontWeight: 800,
-                color: '#0f172a',
-                letterSpacing: '-0.025em'
-              }}
-            >
-              A pobreza infantil no{'\u00A0'}Brasil{'\u00A0'}
-              <span style={{ color: '#047857' }}>caiu.</span>
-            </h1>
-
-            {/* Sub-headline - gradient text effect */}
-            <p 
-              className="mb-5"
-              style={{ 
-                fontSize: 'clamp(1.125rem, 1.5vw, 1.375rem)', 
-                fontWeight: 700,
-                background: 'linear-gradient(135deg, #d97706 0%, #ea580c 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}
-            >
-              Com você, pode cair ainda mais.
+      {/* Hero Section - Quem Somos */}
+      <section className="bg-gray-900">
+        <div className="bg-yellow-500 text-white py-16 px-4">
+          <div className="max-w-5xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Quem Somos</h1>
+            <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">
+              Somos um grupo de voluntários na região de Washington, DC, apaixonados pelo Brasil
             </p>
-
-            {/* Body copy - refined line height */}
-            <p 
-              className="mb-6"
-              style={{ 
-                fontSize: 'clamp(0.95rem, 1.1vw, 1.0625rem)', 
-                color: '#475569', 
-                lineHeight: 1.7,
-                maxWidth: '32rem'
-              }}
-            >
-              Desde 2017, a pobreza infantil diminuiu—mas milhões de crianças ainda precisam de apoio diário. 
-              Sua doação transforma dados em ação: educação, proteção e nutrição.
-            </p>
-
-            {/* Metrics Card - Glass morphism 2025 */}
-            <div 
-              className="rounded-2xl mb-6"
-              style={{ 
-                padding: 'clamp(1.25rem, 1.75vw, 1.75rem)',
-                background: 'rgba(255, 255, 255, 0.7)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(251, 191, 36, 0.25)',
-                boxShadow: '0 4px 24px -4px rgba(251, 191, 36, 0.15), 0 0 0 1px rgba(255,255,255,0.5) inset'
-              }}
-            >
-              {/* Progress badge */}
-              <div 
-                className="mb-4"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.375rem',
-                  padding: '0.25rem 0.625rem',
-                  background: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
-                  borderRadius: '6px',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  color: '#166534'
-                }}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="https://www.paypal.com/US/fundraiser/charity/2006255"
+                target="_blank"
+                className="inline-block bg-white text-yellow-700 hover:bg-yellow-50 font-bold px-8 py-4 rounded-lg transition-colors"
               >
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{ flexShrink: 0 }}>
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Redução de 16,7% alcançada</span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-6">
-                {/* 2017 Metric */}
-                <div>
-                  <p 
-                    className="uppercase mb-2"
-                    style={{ fontSize: '0.7rem', fontWeight: 600, color: '#64748b', letterSpacing: '0.1em' }}
-                  >
-                    2017
-                  </p>
-                  <div className="flex items-baseline gap-1">
-                    <span 
-                      style={{ 
-                        fontSize: 'clamp(2.25rem, 3vw, 3rem)', 
-                        fontWeight: 800, 
-                        color: '#334155',
-                        lineHeight: 1,
-                        fontVariantNumeric: 'tabular-nums'
-                      }}
-                    >
-                      6
-                    </span>
-                    <span style={{ fontSize: '1.5rem', fontWeight: 600, color: '#64748b' }}>/10</span>
-                  </div>
-                  <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.25rem' }}>
-                    crianças em pobreza
-                  </p>
-                </div>
-
-                {/* Today Metric - highlighted */}
-                <div 
-                  className="rounded-xl"
-                  style={{ 
-                    padding: '1rem',
-                    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.12) 100%)',
-                    marginLeft: '-0.5rem',
-                    marginRight: '-0.5rem'
-                  }}
-                >
-                  <p 
-                    className="uppercase mb-2"
-                    style={{ fontSize: '0.7rem', fontWeight: 700, color: '#059669', letterSpacing: '0.1em' }}
-                  >
-                    Hoje
-                  </p>
-                  <div className="flex items-baseline gap-1">
-                    <span 
-                      style={{ 
-                        fontSize: 'clamp(2.25rem, 3vw, 3rem)', 
-                        fontWeight: 800, 
-                        color: '#059669',
-                        lineHeight: 1,
-                        fontVariantNumeric: 'tabular-nums'
-                      }}
-                    >
-                      5
-                    </span>
-                    <span style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10b981' }}>/10</span>
-                  </div>
-                  <p style={{ fontSize: '0.8rem', color: '#047857', fontWeight: 500, marginTop: '0.25rem' }}>
-                    crianças em pobreza
-                  </p>
-                </div>
-              </div>
-
-              {/* Source */}
-              <p 
-                className="mt-4 pt-3"
-                style={{ 
-                  fontSize: '0.7rem', 
-                  color: '#94a3b8',
-                  borderTop: '1px solid rgba(148, 163, 184, 0.2)'
-                }}
+                Fazer uma Doação
+              </Link>
+              <Link
+                href="/pt/about"
+                className="inline-block border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg transition-colors"
               >
-                Fonte: Relatório UNICEF 2023
-              </p>
+                Conheça nossa equipe
+              </Link>
             </div>
-
           </div>
         </div>
-      </div>
+        <div className="bg-gray-100 py-8 px-4">
+          <div className="max-w-5xl mx-auto">
+            <Image
+              src="/uploads/2021/03/Solar-Menino-da-Luz1.jpg"
+              alt="Crianças em um projeto social apoiado pela ANSA"
+              width={1920}
+              height={1080}
+              priority
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="w-full h-auto rounded-lg shadow-xl"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section - Centered below hero */}
       <div 
@@ -518,7 +290,7 @@ export default function PtHome() {
       {/* About Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">Quem Somos</h2>
+          <h2 className="text-4xl font-bold text-center mb-12">Nossa Missão</h2>
           <div className="max-w-3xl mx-auto text-center mb-16">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
               A Associação Nossa Senhora Aparecida (ANSA) é uma associação, criada em 1982,
@@ -533,6 +305,14 @@ export default function PtHome() {
               Todos os membros da ANSA, sem exceção, são voluntários, que generosamente
               colaboram nesta missão.
             </p>
+            <div className="mt-6">
+              <Link
+                href="/pt/about"
+                className="inline-block text-yellow-600 hover:text-yellow-700 font-semibold"
+              >
+                Conheça nossa equipe →
+              </Link>
+            </div>
           </div>
 
           {/* Supported Institutions Grid */}

@@ -76,6 +76,15 @@ export default function AboutPt() {
             <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">
               Somos um grupo de voluntários na região de Washington, DC, apaixonados pelo Brasil
             </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="https://www.paypal.com/US/fundraiser/charity/2006255"
+                target="_blank"
+                className="inline-block bg-white text-yellow-700 hover:bg-yellow-50 font-bold px-8 py-4 rounded-lg transition-colors"
+              >
+                Fazer uma Doação
+              </Link>
+            </div>
           </div>
         </div>
         
