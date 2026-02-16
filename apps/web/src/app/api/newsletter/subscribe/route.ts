@@ -62,6 +62,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, status: 'pending' });
   } catch (error) {
     console.error('Newsletter subscribe error:', error);
+    const message = error instanceof Error ? error.message : String(error);
+    const causeMessage =
+      error instanceof Error && error.cause instanceof Error ? (error.cause as Error).message : '';
+    const isConnectionError =
+      /ENOTFOUND|ECONNREFUSED|ETIMEDOUT|getaddrinfo|fetch failed/i.test(message) ||
+      /ENOTFOUND|ECONNREFUSED|ETIMEDOUT|getaddrinfo/i.test(causeMessage);
+    if (isConnectionError) {
+      return NextResponse.json(
+        { error: 'Service temporarily unavailable. Please try again in a moment.' },
+        { status: 503 }
+      );
+    }
     return NextResponse.json({ error: 'Failed to subscribe' }, { status: 500 });
   }
 }
