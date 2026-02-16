@@ -21,7 +21,7 @@ export default function PtHome() {
     <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #fef3c7 0%, #fefce8 15%, #fffdf7 30%, #ffffff 50%)' }}>
       {/* Hero Section - Quem Somos */}
       <section className="bg-gray-900">
-        <div className="bg-yellow-500 text-white py-16 px-4">
+        <div className="py-16 px-4 text-gray-900 bg-[linear-gradient(145deg,_#fef3c7_0%,_#fde68a_50%,_#fcd34d_100%)]">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">Quem Somos</h1>
             <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">
@@ -31,13 +31,13 @@ export default function PtHome() {
               <Link
                 href="https://www.paypal.com/US/fundraiser/charity/2006255"
                 target="_blank"
-                className="inline-block bg-white text-yellow-700 hover:bg-yellow-50 font-bold px-8 py-4 rounded-lg transition-colors"
+                className="inline-block bg-white text-amber-800 hover:bg-amber-50 font-bold px-8 py-4 rounded-lg transition-colors"
               >
                 Fazer uma Doação
               </Link>
               <Link
                 href="/pt/about"
-                className="inline-block border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg transition-colors"
+                className="inline-block border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-semibold px-8 py-4 rounded-lg transition-colors"
               >
                 Conheça nossa equipe
               </Link>
@@ -205,7 +205,7 @@ export default function PtHome() {
           style={{ 
             width: '280px',
             height: '4px',
-            background: '#eab308',
+            background: '#fcd34d',
             borderRadius: '2px'
           }}
         />
@@ -356,24 +356,24 @@ export default function PtHome() {
       </section>
 
       {/* Impact Statistics */}
-      <section className="py-16 px-4 bg-yellow-500">
+      <section className="py-16 px-4 bg-[linear-gradient(180deg,_#fef3c7_0%,_#fde68a_100%)]">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-              <p className="text-5xl font-bold mb-2 text-white drop-shadow-md">24</p>
-              <p className="text-lg text-white font-semibold">Projetos Apoiados</p>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              <p className="text-5xl font-bold mb-2 text-gray-900">24</p>
+              <p className="text-lg text-gray-800 font-semibold">Projetos Apoiados</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-              <p className="text-5xl font-bold mb-2 text-white drop-shadow-md">10+</p>
-              <p className="text-lg text-white font-semibold">Estados Alcançados</p>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              <p className="text-5xl font-bold mb-2 text-gray-900">10+</p>
+              <p className="text-lg text-gray-800 font-semibold">Estados Alcançados</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-              <p className="text-5xl font-bold mb-2 text-white drop-shadow-md">43+</p>
-              <p className="text-lg text-white font-semibold">Anos de Missão</p>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              <p className="text-5xl font-bold mb-2 text-gray-900">43+</p>
+              <p className="text-lg text-gray-800 font-semibold">Anos de Missão</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-              <p className="text-5xl font-bold mb-2 text-white drop-shadow-md">100%</p>
-              <p className="text-lg text-white font-semibold">Voluntário</p>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              <p className="text-5xl font-bold mb-2 text-gray-900">100%</p>
+              <p className="text-lg text-gray-800 font-semibold">Voluntário</p>
             </div>
           </div>
         </div>
