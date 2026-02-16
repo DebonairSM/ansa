@@ -85,12 +85,14 @@ export default function Navigation() {
                 </Link>
               )
             ))}
+            {/* Admin link hidden for now
             <Link
               href="/admin/newsletter"
               className="text-sm font-semibold text-gray-500 hover:text-yellow-600 transition-colors no-underline"
             >
               Admin
             </Link>
+            */}
           </div>
 
           {/* Desktop Language Switcher - fixed so it doesn't shift under cursor on language toggle */}
@@ -144,6 +146,7 @@ export default function Navigation() {
                   </Link>
                 )
               ))}
+              {/* Admin link hidden for now
               <Link
                 href="/admin/newsletter"
                 className="text-base font-semibold text-gray-500 hover:text-yellow-600 transition-colors no-underline"
@@ -151,6 +154,7 @@ export default function Navigation() {
               >
                 Admin
               </Link>
+              */}
               <div className="pt-4 border-t">
                 <LanguageSwitcher />
               </div>

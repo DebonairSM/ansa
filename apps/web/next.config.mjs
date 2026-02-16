@@ -24,17 +24,19 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https:",
       "font-src 'self' data:",
-      "connect-src 'self' https://ansa-api.onrender.com",
+      "connect-src 'self' https://ansa-api.onrender.com https://cloudflareinsights.com https://static.cloudflareinsights.com",
       "frame-ancestors 'none'",
     ].join('; '),
   },
 ];
 
 const nextConfig = {
+  // Allow cross-origin requests from production domain during development (e.g. preview from ansabrasil.org)
+  allowedDevOrigins: ['ansabrasil.org', 'https://ansabrasil.org'],
   images: {
     remotePatterns: [
       // Only allow images from trusted sources
