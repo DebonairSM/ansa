@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import NewsletterSignup from '@/components/newsletter/NewsletterSignup';
+import HeroCollage from '@/components/HeroCollage';
 
 export const metadata: Metadata = {
   title: 'ANSA Brasil - Início',
@@ -24,7 +25,7 @@ export default function PtHome() {
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">Quem Somos</h1>
             <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">
-              Somos um grupo de voluntários na região de Washington, DC, apaixonados pelo Brasil
+              A Associação Nossa Senhora Aparecida reúne voluntários na região de Washington, DC, dedicados ao apoio a crianças, mulheres e comunidades carentes no Brasil, por meio de instituições parceiras em todo o país.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -44,17 +45,7 @@ export default function PtHome() {
           </div>
         </div>
         <div className="bg-gray-100 py-8 px-4">
-          <div className="max-w-5xl mx-auto">
-            <Image
-              src="/uploads/2021/03/Solar-Menino-da-Luz1.jpg"
-              alt="Crianças em um projeto social apoiado pela ANSA"
-              width={1920}
-              height={1080}
-              priority
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              className="w-full h-auto rounded-lg shadow-xl"
-            />
-          </div>
+          <HeroCollage ariaLabel="Colagem de projetos comunitários da ANSA no Brasil" />
         </div>
       </section>
 

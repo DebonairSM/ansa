@@ -74,7 +74,7 @@ export default function AboutPt() {
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">Quem Somos</h1>
             <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">
-              Somos um grupo de voluntários na região de Washington, DC, apaixonados pelo Brasil
+              A Associação Nossa Senhora Aparecida reúne voluntários na região de Washington, DC, dedicados ao apoio a crianças, mulheres e comunidades carentes no Brasil, por meio de instituições parceiras em todo o país.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link

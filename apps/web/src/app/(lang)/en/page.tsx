@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import NewsletterSignup from '@/components/newsletter/NewsletterSignup';
+import HeroCollage from '@/components/HeroCollage';
 
 export const metadata: Metadata = {
   title: 'ANSA Brasil - Home',
@@ -18,13 +19,13 @@ export const metadata: Metadata = {
 export default function EnHome() {
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #fef3c7 0%, #fefce8 15%, #fffdf7 30%, #ffffff 50%)' }}>
-      {/* Hero Section - About */}
+      {/* Hero Section - Who We Are */}
       <section className="bg-gray-900">
         <div className="bg-yellow-500 text-white py-16 px-4">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">Who We Are</h1>
             <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">
-              We are a group of volunteers in the Washington, DC area, passionate about Brazil.
+              Associação Nossa Senhora Aparecida (ANSA) brings together volunteers in the Washington, DC area who support children, women, and underserved communities in Brazil through partner institutions across the country.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -32,7 +33,7 @@ export default function EnHome() {
                 target="_blank"
                 className="inline-block bg-white text-yellow-700 hover:bg-yellow-50 font-bold px-8 py-4 rounded-lg transition-colors"
               >
-                Donate Now
+                Make a Donation
               </Link>
               <Link
                 href="/en/about"
@@ -44,17 +45,7 @@ export default function EnHome() {
           </div>
         </div>
         <div className="bg-gray-100 py-8 px-4">
-          <div className="max-w-5xl mx-auto">
-            <Image
-              src="/uploads/2021/03/Solar-Menino-da-Luz1.jpg"
-              alt="Children at a community project supported by ANSA"
-              width={1920}
-              height={1080}
-              priority
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              className="w-full h-auto rounded-lg shadow-xl"
-            />
-          </div>
+          <HeroCollage ariaLabel="Collage of ANSA community projects across Brazil" />
         </div>
       </section>
 

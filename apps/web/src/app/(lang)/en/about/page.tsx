@@ -74,7 +74,7 @@ export default function AboutUs() {
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">About Us</h1>
             <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">
-              We are a group of volunteers in the Washington, DC region, passionate about Brazil
+              Associação Nossa Senhora Aparecida (ANSA) brings together volunteers in the Washington, DC area who support children, women, and underserved communities in Brazil through partner institutions across the country.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -82,7 +82,7 @@ export default function AboutUs() {
                 target="_blank"
                 className="inline-block bg-white text-yellow-700 hover:bg-yellow-50 font-bold px-8 py-4 rounded-lg transition-colors"
               >
-                Donate Now
+                Make a Donation
               </Link>
             </div>
           </div>
