@@ -36,6 +36,14 @@ async function run() {
     console.log('Newsletter migration applied.');
   } catch (err) {
     console.error('Migration failed:', err.message);
+    if (/ENOTFOUND|getaddrinfo/.test(err.message) && /db\.\w+\.supabase\.co/.test(databaseUrl || '')) {
+      console.error('');
+      console.error('The direct DB host (db.xxx.supabase.co) often does not resolve from your network.');
+      console.error('Do one of the following:');
+      console.error('  1. Use the Session pooler URI: Supabase Dashboard > Settings > Database > Connection string > Session pooler. Put that URI in .env.local as DATABASE_URL (host will be ...pooler.supabase.com).');
+      console.error('  2. Run the SQL in the dashboard: Supabase Dashboard > SQL Editor, paste contents of apps/web/supabase/migrations/20260202_newsletter.sql, then Run.');
+      console.error('');
+    }
     process.exit(1);
   } finally {
     await client.end();

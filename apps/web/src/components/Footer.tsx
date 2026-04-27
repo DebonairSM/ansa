@@ -23,6 +23,7 @@ const footerContent = {
     newsletter: {
       title: 'Fique por Dentro',
     },
+    newsletterManager: 'Gerenciar newsletter',
   },
   en: {
     copyright: '© 2025 ANSA Brasil. All rights reserved.',
@@ -40,6 +41,7 @@ const footerContent = {
     newsletter: {
       title: 'Stay Updated',
     },
+    newsletterManager: 'Newsletter manager',
   },
 };
 
@@ -108,6 +110,12 @@ export default function Footer({ locale: localeProp }: { locale?: 'pt' | 'en' })
           </Link>
           <p className="text-gray-400 text-sm">{content.description}</p>
           <p className="text-gray-500 text-sm mt-4">{content.copyright}</p>
+          <Link
+            href="/admin/newsletter"
+            className="inline-block mt-3 text-gray-600 hover:text-yellow-500 text-xs transition-colors"
+          >
+            {content.newsletterManager}
+          </Link>
         </div>
       </div>
     </footer>

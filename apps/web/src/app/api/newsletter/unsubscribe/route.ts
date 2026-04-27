@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       });
       await recordEmailEvent({
         subscriber_id: subscriber.id,
-        campaign_id: '',
+        campaign_id: null,
         type: 'unsubscribe',
       });
     }

@@ -12,43 +12,48 @@ type Props = {
 
 export default function HeroBlockEditor({ block, onChange, onRemove }: Props) {
   return (
-    <div className="border border-gray-200 rounded p-4 bg-white space-y-3">
-      <div className="flex justify-between items-center">
-        <span className="text-sm font-medium text-gray-500">Hero</span>
+    <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm space-y-4">
+      <div className="flex flex-wrap justify-between gap-3">
+        <div>
+          <h3 className="text-lg font-bold text-gray-950">Big opening</h3>
+          <p className="text-sm text-gray-600">The first thing people see in the email.</p>
+        </div>
         <button
           type="button"
           onClick={onRemove}
-          className="text-sm text-red-600 hover:text-red-700"
+          className="rounded border border-red-200 px-3 py-2 text-sm font-semibold text-red-700 hover:bg-red-50"
         >
-          Remove
+          Remove section
         </button>
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Headline</label>
+        <label className="mb-2 block text-base font-bold text-gray-800">Main headline</label>
         <input
           type="text"
           value={block.headline}
           onChange={(e) => onChange({ ...block, headline: e.target.value })}
-          className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+          className="w-full rounded-lg border-2 border-gray-300 px-4 py-3 text-lg focus:border-transparent focus:ring-4 focus:ring-yellow-400"
+          placeholder="Example: Here is what happened this month"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Subheadline (optional)</label>
+        <label className="mb-2 block text-base font-bold text-gray-800">Short introduction</label>
         <input
           type="text"
           value={block.subheadline ?? ''}
           onChange={(e) => onChange({ ...block, subheadline: e.target.value || undefined })}
-          className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+          className="w-full rounded-lg border-2 border-gray-300 px-4 py-3 text-lg focus:border-transparent focus:ring-4 focus:ring-yellow-400"
+          placeholder="One welcoming sentence"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Image URL (optional)</label>
+        <label className="mb-2 block text-base font-bold text-gray-800">Photo link</label>
         <input
           type="text"
           value={block.image ?? ''}
           onChange={(e) => onChange({ ...block, image: e.target.value || undefined })}
-          className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-          placeholder="https://..."
+          className="w-full rounded-lg border-2 border-gray-300 px-4 py-3 text-lg focus:border-transparent focus:ring-4 focus:ring-yellow-400"
+          placeholder="Optional: https://..."
         />
       </div>
     </div>

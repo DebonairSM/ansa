@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
 
 export default function AdminNewsletterPage() {
-  redirect('/admin/newsletter/campaigns');
+  redirect('/admin/newsletter/drafts');
 }

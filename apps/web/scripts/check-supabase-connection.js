@@ -25,6 +25,12 @@ if (!url) {
   process.exit(1);
 }
 
+const serviceKey = process.env.SUPABASE_SERVICE_KEY;
+if (!serviceKey) {
+  console.error('SUPABASE_SERVICE_KEY not set. Add the service_role key to apps/web/.env.local');
+  process.exit(1);
+}
+
 let host;
 try {
   host = new URL(url).hostname;
@@ -49,8 +55,19 @@ async function main() {
   }
 
   try {
-    const res = await fetch(url + '/rest/v1/', { method: 'HEAD', redirect: 'manual' });
-    console.log('HTTP OK, status:', res.status);
+    const res = await fetch(url + '/rest/v1/subscribers?select=id&limit=1', {
+      headers: {
+        apikey: serviceKey,
+        authorization: `Bearer ${serviceKey}`,
+      },
+    });
+    if (!res.ok) {
+      const body = await res.text();
+      console.error('Supabase REST check failed, status:', res.status);
+      console.error(body.slice(0, 500));
+      process.exit(1);
+    }
+    console.log('REST OK: service key can read the subscribers table.');
   } catch (err) {
     console.error('Request failed:', err.message);
     if (err.cause) console.error('Cause:', err.cause.message);

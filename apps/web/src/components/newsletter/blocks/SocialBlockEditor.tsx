@@ -12,34 +12,37 @@ type Props = {
 
 export default function SocialBlockEditor({ block, onChange, onRemove }: Props) {
   return (
-    <div className="border border-gray-200 rounded p-4 bg-white space-y-3">
-      <div className="flex justify-between items-center">
-        <span className="text-sm font-medium text-gray-500">Social links</span>
+    <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm space-y-4">
+      <div className="flex flex-wrap justify-between gap-3">
+        <div>
+          <h3 className="text-lg font-bold text-gray-950">Social links</h3>
+          <p className="text-sm text-gray-600">Add links where readers can follow ANSA Brasil.</p>
+        </div>
         <button
           type="button"
           onClick={onRemove}
-          className="text-sm text-red-600 hover:text-red-700"
+          className="rounded border border-red-200 px-3 py-2 text-sm font-semibold text-red-700 hover:bg-red-50"
         >
-          Remove
+          Remove section
         </button>
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Facebook URL (optional)</label>
+        <label className="mb-2 block text-base font-bold text-gray-800">Facebook link</label>
         <input
           type="url"
           value={block.facebook ?? ''}
           onChange={(e) => onChange({ ...block, facebook: e.target.value || undefined })}
-          className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+          className="w-full rounded-lg border-2 border-gray-300 px-4 py-3 text-lg focus:border-transparent focus:ring-4 focus:ring-yellow-400"
           placeholder="https://facebook.com/..."
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Instagram URL (optional)</label>
+        <label className="mb-2 block text-base font-bold text-gray-800">Instagram link</label>
         <input
           type="url"
           value={block.instagram ?? ''}
           onChange={(e) => onChange({ ...block, instagram: e.target.value || undefined })}
-          className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+          className="w-full rounded-lg border-2 border-gray-300 px-4 py-3 text-lg focus:border-transparent focus:ring-4 focus:ring-yellow-400"
           placeholder="https://instagram.com/..."
         />
       </div>

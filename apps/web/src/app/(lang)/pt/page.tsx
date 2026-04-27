@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import NewsletterSignup from '@/components/newsletter/NewsletterSignup';
 import HeroCollage from '@/components/HeroCollage';
+import ScrollToNewsletter from '@/components/ScrollToNewsletter';
 
 export const metadata: Metadata = {
   title: 'ANSA Brasil - Início',
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 export default function PtHome() {
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #fef3c7 0%, #fefce8 15%, #fffdf7 30%, #ffffff 50%)' }}>
+      <ScrollToNewsletter />
       {/* Hero Section - Quem Somos */}
       <section className="bg-gray-900">
         <div className="py-16 px-4 text-gray-900 bg-[linear-gradient(145deg,_#fef3c7_0%,_#fde68a_50%,_#fcd34d_100%)]">
@@ -214,31 +216,52 @@ export default function PtHome() {
       {/* Progress & Impact Section */}
       <section className="py-16 px-4 bg-white border-b-4 border-yellow-500">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Progresso Mensurável. Impacto Real.</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Progresso que podemos medir. Trabalho que ainda precisa ser feito.
+          </h2>
+          <p className="text-center text-gray-600 max-w-3xl mx-auto mb-10 text-lg">
+            A ANSA atua junto a comunidades, parceiros e esforços nacionais mais amplos—apoiando projetos onde
+            as crianças mais precisam.
+          </p>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-yellow-600">O que já avançamos</h3>
+              <h3 className="text-2xl font-bold mb-4 text-yellow-600">Evidências e o papel da ANSA</h3>
+              <h4 className="text-lg font-semibold text-gray-800 mb-2">Em todo o Brasil</h4>
+              <ul className="space-y-3 text-lg text-gray-700 mb-6">
+                <li className="flex items-start gap-3">
+                  <span className="text-green-600 font-bold mt-1">✓</span>
+                  <span>
+                    No país, a pobreza infantil multidimensional caiu de <strong>62,5% (2017)</strong> para{' '}
+                    <strong>55,9% (2023)</strong>—um movimento construído por muitas políticas, programas e
+                    atores ao longo do tempo.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-green-600 font-bold mt-1">✓</span>
+                  <span>
+                    Dados da UNICEF confirmam uma queda de mais de <strong>6 pontos percentuais</strong> nesse
+                    período.
+                  </span>
+                </li>
+              </ul>
+              <h4 className="text-lg font-semibold text-gray-800 mb-2">Na prática, com a ANSA</h4>
               <ul className="space-y-3 text-lg text-gray-700">
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold mt-1">✓</span>
-                  <span>Pobreza infantil multidimensional caiu de <strong>62,5% (2017)</strong> para <strong>55,9% (2023)</strong></span>
+                  <span>
+                    A ANSA apoiou <strong>24 projetos</strong> em <strong>mais de 10 estados</strong> brasileiros.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-green-600 font-bold mt-1">✓</span>
-                  <span>Mais de <strong>6 pontos percentuais</strong> de redução confirmados pela UNICEF</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-green-600 font-bold mt-1">✓</span>
-                  <span><strong>24 projetos</strong> apoiados pela ANSA em <strong>10+ estados</strong> brasileiros</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-green-600 font-bold mt-1">✓</span>
-                  <span><strong>43 anos</strong> de missão contínua, <strong>100% voluntária</strong></span>
+                  <span>
+                    <strong>43 anos</strong> de missão contínua, <strong>100% voluntária</strong>.
+                  </span>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-yellow-600">O que ainda precisamos fazer</h3>
+              <h3 className="text-2xl font-bold mb-4 text-yellow-600">O que ainda falta fazer</h3>
               <ul className="space-y-3 text-lg text-gray-700">
                 <li className="flex items-start gap-3">
                   <span className="text-yellow-600 font-bold mt-1">→</span>
@@ -258,14 +281,18 @@ export default function PtHome() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-yellow-600 font-bold mt-1">→</span>
-                  <span>Cada doação mantém esse <strong>progresso em movimento</strong> e acelera a mudança</span>
+                  <span>
+                    Cada doação ajuda a <strong>manter esse progresso mais amplo</strong> e acelera a mudança onde
+                    ela mais importa.
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
           <div className="mt-10 text-center">
             <p className="text-xl text-gray-700 mb-6">
-              <strong>Você não está apenas ajudando.</strong> Você está acelerando uma mudança que os dados já comprovam.
+              <strong>Você faz parte de um esforço maior</strong>—e ajuda a manter em movimento um progresso
+              que os dados já comprovam.
             </p>
             <Link
               href="https://www.paypal.com/US/fundraiser/charity/2006255"

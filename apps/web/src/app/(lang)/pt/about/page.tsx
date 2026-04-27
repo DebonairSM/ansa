@@ -62,6 +62,18 @@ const teamMembers = [
     image: '/uploads/2021/02/Ines-2-1.jpg',
     bio: 'Ines nasceu na Bahia, cresceu no Rio de Janeiro, Brasil e mora em Falls Church, VA há muitos anos. "Com o espírito de generosidade e ajuda ao próximo, estamos gradualmente ajudando as crianças e mulheres do nosso Brasil."',
   },
+  {
+    name: 'Maria Helena Noronha',
+    role: 'Voluntária',
+    image: '/uploads/2024/Attached_image.png',
+    bio: 'Maria Helena Noronha é professora universitária aposentada. Atuou na California State University, Northridge, em Los Angeles, e na UNICAMP, em Campinas (SP). Sempre foi profundamente dedicada às causas sociais, especialmente àquelas voltadas à inclusão social e à educação de crianças e adolescentes em situação de vulnerabilidade. Em Campinas, colaborou com a Sociedade São Vicente de Paulo e, atualmente, atua na Associação CrEsCER. Em 2024, juntou-se com grande entusiasmo à ANSA, ao reconhecer o impacto significativo dessa organização na vida de inúmeras mulheres e crianças brasileiras.',
+  },
+  {
+    name: 'Maristela Machado Carneiro',
+    role: 'Voluntária',
+    image: '/uploads/2024/maristela-machado-carneiro.jpg',
+    bio: 'Maristela Machado Carneiro nasceu no Rio de Janeiro e é voluntária na ANSA desde 2019. Seu foco é ajudar projetos que acolhem mulheres e crianças em situação de vulnerabilidade, oferecendo não apenas o básico, mas também ferramentas para que recuperem sua autonomia e segurança. Ela acredita que a solidariedade é o motor da justiça social e que atua na linha de frente para transformar a dor em oportunidade. Maristela segue com seu trabalho na ANSA inspirada pelas reflexões de Madre Teresa de Calcutá: "A falta de amor é a maior de todas as pobrezas." E ainda: "Não é o quanto fazemos, mas quanto amor colocamos naquilo que fazemos."',
+  },
 ];
 
 export default function AboutPt() {

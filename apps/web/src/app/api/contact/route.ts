@@ -1,10 +1,9 @@
-import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import { isEmailConfigured, getFromContact, sendEmail } from '@/lib/mailer';
 
 export async function POST(request: Request) {
   try {
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
+    if (!isEmailConfigured()) {
       return NextResponse.json(
         { error: 'Contact form is not configured' },
         { status: 503 }
@@ -21,11 +20,8 @@ export async function POST(request: Request) {
       );
     }
 
-    const resend = new Resend(apiKey);
-
-    // Send email to ANSA
-    await resend.emails.send({
-      from: 'ANSA Contact Form <onboarding@resend.dev>',
+    await sendEmail({
+      from: getFromContact(),
       to: 'associacaonsraa@gmail.com',
       replyTo: email,
       subject: subject || `Contact Form: Message from ${name}`,
