@@ -11,14 +11,17 @@ type Props = {
 
 export default function DividerBlockEditor({ onRemove }: Props) {
   return (
-    <div className="border border-gray-200 rounded p-4 bg-white flex items-center justify-between">
-      <span className="text-sm font-medium text-gray-500">Divider</span>
+    <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+      <div>
+        <h3 className="text-lg font-bold text-gray-950">Separator</h3>
+        <p className="text-sm text-gray-600">A clean line between parts of the email.</p>
+      </div>
       <button
         type="button"
         onClick={onRemove}
-        className="text-sm text-red-600 hover:text-red-700"
+        className="rounded border border-red-200 px-3 py-2 text-sm font-semibold text-red-700 hover:bg-red-50"
       >
-        Remove
+        Remove section
       </button>
     </div>
   );

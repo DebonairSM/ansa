@@ -6,7 +6,7 @@ const initialContent = {
   blocks: [],
 };
 
-export default function NewCampaignPage() {
+export default function NewDraftPage() {
   return (
     <CampaignEditor
       campaignId={null}

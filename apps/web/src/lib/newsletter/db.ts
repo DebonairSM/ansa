@@ -141,15 +141,39 @@ export async function listCampaigns() {
   return data ?? [];
 }
 
+export async function listDraftCampaigns() {
+  const supabase = getSupabaseAdminClient();
+  const { data, error } = await supabase
+    .from('campaigns')
+    .select('*')
+    .eq('status', 'draft')
+    .order('created_at', { ascending: false });
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function listSentCampaigns() {
+  const supabase = getSupabaseAdminClient();
+  const { data, error } = await supabase
+    .from('campaigns')
+    .select('*')
+    .neq('status', 'draft')
+    .order('created_at', { ascending: false });
+  if (error) throw error;
+  return data ?? [];
+}
+
 export async function recordEmailEvent(payload: {
   subscriber_id: string;
-  campaign_id: string;
+  campaign_id: string | null;
   type: 'open' | 'click' | 'bounce' | 'unsubscribe';
   url?: string | null;
 }) {
   const supabase = getSupabaseAdminClient();
   const { error } = await supabase.from('email_events').insert({
-    ...payload,
+    subscriber_id: payload.subscriber_id,
+    campaign_id: payload.campaign_id && payload.campaign_id.trim() !== '' ? payload.campaign_id : null,
+    type: payload.type,
     url: payload.url ?? null,
   });
   if (error) throw error;

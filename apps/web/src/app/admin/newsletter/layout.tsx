@@ -11,6 +11,9 @@ export default function AdminNewsletterLayout({ children }: { children: React.Re
               Admin
             </Link>
             <nav className="flex items-center gap-6 text-sm">
+              <Link href="/admin/newsletter/drafts" className="hover:text-yellow-400">
+                Drafts
+              </Link>
               <Link href="/admin/newsletter/campaigns" className="hover:text-yellow-400">
                 Campaigns
               </Link>

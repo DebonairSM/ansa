@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import SessionProvider from '@/components/SessionProvider';
 
 export const metadata: Metadata = {
   icons: {
@@ -13,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt">
       <body className="min-h-screen bg-white text-black flex flex-col">
-        {children}
+        <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
   );

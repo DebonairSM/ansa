@@ -1,5 +1,6 @@
 import { listSubscribers } from '@/lib/newsletter/db';
 import SubscribersTable from '@/components/admin/SubscribersTable';
+import DbUnreachable from '@/components/admin/DbUnreachable';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,11 +13,16 @@ export default async function AdminSubscribersPage() {
       </div>
     );
   }
-  const subscribers = await listSubscribers();
-  return (
-    <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Subscribers</h1>
-      <SubscribersTable subscribers={subscribers as { id: string; email: string; status: string; locale: string; created_at?: string }[]} />
-    </div>
-  );
+  try {
+    const subscribers = await listSubscribers();
+    return (
+      <div>
+        <h1 className="text-2xl font-bold text-gray-900 mb-6">Subscribers</h1>
+        <SubscribersTable subscribers={subscribers as { id: string; email: string; status: string; locale: string; created_at?: string }[]} />
+      </div>
+    );
+  } catch (e) {
+    console.error('Subscribers list error:', e);
+    return <DbUnreachable title="Subscribers" />;
+  }
 }

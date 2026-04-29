@@ -1,16 +1,17 @@
+import { getServerSession } from 'next-auth/next';
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { getAdminCookieName, isAdminSessionValid } from '@/lib/adminAuth';
+import { authOptions } from '@/lib/auth';
+import { getAdminCookieName, isAdminAuthorized } from '@/lib/adminAuth';
 import { getCampaign, updateCampaign } from '@/lib/newsletter/db';
 import type { NewsletterContent } from '@/lib/newsletter/types';
 
 async function requireAdmin() {
-  const secret = process.env.ADMIN_SECRET;
-  if (!secret) {
-    return NextResponse.json({ error: 'Admin access not configured' }, { status: 500 });
-  }
+  const secret = process.env.ADMIN_SECRET ?? '';
+  const hasGoogle = !!(process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET);
+  const session = hasGoogle ? await getServerSession(authOptions) : null;
   const cookieSecret = (await cookies()).get(getAdminCookieName())?.value;
-  if (!isAdminSessionValid(cookieSecret, secret)) {
+  if (!isAdminAuthorized(cookieSecret, secret, session)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
   return null;

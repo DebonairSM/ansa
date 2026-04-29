@@ -5,7 +5,7 @@
 # Usage: .\scripts\cloudflared-run-ansa.ps1
 
 $ErrorActionPreference = "Stop"
-$RepoRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+$RepoRoot = Split-Path -Parent $PSScriptRoot
 $ConfigPath = Join-Path $RepoRoot "cloudflared\config.yml"
 
 if (-not (Test-Path $ConfigPath)) {

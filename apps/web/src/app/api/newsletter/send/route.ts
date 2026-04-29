@@ -1,28 +1,29 @@
 import React from 'react';
+import { getServerSession } from 'next-auth/next';
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
 import { render } from '@react-email/render';
 import { cookies } from 'next/headers';
 import NewsletterTemplate from '@/emails/NewsletterTemplate';
-import { getAdminCookieName, isAdminSessionValid } from '@/lib/adminAuth';
+import { authOptions } from '@/lib/auth';
+import { getAdminCookieName, isAdminAuthorized } from '@/lib/adminAuth';
 import {
   getCampaign,
   listActiveSubscribers,
   updateCampaignStatus,
 } from '@/lib/newsletter/db';
 import { applyLinkTracking, getBaseUrl } from '@/lib/newsletter/utils';
+import { isEmailConfigured, getFromNewsletter, sendBatch } from '@/lib/mailer';
 
 export async function POST(request: Request) {
   try {
-    const secret = process.env.ADMIN_SECRET;
-    if (!secret) {
-      return NextResponse.json({ error: 'Admin access not configured' }, { status: 500 });
-    }
-
+    const secret = process.env.ADMIN_SECRET ?? '';
     const headerSecret = request.headers.get('x-admin-secret');
-    const cookieSecret = cookies().get(getAdminCookieName())?.value;
+    const hasGoogle = !!(process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET);
+    const session = hasGoogle ? await getServerSession(authOptions) : null;
+    const cookieSecret = (await cookies()).get(getAdminCookieName())?.value;
     const isAuthed =
-      headerSecret === secret || isAdminSessionValid(cookieSecret, secret);
+      (secret && headerSecret === secret) ||
+      isAdminAuthorized(cookieSecret, secret, session);
     if (!isAuthed) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -32,8 +33,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing campaignId' }, { status: 400 });
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
+    if (!isEmailConfigured()) {
       return NextResponse.json({ error: 'Email service not configured' }, { status: 503 });
     }
 
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     }
 
     const baseUrl = getBaseUrl(request);
-    const resend = new Resend(apiKey);
+    const from = getFromNewsletter();
     const batchPayloads = await Promise.all(
       subscribers.map(async (subscriber) => {
         const unsubscribeUrl = `${baseUrl}/${subscriber.locale}/newsletter/unsubscribe?token=${subscriber.unsubscribe_token}`;
@@ -63,7 +63,7 @@ export async function POST(request: Request) {
           })
         );
         return {
-          from: 'ANSA Newsletter <onboarding@resend.dev>',
+          from,
           to: [subscriber.email],
           subject: campaign.content_json.title,
           html,
@@ -74,11 +74,7 @@ export async function POST(request: Request) {
       })
     );
 
-    const batchSize = 100;
-    for (let i = 0; i < batchPayloads.length; i += batchSize) {
-      const chunk = batchPayloads.slice(i, i + batchSize);
-      await resend.batch.send(chunk);
-    }
+    await sendBatch(batchPayloads);
 
     await updateCampaignStatus(campaign.id, 'sent', {
       sent_at: new Date().toISOString(),

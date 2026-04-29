@@ -10,12 +10,20 @@ type Props = {
   campaignId: string | null;
   initialContent: NewsletterContent;
   status?: string;
+  backHref?: string;
+  backLabel?: string;
+  savedRedirectBase?: string;
+  heading?: string;
 };
 
 export default function CampaignEditor({
   campaignId,
   initialContent,
   status = 'draft',
+  backHref = '/admin/newsletter/drafts',
+  backLabel = 'Back to drafts',
+  savedRedirectBase = '/admin/newsletter/drafts',
+  heading,
 }: Props) {
   const router = useRouter();
   const [content, setContent] = useState<NewsletterContent>(initialContent);
@@ -23,10 +31,12 @@ export default function CampaignEditor({
   const [saveError, setSaveError] = useState('');
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState('');
+  const [sendSuccess, setSendSuccess] = useState<number | null>(null);
   const [previewHtml, setPreviewHtml] = useState<string | null>(null);
   const previewRef = useRef<HTMLIFrameElement>(null);
 
   const canSend = campaignId && status !== 'sent';
+  const readyToSave = content.title.trim().length > 0;
 
   const loadPreview = useCallback(async () => {
     if (!content.title) return;
@@ -76,7 +86,7 @@ export default function CampaignEditor({
           return;
         }
         const data = await res.json();
-        router.replace(`/admin/newsletter/campaigns/${data.id}`);
+        router.replace(`${savedRedirectBase}/${data.id}`);
         return;
       }
     } catch (e) {
@@ -89,6 +99,7 @@ export default function CampaignEditor({
   const handleSend = async () => {
     if (!campaignId) return;
     setSendError('');
+    setSendSuccess(null);
     setSending(true);
     try {
       const res = await fetch('/api/newsletter/send', {
@@ -96,11 +107,13 @@ export default function CampaignEditor({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ campaignId }),
       });
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
         setSendError(data?.error ?? 'Failed to send');
         return;
       }
+      setSendSuccess(typeof data.sent === 'number' ? data.sent : 0);
+      router.replace(`/admin/newsletter/campaigns/${campaignId}`);
       router.refresh();
     } catch {
       setSendError('Failed to send');
@@ -110,30 +123,40 @@ export default function CampaignEditor({
   };
 
   return (
-    <div>
-      <p className="text-sm text-gray-500 mb-2">Campaigns</p>
-      <div className="flex items-center gap-4 mb-6">
+    <div className="space-y-6">
+      <div className="flex flex-wrap items-center gap-4">
         <Link
-          href="/admin/newsletter/campaigns"
-          className="text-gray-600 hover:text-gray-900 text-sm"
+          href={backHref}
+          className="rounded border border-gray-300 bg-white px-4 py-3 text-base font-semibold text-gray-700 hover:bg-gray-100"
         >
-          ← Campaigns
+          {backLabel}
         </Link>
-        <h1 className="text-2xl font-bold text-gray-900">
-          {campaignId ? 'Edit campaign' : 'New campaign'}
-        </h1>
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-wide text-yellow-700">Newsletter</p>
+          <h1 className="text-3xl font-bold text-gray-950">
+            {heading ?? (campaignId ? 'Edit draft' : 'Create draft')}
+          </h1>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="rounded-lg border border-yellow-200 bg-yellow-50 px-5 py-4">
+        <p className="text-base font-semibold text-yellow-950">
+          Use a template, replace the sample text, save it, then send when the preview looks right.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(420px,0.92fr)]">
         <div className="space-y-4">
-          <div className="bg-white border border-gray-200 rounded-lg shadow-soft p-6">
+          <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-soft sm:p-6">
             <BlockEditor content={content} onChange={setContent} />
-            <div className="flex flex-wrap items-center gap-3 mt-6">
+            <div className="mt-8 rounded-lg border border-gray-200 bg-gray-50 p-4">
+              <p className="mb-3 text-lg font-bold text-gray-950">Finish</p>
+              <div className="flex flex-wrap items-center gap-3">
               <button
                 type="button"
                 onClick={handleSave}
-                disabled={saving}
-                className="bg-yellow-500 hover:bg-yellow-600 disabled:opacity-70 text-white font-semibold px-4 py-2 rounded"
+                disabled={saving || !readyToSave}
+                className="min-h-14 rounded-lg bg-yellow-500 px-6 py-3 text-lg font-bold text-white hover:bg-yellow-600 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {saving ? 'Saving...' : 'Save'}
               </button>
@@ -142,26 +165,36 @@ export default function CampaignEditor({
                   type="button"
                   onClick={handleSend}
                   disabled={sending}
-                  className="bg-gray-800 hover:bg-gray-900 disabled:opacity-70 text-white font-semibold px-4 py-2 rounded"
+                  className="min-h-14 rounded-lg bg-gray-900 px-6 py-3 text-lg font-bold text-white hover:bg-black disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {sending ? 'Sending...' : 'Send campaign'}
+                  {sending ? 'Sending...' : 'Send newsletter'}
                 </button>
               )}
+              {!readyToSave && (
+                <p className="text-sm font-medium text-gray-600">Add a subject line before saving.</p>
+              )}
+              </div>
+            {saveError && <p className="mt-3 text-sm font-semibold text-red-700">{saveError}</p>}
+            {sendError && <p className="mt-3 text-sm font-semibold text-red-700">{sendError}</p>}
+            {sendSuccess !== null && (
+              <p className="mt-3 text-sm font-semibold text-green-700">
+                Sent to {sendSuccess} subscriber{sendSuccess !== 1 ? 's' : ''}.
+              </p>
+            )}
             </div>
-            {saveError && <p className="text-sm text-red-600 mt-3">{saveError}</p>}
-            {sendError && <p className="text-sm text-red-600 mt-3">{sendError}</p>}
           </div>
         </div>
 
-        <div className="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-soft">
-          <div className="px-4 py-2 bg-gray-100 border-b border-gray-200 text-sm font-medium text-gray-700">
-            Email preview
+        <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-soft xl:sticky xl:top-6 xl:self-start">
+          <div className="border-b border-gray-200 bg-gray-100 px-5 py-4">
+            <p className="text-lg font-bold text-gray-950">Email preview</p>
+            <p className="text-sm text-gray-600">This is what readers will receive.</p>
           </div>
           <iframe
             ref={previewRef}
             title="Preview"
-            srcDoc={previewHtml ?? '<p class="p-4 text-gray-500">Enter a title to see preview.</p>'}
-            className="w-full h-[600px] border-0"
+            srcDoc={previewHtml ?? '<div style="font-family: Arial, sans-serif; padding: 32px; color: #4b5563;"><h2 style="color: #111827; margin-top: 0;">Preview will appear here</h2><p>Choose a template or add a subject line to start.</p></div>'}
+            className="h-[720px] w-full border-0"
             sandbox="allow-same-origin"
           />
         </div>
