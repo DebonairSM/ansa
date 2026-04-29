@@ -24,7 +24,7 @@ export const authOptions: NextAuthOptions = {
       const email = user?.email?.toLowerCase();
       if (!email) return false;
       const allowed = getAdminEmails();
-      if (allowed.length === 0) return true;
+      if (allowed.length === 0) return false;
       return allowed.includes(email);
     },
   },

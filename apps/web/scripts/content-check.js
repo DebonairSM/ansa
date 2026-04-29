@@ -29,7 +29,11 @@ function fail(file, msg) {
 }
 
 function loadSlugMap() {
-  const src = fs.readFileSync(LOCAL_PROJECTS_TS, 'utf-8');
+  if (!fs.existsSync(LOCAL_PROJECTS_TS)) {
+    console.warn(`localProjects.ts not found, skipping slug map: ${LOCAL_PROJECTS_TS}`);
+    return {};
+  }
+  const src = fs.readFileSync(LOCAL_PROJECTS_TS, 'utf-8').replace(/\r\n/g, '\n');
   const block = src.match(/slugMap[^=]*=\s*\{([\s\S]*?)\n\};/);
   if (!block) return {};
   const map = {};
@@ -81,7 +85,11 @@ function validateFrontmatter(type, items) {
           fail(rel, `Missing required frontmatter field: ${f}`);
         }
       }
-      if (typeof it.data.title === 'string' && it.data.title.trim() === 'undefined') {
+      if (
+        Object.prototype.hasOwnProperty.call(it.data, 'title') &&
+        typeof it.data.title === 'string' &&
+        it.data.title.trim() === 'undefined'
+      ) {
         fail(rel, `Frontmatter title is the literal string "undefined"`);
       }
       if (it.data.locale && it.data.locale !== locale) {
