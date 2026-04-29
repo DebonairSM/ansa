@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import DonateLink from '@/components/DonateLink';
 
 export const metadata: Metadata = {
   title: 'Doar - ANSA Brasil',
@@ -297,12 +298,10 @@ export default function DonatePT() {
             flexWrap: 'wrap'
           }}
         >
-          <a
-            href="https://www.paypal.com/US/fundraiser/charity/2006255"
-            target="_blank"
-            rel="noopener noreferrer"
+          <DonateLink
+            cta="donate-hero"
             className="group flex items-center justify-center gap-2 text-center transition-all duration-200 hover:scale-105"
-            style={{ 
+            style={{
               background: 'linear-gradient(135deg, #dc2626 0%, #ea580c 100%)',
               color: '#ffffff',
               fontWeight: 700,
@@ -316,7 +315,7 @@ export default function DonatePT() {
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
             Doe Agora
-          </a>
+          </DonateLink>
           <Link
             href="/pt/projects"
             className="flex items-center justify-center gap-2 text-center transition-all duration-200 hover:bg-amber-50"
@@ -667,14 +666,12 @@ export default function DonatePT() {
           </div>
 
           <div className="text-center">
-            <a
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
-              rel="noopener noreferrer"
+            <DonateLink
+              cta="donate-mid"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-2xl font-bold px-12 py-5 rounded-lg transition-colors shadow-lg"
             >
               Doe Agora e Faça Parte da Mudança
-            </a>
+            </DonateLink>
             <p className="text-sm text-gray-500 mt-4">
               Você será redirecionado para o PayPal Giving Fund (seguro e verificado)
             </p>
@@ -847,14 +844,12 @@ export default function DonatePT() {
             "Tudo que fazemos é uma gota d'água no oceano, mas se não o fizermos essa gota se perderá para sempre."
           </blockquote>
           <p className="text-xl mb-8">-Madre Teresa de Calcuta</p>
-          <a
-            href="https://www.paypal.com/US/fundraiser/charity/2006255"
-            target="_blank"
-            rel="noopener noreferrer"
+          <DonateLink
+            cta="donate-final"
             className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-2xl font-bold px-12 py-5 rounded-lg transition-colors"
           >
             DOAR AGORA
-          </a>
+          </DonateLink>
         </div>
       </section>
     </div>

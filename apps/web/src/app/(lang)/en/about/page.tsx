@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import DonateLink from '@/components/DonateLink';
 
 export const metadata: Metadata = {
   title: 'About Us - ANSA Brasil',
@@ -89,13 +90,12 @@ export default function AboutUs() {
               Associação Nossa Senhora Aparecida (ANSA) brings together volunteers in the Washington, DC area who support children, women, and underserved communities in Brazil through partner institutions across the country.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://www.paypal.com/US/fundraiser/charity/2006255"
-                target="_blank"
+              <DonateLink
+                cta="about-hero"
                 className="inline-block bg-white text-yellow-700 hover:bg-yellow-50 font-bold px-8 py-4 rounded-lg transition-colors"
               >
                 Make a Donation
-              </Link>
+              </DonateLink>
             </div>
           </div>
         </div>
@@ -232,13 +232,12 @@ export default function AboutUs() {
             >
               Get in Touch
             </Link>
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
+            <DonateLink
+              cta="about-final"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-8 py-4 rounded-lg transition-colors"
             >
               Make a Donation
-            </Link>
+            </DonateLink>
           </div>
         </div>
       </section>

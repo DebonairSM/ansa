@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import DonateLink from './DonateLink';
 
 type Lang = 'pt' | 'en';
 
@@ -29,7 +30,6 @@ const copy: Record<
     donationNote: string;
     trustBadges: string[];
     imageAlt: string;
-    paypalHref: string;
     projectsHref: string;
     povertyLabel: string;
     sourceText: string;
@@ -58,7 +58,6 @@ const copy: Record<
       '24 projetos ativos',
     ],
     imageAlt: 'Crianças brasileiras sorrindo em um projeto social',
-    paypalHref: 'https://www.paypal.com/US/fundraiser/charity/2006255',
     projectsHref: '/pt/projects',
     povertyLabel: 'crianças em pobreza',
     sourceText: 'Dados UNICEF 2023',
@@ -86,7 +85,6 @@ const copy: Record<
       '24 active projects',
     ],
     imageAlt: 'Brazilian children smiling at a social project',
-    paypalHref: 'https://www.paypal.com/US/fundraiser/charity/2006255',
     projectsHref: '/en/projects',
     povertyLabel: 'children in poverty',
     sourceText: 'UNICEF 2023 Data',
@@ -180,15 +178,13 @@ export function HeroSection({ heroImage, initialLang = 'pt' }: HeroSectionProps)
             </div>
 
             {/* Primary CTA */}
-            <a
-              href={t.paypalHref}
-              target="_blank"
-              rel="noopener noreferrer"
+            <DonateLink
+              cta="hero"
               className="block w-full bg-amber-500 text-white font-bold px-8 py-4 rounded-lg hover:bg-amber-600 transition-colors text-center text-lg mb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 min-h-[3.5rem] flex items-center justify-center shadow-md"
-              aria-label={`${t.primaryCta} - ${initialLang === 'pt' ? 'Abre em nova aba' : 'Opens in new tab'}`}
+              ariaLabel={`${t.primaryCta} - ${initialLang === 'pt' ? 'Abre em nova aba' : 'Opens in new tab'}`}
             >
               {t.primaryCta}
-            </a>
+            </DonateLink>
 
             {/* Secondary CTA */}
             <Link

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { FaCheckCircle, FaGlobe, FaCopyright, FaHeart, FaLock, FaExternalLinkAlt, FaExclamationTriangle, FaEdit, FaEnvelope } from 'react-icons/fa';
+import DonateLink from '@/components/DonateLink';
 
 export const metadata: Metadata = {
   title: 'Terms of Use - ANSA Brasil',
@@ -229,13 +230,12 @@ export default function RulesEn() {
             >
               Contact Us
             </Link>
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
+            <DonateLink
+              cta="rules-final"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
             >
               Make a Donation
-            </Link>
+            </DonateLink>
           </div>
         </div>
       </section>

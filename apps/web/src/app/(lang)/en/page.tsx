@@ -5,6 +5,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import NewsletterSignup from '@/components/newsletter/NewsletterSignup';
 import HeroCollage from '@/components/HeroCollage';
 import ScrollToNewsletter from '@/components/ScrollToNewsletter';
+import DonateLink from '@/components/DonateLink';
 
 export const metadata: Metadata = {
   title: 'ANSA Brasil - Home',
@@ -30,13 +31,12 @@ export default function EnHome() {
               Associação Nossa Senhora Aparecida (ANSA) brings together volunteers in the Washington, DC area who support children, women, and underserved communities in Brazil through partner institutions across the country.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://www.paypal.com/US/fundraiser/charity/2006255"
-                target="_blank"
+              <DonateLink
+                cta="home-hero"
                 className="inline-block bg-white text-amber-800 hover:bg-amber-50 font-bold px-8 py-4 rounded-lg transition-colors"
               >
                 Make a Donation
-              </Link>
+              </DonateLink>
               <Link
                 href="/en/about"
                 className="inline-block border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-semibold px-8 py-4 rounded-lg transition-colors"
@@ -70,11 +70,10 @@ export default function EnHome() {
             flexWrap: 'wrap'
           }}
         >
-          <Link
-            href="https://www.paypal.com/US/fundraiser/charity/2006255"
-            target="_blank"
+          <DonateLink
+            cta="home-cta-primary"
             className="group flex items-center justify-center gap-2 text-center transition-all duration-200 hover:scale-105"
-            style={{ 
+            style={{
               background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
               color: '#ffffff',
               fontWeight: 700,
@@ -88,7 +87,7 @@ export default function EnHome() {
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
             Donate Now
-          </Link>
+          </DonateLink>
           <Link
             href="/en/projects"
             className="flex items-center justify-center gap-2 text-center transition-all duration-200 hover:bg-amber-50"
@@ -293,13 +292,12 @@ export default function EnHome() {
             <p className="text-xl text-gray-700 mb-6">
               <strong>You&apos;re part of a broader push</strong>—and you help keep proven progress moving.
             </p>
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
+            <DonateLink
+              cta="home-progress"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
             >
               Be Part of This Change
-            </Link>
+            </DonateLink>
           </div>
         </div>
       </section>
@@ -423,13 +421,12 @@ export default function EnHome() {
             <p className="text-xl text-gray-700 mb-8">
               Discover more about our community projects here!
             </p>
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
+            <DonateLink
+              cta="home-mission"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
             >
               DONATE
-            </Link>
+            </DonateLink>
           </div>
         </div>
       </section>
@@ -477,13 +474,12 @@ export default function EnHome() {
                 Donations help us promote our mission and continue to impact lives. Your
                 financial support helps keep ANSA running.
               </p>
-              <Link
-                href="https://www.paypal.com/US/fundraiser/charity/2006255"
-                target="_blank"
+              <DonateLink
+                cta="home-participate"
                 className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
               >
                 DONATE
-              </Link>
+              </DonateLink>
             </div>
           </div>
         </div>
@@ -568,13 +564,12 @@ export default function EnHome() {
             <p className="font-semibold">Address: University Dr. Fairfax, 3586, Virginia - ZIP: 22030 - USA</p>
             <p className="font-semibold">(703) 785-5159</p>
           </div>
-          <Link
-            href="https://www.paypal.com/US/fundraiser/charity/2006255"
-            target="_blank"
+          <DonateLink
+            cta="home-contact"
             className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
           >
             DONATE
-          </Link>
+          </DonateLink>
         </div>
       </section>
     </div>

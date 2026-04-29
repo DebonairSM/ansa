@@ -6,7 +6,8 @@
     "dev": "next dev -p 4545",
     "build": "next build",
     "start": "next start -p 4545",
-    "db:migrate": "node scripts/run-newsletter-migration.js"
+    "db:migrate": "node scripts/run-newsletter-migration.js",
+    "db:migrate-donations": "node scripts/run-donation-clicks-migration.js"
   },
   "dependencies": {
     "@react-email/components": "^0.0.31",
