@@ -131,6 +131,7 @@ export default function Navigation() {
               <DonateLink
                 cta="nav-mobile"
                 className="text-base font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {donateLabel[currentLocale as keyof typeof donateLabel]}
               </DonateLink>
