@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import type { Metadata } from 'next';
 import { getProjects, getProjectBySlug, getAllProjectSlugs } from '@/lib/localProjects';
 import ProjectGallery from '@/components/ProjectGallery';
+import DonateLink from '@/components/DonateLink';
 
 type Props = {
   params: { slug: string };
@@ -132,13 +133,12 @@ export default function ProjectDetailPt({ params }: Props) {
             >
               ← Voltar para Projetos
             </Link>
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
+            <DonateLink
+              cta="project-detail"
               className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
             >
               Apoiar Este Projeto
-            </Link>
+            </DonateLink>
           </div>
         </div>
       </section>

@@ -5,6 +5,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import NewsletterSignup from '@/components/newsletter/NewsletterSignup';
 import HeroCollage from '@/components/HeroCollage';
 import ScrollToNewsletter from '@/components/ScrollToNewsletter';
+import DonateLink from '@/components/DonateLink';
 
 export const metadata: Metadata = {
   title: 'ANSA Brasil - Início',
@@ -30,13 +31,12 @@ export default function PtHome() {
               A Associação Nossa Senhora Aparecida reúne voluntários na região de Washington, DC, dedicados ao apoio a crianças, mulheres e comunidades carentes no Brasil, por meio de instituições parceiras em todo o país.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://www.paypal.com/US/fundraiser/charity/2006255"
-                target="_blank"
+              <DonateLink
+                cta="home-hero"
                 className="inline-block bg-white text-amber-800 hover:bg-amber-50 font-bold px-8 py-4 rounded-lg transition-colors"
               >
                 Fazer uma Doação
-              </Link>
+              </DonateLink>
               <Link
                 href="/pt/about"
                 className="inline-block border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-semibold px-8 py-4 rounded-lg transition-colors"
@@ -70,11 +70,10 @@ export default function PtHome() {
             flexWrap: 'wrap'
           }}
         >
-          <Link
-            href="https://www.paypal.com/US/fundraiser/charity/2006255"
-            target="_blank"
+          <DonateLink
+            cta="home-cta-primary"
             className="group flex items-center justify-center gap-2 text-center transition-all duration-200 hover:scale-105"
-            style={{ 
+            style={{
               background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
               color: '#ffffff',
               fontWeight: 700,
@@ -88,7 +87,7 @@ export default function PtHome() {
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
             Doe Agora
-          </Link>
+          </DonateLink>
           <Link
             href="/pt/projects"
             className="flex items-center justify-center gap-2 text-center transition-all duration-200 hover:bg-amber-50"
@@ -294,13 +293,12 @@ export default function PtHome() {
               <strong>Você faz parte de um esforço maior</strong>—e ajuda a manter em movimento um progresso
               que os dados já comprovam.
             </p>
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
+            <DonateLink
+              cta="home-progress"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
             >
               Faça Parte Dessa Mudança
-            </Link>
+            </DonateLink>
           </div>
         </div>
       </section>
@@ -425,13 +423,12 @@ export default function PtHome() {
             <p className="text-xl text-gray-700 mb-8">
               Descubra mais sobre nossos projetos comunitários aqui!
             </p>
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
+            <DonateLink
+              cta="home-mission"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
             >
               DOAR
-            </Link>
+            </DonateLink>
           </div>
         </div>
       </section>
@@ -479,13 +476,12 @@ export default function PtHome() {
                 As doações nos ajudam a promover nossa missão e continuam a impactar vidas. Seu
                 apoio financeiro ajuda a manter a ANSA funcionando.
               </p>
-              <Link
-                href="https://www.paypal.com/US/fundraiser/charity/2006255"
-                target="_blank"
+              <DonateLink
+                cta="home-participate"
                 className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
               >
                 DOAR
-              </Link>
+              </DonateLink>
             </div>
           </div>
         </div>
@@ -570,13 +566,12 @@ export default function PtHome() {
             <p className="font-semibold">Rua: University Dr. Fairfax, 3586, Virgínia - CEP: 22030 - EUA</p>
             <p className="font-semibold">(703) 785-5159</p>
           </div>
-          <Link
-            href="https://www.paypal.com/US/fundraiser/charity/2006255"
-            target="_blank"
+          <DonateLink
+            cta="home-contact"
             className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
           >
             DOAR
-          </Link>
+          </DonateLink>
         </div>
       </section>
     </div>

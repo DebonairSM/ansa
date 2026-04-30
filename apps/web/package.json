@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start -p 4545",
     "db:migrate": "node scripts/run-newsletter-migration.js",
+    "db:migrate-donations": "node scripts/run-donation-clicks-migration.js",
     "content:check": "node scripts/content-check.js"
   },
   "dependencies": {
