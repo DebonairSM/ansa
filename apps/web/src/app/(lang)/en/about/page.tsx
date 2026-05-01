@@ -1,82 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { getTeamMembers } from '@/lib/localTeam';
+import TeamGrid from '@/components/TeamGrid';
 
 export const metadata: Metadata = {
   title: 'About Us - ANSA Brasil',
   description: 'Meet the volunteer team of ANSA Brasil working to help underprivileged children and women in Brazil since 1982.',
 };
 
-const teamMembers = [
-  {
-    name: 'Neusa Maria Medeiros',
-    role: 'President',
-    image: '/uploads/2021/02/neusapic1.png',
-    bio: "Neusa Maria Medeiros is ANSA's president and works passionately and spares no effort to help Brazil through ANSA, a dream made real. She prioritizes transparency, honesty and service. Born in Belém do Pará, the only child of cearense parents, she learned that life makes sense when knowledge is used for the welfare of others.",
-  },
-  {
-    name: 'Fr. Charles Hergenroeder',
-    role: 'Spiritual Director',
-    image: '/uploads/2021/02/pecharles.png',
-    bio: 'Fr. Charles Hergenroeder was born in Baltimore, MD, USA. He was ordained in June 1973 and went to Brazil in 1974. After 31 years in Brazil, he returned to the USA in 2005 and was asked to accompany ANSA as Spiritual Director.',
-  },
-  {
-    name: 'Nilma Araújo',
-    role: 'Treasurer',
-    image: '/uploads/2020/11/Nilma-1.jpg',
-    bio: 'Nilma Araújo was born in Londrina, PR, Brazil. She worked at the International Finance Corporation in Washington, DC for 25 years. When a friend introduced her to ANSA in 2017, she fell in love with their work.',
-  },
-  {
-    name: 'Marilza Piana Iriarte',
-    role: 'Secretary',
-    image: '/uploads/2021/02/Marilza-Ansa-foto-2-2-980x1067.jpg',
-    bio: 'Marilza Piana Iriarte was born in Ibiam/Tangará, SC, Brazil. She is a volunteer and board member since 2014. "Every time I see the results of the projects, I\'m proud to be part of this group."',
-  },
-  {
-    name: 'Fátima Moghrabi',
-    role: 'Volunteer',
-    image: '/uploads/2021/02/Fatima-2-1-980x925.jpg',
-    bio: '"ANSA holds a special place in my heart. I feel a special connection with the communities we help in Brazil. We touch these young people\'s lives by giving them an opportunity to have a better future."',
-  },
-  {
-    name: 'Myriam Woods',
-    role: 'Volunteer',
-    image: '/uploads/2021/02/Myriam-980x757.jpg',
-    bio: 'Myriam Quintella Woods was born in Ipanema, Rio de Janeiro. "For many years, I looked for a way to support women and children in Brazil. When I met ANSA, every day I am happier to be part of this group."',
-  },
-  {
-    name: 'Tania Burns',
-    role: 'Volunteer',
-    image: '/uploads/2021/02/Tania-2-1.jpg',
-    bio: "Tania joined ANSA in 2014 after visiting Santa Rita de Cássia Orphanage in Jacarepaguá. She has a BSE in Mechanical Engineering and an MBA. She feels blessed to have found a group dedicated to helping women and children in Brazil.",
-  },
-  {
-    name: 'Teresinha Garcia',
-    role: 'Volunteer',
-    image: '/uploads/2021/02/Teresinha.pic1_-1.jpg',
-    bio: 'Teresinha was born in Muçum, Rio Grande do Sul and lives in Arlington, VA for more than 30 years. "I am very happy to contribute to ANSA\'s mission to provide a better future for children and women in my country."',
-  },
-  {
-    name: 'Ines Ulsh',
-    role: 'Volunteer',
-    image: '/uploads/2021/02/Ines-2-1.jpg',
-    bio: 'Ines was born in Bahia, grew up in Rio de Janeiro and has lived in Falls Church, VA for many years. "With the spirit of generosity, we are gradually helping the children and women of our Brazil."',
-  },
-  {
-    name: 'Maria Helena Noronha',
-    role: 'Volunteer',
-    image: '/uploads/2024/Attached_image.png',
-    bio: 'Maria Helena Noronha is a retired university professor. She taught at California State University, Northridge, in Los Angeles, and at UNICAMP in Campinas, SP. She has always been deeply committed to social causes, especially those focused on social inclusion and education for children and adolescents in vulnerable situations. In Campinas, she collaborated with the Sociedade São Vicente de Paulo and currently works with Associação CrEsCER. In 2024, she joined ANSA with great enthusiasm, recognizing the significant impact of the organization on the lives of countless Brazilian women and children.',
-  },
-  {
-    name: 'Maristela Machado Carneiro',
-    role: 'Volunteer',
-    image: '/uploads/2024/maristela-machado-carneiro.jpg',
-    bio: 'Maristela Machado Carneiro was born in Rio de Janeiro and has volunteered with ANSA since 2019. Her focus is helping projects that welcome women and children facing vulnerable situations, offering not only basic support, but also tools to help them recover autonomy and safety. She believes solidarity is the engine of social justice and works on the front line to transform pain into opportunity. Maristela continues her work with ANSA inspired by Mother Teresa of Calcutta: "The lack of love is the greatest poverty." And also: "It is not how much we do, but how much love we put into what we do."',
-  },
-];
-
 export default function AboutUs() {
+  const teamMembers = getTeamMembers('en');
   return (
     <div className="min-h-screen">
       {/* Hero with Group Photo */}
@@ -175,36 +109,7 @@ export default function AboutUs() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {teamMembers.map((member) => (
-              <div 
-                key={member.name} 
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 group"
-              >
-                <div className="relative w-full bg-gradient-to-br from-gray-50 to-gray-100 px-8 pt-8 pb-6 flex items-center justify-center" style={{ minHeight: '320px' }}>
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={300}
-                    height={400}
-                    className="object-contain w-full h-auto max-h-[320px] transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-6 lg:p-7">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-yellow-600 transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-yellow-600 font-semibold mb-4 text-sm uppercase tracking-wide">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {member.bio}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TeamGrid members={teamMembers} />
         </div>
       </section>
 

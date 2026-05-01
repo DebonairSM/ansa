@@ -1,82 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { getTeamMembers } from '@/lib/localTeam';
+import TeamGrid from '@/components/TeamGrid';
 
 export const metadata: Metadata = {
   title: 'Quem Somos - ANSA Brasil',
   description: 'Conheça a equipe de voluntários da ANSA Brasil que trabalha para ajudar crianças e mulheres carentes no Brasil.',
 };
 
-const teamMembers = [
-  {
-    name: 'Neusa Maria Medeiros',
-    role: 'Presidente',
-    image: '/uploads/2021/02/neusapic1.png',
-    bio: 'Neusa Maria Medeiros é a presidente da ANSA e trabalha apaixonadamente e não poupa esforços para ajudar o Brasil através da ANSA, um sonho tornado realidade. Ela prioriza transparência, honestidade e serviço. Nascida em Belém do Pará, filha única de pais cearenses, na infância morou no Rio de Janeiro e Fortaleza. Neusa obteve seu diploma de Bacharel em Minas, Brasília e Paraíba. No Mississippi, graduou-se com mestrado e depois doutorado em Washington, DC. Com tantas coisas para estudar e lugares para explorar, ela aprendeu que a vida faz sentido quando o conhecimento é usado para o bem-estar dos outros.',
-  },
-  {
-    name: 'Pe. Charles Hergenroeder',
-    role: 'Diretor Espiritual',
-    image: '/uploads/2021/02/pecharles.png',
-    bio: 'Pe. Charles Hergenroeder nasceu em Baltimore, MD, EUA em 9 de outubro de 1947. Foi ordenado pelo Cardeal Terence Cook em junho de 1973 e foi para o Brasil em 14 de setembro de 1974. Passou vários anos no interior do Mato Grosso do Sul, depois no Paraná. Após 31 anos no Brasil, retornou aos EUA em 2005. Durante este tempo, conheceu o trabalho da Comunidade ANSA e foi convidado a acompanhar este trabalho missionário como Diretor Espiritual.',
-  },
-  {
-    name: 'Nilma Araújo',
-    role: 'Tesoureira',
-    image: '/uploads/2020/11/Nilma-1.jpg',
-    bio: 'Nilma Araújo nasceu em Londrina, PR, Brasil. Trabalhou na International Finance Corporation em Washington, DC por 25 anos como Assistente Sênior. Quando uma amiga a apresentou à ANSA em 2017, ela se apaixonou pelo trabalho. A ANSA tem um grupo entusiasmado e dedicado de voluntários com a missão de ajudar os menos afortunados no Brasil, focando em crianças e mulheres de baixa renda.',
-  },
-  {
-    name: 'Marilza Piana Iriarte',
-    role: 'Secretária',
-    image: '/uploads/2021/02/Marilza-Ansa-foto-2-2-980x1067.jpg',
-    bio: 'Marilza Piana Iriarte nasceu em Ibiam/Tangará, SC, Brasil. É voluntária e membro do conselho da ANSA desde 2014. Marilza acredita que cada pessoa pode fazer a diferença, não importa quão pequena seja sua contribuição, pois ajuda a proporcionar um mundo melhor para os outros. "Toda vez que vejo os resultados dos projetos, nessas áreas mais carentes do meu país, tenho orgulho de fazer parte deste grupo e isso me dá coragem para continuar participando."',
-  },
-  {
-    name: 'Fátima Moghrabi',
-    role: 'Voluntária',
-    image: '/uploads/2021/02/Fatima-2-1-980x925.jpg',
-    bio: 'Fátima nasceu no Rio de Janeiro e vive na região de Washington DC. "Sou Fátima Moghrabi e todo o trabalho social que faço é significativo para mim, mas a ANSA ocupa um lugar especial no meu coração. Sinto uma conexão especial não apenas com as pessoas com quem trabalho, mas também com as comunidades que ajudamos no Brasil. Sinto que tocamos a vida desses jovens dando-lhes a oportunidade de ter um futuro melhor."',
-  },
-  {
-    name: 'Myriam Woods',
-    role: 'Voluntária',
-    image: '/uploads/2021/02/Myriam-980x757.jpg',
-    bio: 'Myriam Quintella Woods nasceu em Ipanema, Rio de Janeiro, Brasil. Mudou-se para os EUA há mais de 30 anos. "Por muitos anos, procurei uma forma de apoiar uma organização sem fins lucrativos que beneficiasse mulheres e crianças no Brasil que precisam. Há três anos, quando me mudei para VA, conheci a ANSA e a cada dia fico mais feliz por fazer parte deste grupo."',
-  },
-  {
-    name: 'Tania Burns',
-    role: 'Voluntária',
-    image: '/uploads/2021/02/Tania-2-1.jpg',
-    bio: 'Tania Burns nasceu nos EUA, mas desenvolveu uma afinidade pelo povo brasileiro e sua cultura após uma viagem de três anos ao Rio de Janeiro com seu marido. Juntou-se à ANSA em 2014 após uma viagem ao Brasil onde sua família passou um dia ensinando beisebol às meninas do Orfanato Santa Rita de Cássia em Jacarepaguá. É formada em Engenharia Mecânica e tem MBA.',
-  },
-  {
-    name: 'Teresinha Garcia',
-    role: 'Voluntária',
-    image: '/uploads/2021/02/Teresinha.pic1_-1.jpg',
-    bio: 'Teresinha nasceu em Muçum, cresceu em São Leopoldo, Rio Grande do Sul, Brasil e mora em Arlington, VA há mais de 30 anos. "Estou muito feliz em poder contribuir para a missão da ANSA de proporcionar um futuro melhor para crianças e mulheres no meu país."',
-  },
-  {
-    name: 'Ines Ulsh',
-    role: 'Voluntária',
-    image: '/uploads/2021/02/Ines-2-1.jpg',
-    bio: 'Ines nasceu na Bahia, cresceu no Rio de Janeiro, Brasil e mora em Falls Church, VA há muitos anos. "Com o espírito de generosidade e ajuda ao próximo, estamos gradualmente ajudando as crianças e mulheres do nosso Brasil."',
-  },
-  {
-    name: 'Maria Helena Noronha',
-    role: 'Voluntária',
-    image: '/uploads/2024/Attached_image.png',
-    bio: 'Maria Helena Noronha é professora universitária aposentada. Atuou na California State University, Northridge, em Los Angeles, e na UNICAMP, em Campinas (SP). Sempre foi profundamente dedicada às causas sociais, especialmente àquelas voltadas à inclusão social e à educação de crianças e adolescentes em situação de vulnerabilidade. Em Campinas, colaborou com a Sociedade São Vicente de Paulo e, atualmente, atua na Associação CrEsCER. Em 2024, juntou-se com grande entusiasmo à ANSA, ao reconhecer o impacto significativo dessa organização na vida de inúmeras mulheres e crianças brasileiras.',
-  },
-  {
-    name: 'Maristela Machado Carneiro',
-    role: 'Voluntária',
-    image: '/uploads/2024/maristela-machado-carneiro.jpg',
-    bio: 'Maristela Machado Carneiro nasceu no Rio de Janeiro e é voluntária na ANSA desde 2019. Seu foco é ajudar projetos que acolhem mulheres e crianças em situação de vulnerabilidade, oferecendo não apenas o básico, mas também ferramentas para que recuperem sua autonomia e segurança. Ela acredita que a solidariedade é o motor da justiça social e que atua na linha de frente para transformar a dor em oportunidade. Maristela segue com seu trabalho na ANSA inspirada pelas reflexões de Madre Teresa de Calcutá: "A falta de amor é a maior de todas as pobrezas." E ainda: "Não é o quanto fazemos, mas quanto amor colocamos naquilo que fazemos."',
-  },
-];
-
 export default function AboutPt() {
+  const teamMembers = getTeamMembers('pt');
   return (
     <div className="min-h-screen">
       {/* Hero with Group Photo */}
@@ -175,36 +109,7 @@ export default function AboutPt() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {teamMembers.map((member) => (
-              <div 
-                key={member.name} 
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 group"
-              >
-                <div className="relative w-full bg-gradient-to-br from-gray-50 to-gray-100 px-8 pt-8 pb-6 flex items-center justify-center" style={{ minHeight: '320px' }}>
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    width={300}
-                    height={400}
-                    className="object-contain w-full h-auto max-h-[320px] transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-6 lg:p-7">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-yellow-600 transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-yellow-600 font-semibold mb-4 text-sm uppercase tracking-wide">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {member.bio}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TeamGrid members={teamMembers} />
         </div>
       </section>
 
