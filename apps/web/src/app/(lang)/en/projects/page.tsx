@@ -2,6 +2,7 @@ import { getProjects } from '@/lib/localProjects';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import DonateLink from '@/components/DonateLink';
 
 export const metadata: Metadata = {
   title: 'Projects - ANSA Brasil',
@@ -64,13 +65,12 @@ export default function ProjectsEn() {
           <p className="text-xl text-gray-700 mb-6">
             Your donation helps keep these projects running and impacting lives.
           </p>
-          <Link
-            href="https://www.paypal.com/US/fundraiser/charity/2006255"
-            target="_blank"
+          <DonateLink
+            cta="projects-list"
             className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
           >
             DONATE NOW
-          </Link>
+          </DonateLink>
         </div>
       </div>
     </div>

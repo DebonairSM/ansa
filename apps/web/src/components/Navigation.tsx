@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import LanguageSwitcher from './LanguageSwitcher';
+import DonateLink from './DonateLink';
 
 const menuItems = {
   pt: [
@@ -15,7 +16,6 @@ const menuItems = {
     { href: '/pt/contact', label: 'CONTATO' },
     { href: '/pt/rules', label: 'REGRAS' },
     { href: '/pt#newsletter', label: 'NEWSLETTER' },
-    { href: 'https://www.paypal.com/US/fundraiser/charity/2006255', label: 'DOAR', external: true },
   ],
   en: [
     { href: '/en', label: 'HOME' },
@@ -24,9 +24,10 @@ const menuItems = {
     { href: '/en/contact', label: 'CONTACT' },
     { href: '/en/rules', label: 'TERMS' },
     { href: '/en#newsletter', label: 'NEWSLETTER' },
-    { href: 'https://www.paypal.com/US/fundraiser/charity/2006255', label: 'DONATE', external: true },
   ],
 };
+
+const donateLabel = { pt: 'DOAR', en: 'DONATE' };
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -61,30 +62,24 @@ export default function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {items.map((item) => (
-              item.external ? (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`text-sm font-semibold transition-colors no-underline ${
-                    isActive(item.href)
-                      ? 'text-yellow-600'
-                      : 'text-gray-700 hover:text-yellow-600'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              )
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-sm font-semibold transition-colors no-underline ${
+                  isActive(item.href)
+                    ? 'text-yellow-600'
+                    : 'text-gray-700 hover:text-yellow-600'
+                }`}
+              >
+                {item.label}
+              </Link>
             ))}
+            <DonateLink
+              cta="nav-desktop"
+              className="text-sm font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
+            >
+              {donateLabel[currentLocale as keyof typeof donateLabel]}
+            </DonateLink>
             {/* Admin link hidden for now
             <Link
               href="/admin/newsletter"
@@ -120,32 +115,26 @@ export default function Navigation() {
           <div className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-4">
               {items.map((item) => (
-                item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`text-base font-semibold transition-colors no-underline ${
-                      isActive(item.href)
-                        ? 'text-yellow-600'
-                        : 'text-gray-700 hover:text-yellow-600'
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                )
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-base font-semibold transition-colors no-underline ${
+                    isActive(item.href)
+                      ? 'text-yellow-600'
+                      : 'text-gray-700 hover:text-yellow-600'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
               ))}
+              <DonateLink
+                cta="nav-mobile"
+                className="text-base font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {donateLabel[currentLocale as keyof typeof donateLabel]}
+              </DonateLink>
               {/* Admin link hidden for now
               <Link
                 href="/admin/newsletter"

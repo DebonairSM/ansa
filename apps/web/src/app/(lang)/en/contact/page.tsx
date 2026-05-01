@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaCheckCircle } from 'react-icons/fa';
+import DonateLink from '@/components/DonateLink';
 
 export default function ContactEn() {
   const [formData, setFormData] = useState({
@@ -140,13 +141,12 @@ export default function ContactEn() {
               <p className="text-gray-300 mb-4">
                 Every dollar received will help needy children and communities in Brazil.
               </p>
-              <Link
-                href="https://www.paypal.com/US/fundraiser/charity/2006255"
-                target="_blank"
+              <DonateLink
+                cta="contact-sidebar"
                 className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-lg transition-colors"
               >
                 Donate via PayPal
-              </Link>
+              </DonateLink>
             </div>
           </div>
 

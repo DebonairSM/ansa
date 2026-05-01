@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import DonateLink from '@/components/DonateLink';
 import { getTeamMembers } from '@/lib/localTeam';
 import TeamGrid from '@/components/TeamGrid';
 
@@ -23,13 +24,12 @@ export default function AboutPt() {
               A Associação Nossa Senhora Aparecida reúne voluntários na região de Washington, DC, dedicados ao apoio a crianças, mulheres e comunidades carentes no Brasil, por meio de instituições parceiras em todo o país.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://www.paypal.com/US/fundraiser/charity/2006255"
-                target="_blank"
+              <DonateLink
+                cta="about-hero"
                 className="inline-block bg-white text-yellow-700 hover:bg-yellow-50 font-bold px-8 py-4 rounded-lg transition-colors"
               >
                 Fazer uma Doação
-              </Link>
+              </DonateLink>
             </div>
           </div>
         </div>
@@ -137,13 +137,12 @@ export default function AboutPt() {
             >
               Entre em Contato
             </Link>
-            <Link
-              href="https://www.paypal.com/US/fundraiser/charity/2006255"
-              target="_blank"
+            <DonateLink
+              cta="about-final"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-8 py-4 rounded-lg transition-colors"
             >
               Fazer uma Doação
-            </Link>
+            </DonateLink>
           </div>
         </div>
       </section>
