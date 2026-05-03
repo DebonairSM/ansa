@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { getCategories } from '@/lib/localCategories';
+
+export const metadata: Metadata = {
+  title: 'Categorias - ANSA Brasil',
+  description: 'Navegue pelas categorias de conteúdo da ANSA Brasil para explorar nossos projetos, notícias e iniciativas.',
+};
 
 export default function CategoriesPt() {
   const categories = getCategories('pt');
