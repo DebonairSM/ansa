@@ -74,12 +74,21 @@ export default function Navigation() {
                 {item.label}
               </Link>
             ))}
-            <DonateLink
-              cta="nav-desktop"
-              className="text-sm font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
-            >
-              {donateLabel[currentLocale as keyof typeof donateLabel]}
-            </DonateLink>
+            {currentLocale === 'pt' ? (
+              <Link
+                href="/pt/donate"
+                className="text-sm font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
+              >
+                {donateLabel[currentLocale as keyof typeof donateLabel]}
+              </Link>
+            ) : (
+              <DonateLink
+                cta="nav-desktop"
+                className="text-sm font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
+              >
+                {donateLabel[currentLocale as keyof typeof donateLabel]}
+              </DonateLink>
+            )}
             {/* Admin link hidden for now
             <Link
               href="/admin/newsletter"
@@ -128,13 +137,23 @@ export default function Navigation() {
                   {item.label}
                 </Link>
               ))}
-              <DonateLink
-                cta="nav-mobile"
-                className="text-base font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {donateLabel[currentLocale as keyof typeof donateLabel]}
-              </DonateLink>
+              {currentLocale === 'pt' ? (
+                <Link
+                  href="/pt/donate"
+                  className="text-base font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {donateLabel[currentLocale as keyof typeof donateLabel]}
+                </Link>
+              ) : (
+                <DonateLink
+                  cta="nav-mobile"
+                  className="text-base font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {donateLabel[currentLocale as keyof typeof donateLabel]}
+                </DonateLink>
+              )}
               {/* Admin link hidden for now
               <Link
                 href="/admin/newsletter"

@@ -338,7 +338,7 @@ export default function DonatePT() {
           </Link>
         </div>
 
-        <div className="mt-8 w-full max-w-3xl">
+        <div id="qr-doacao" className="mt-8 w-full max-w-3xl scroll-mt-24">
           <div className="rounded-3xl border border-red-200 bg-white p-6 md:p-8 shadow-[0_12px_40px_-18px_rgba(220,38,38,0.35)]">
             <div className="grid gap-6 md:grid-cols-[1.15fr_0.85fr] md:items-center">
               <div>

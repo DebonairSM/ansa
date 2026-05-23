@@ -198,6 +198,28 @@ export default function PtHome() {
             <span style={{ whiteSpace: 'nowrap' }}>24 projetos</span>
           </span>
         </div>
+
+        <div className="mx-auto mt-5 flex max-w-xl flex-col items-center gap-4 rounded-2xl border border-amber-100 bg-white/90 p-4 shadow-sm sm:flex-row sm:text-left">
+          <div className="w-24 shrink-0 rounded-xl border border-gray-100 bg-gray-50 p-1.5">
+            <Image
+              src="/uploads/ansa-donation-qr.jpeg"
+              alt="QR code para doação"
+              width={180}
+              height={180}
+              unoptimized
+              className="h-auto w-full rounded-lg"
+            />
+          </div>
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-amber-700">Doação por QR</p>
+            <p className="mt-1 text-sm leading-relaxed text-gray-700">
+              O QR permanente fica na página de doação, junto das opções online.
+            </p>
+            <Link href="/pt/donate#qr-doacao" className="mt-2 inline-flex text-sm font-semibold text-amber-700 hover:text-amber-900">
+              Abrir QR de doação
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div className="px-4 pb-4">
@@ -212,9 +234,9 @@ export default function PtHome() {
             </div>
             <Link
               href="/pt/contact#pedido-institucional"
-              className="inline-flex items-center justify-center rounded-full border-2 border-amber-500 px-5 py-3 font-semibold text-amber-700 transition-colors hover:bg-amber-50"
+              className="inline-flex w-fit items-center text-sm font-semibold text-amber-700 transition-colors hover:text-amber-900"
             >
-              Ver orientações
+              Como solicitar apoio
             </Link>
           </div>
         </div>
