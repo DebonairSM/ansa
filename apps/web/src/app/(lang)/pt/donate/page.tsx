@@ -358,6 +358,7 @@ export default function DonatePT() {
                     alt="QR code para doação"
                     width={560}
                     height={560}
+                    unoptimized
                     className="h-auto w-full rounded-xl object-cover"
                     priority
                   />
