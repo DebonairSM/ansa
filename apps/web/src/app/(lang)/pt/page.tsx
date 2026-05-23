@@ -200,6 +200,26 @@ export default function PtHome() {
         </div>
       </div>
 
+      <div className="px-4 pb-4">
+        <div className="max-w-4xl mx-auto rounded-2xl border border-amber-200 bg-white/90 p-5 md:p-6 shadow-sm">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">Instituições</p>
+              <h2 className="mt-1 text-xl font-bold text-gray-900">Precisa solicitar apoio para um projeto?</h2>
+              <p className="mt-2 text-gray-700">
+                Se sua instituição quer enviar um pedido, há uma área específica na página de contato com as orientações iniciais.
+              </p>
+            </div>
+            <Link
+              href="/pt/contact#pedido-institucional"
+              className="inline-flex items-center justify-center rounded-full border-2 border-amber-500 px-5 py-3 font-semibold text-amber-700 transition-colors hover:bg-amber-50"
+            >
+              Ver orientações
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* Divider Line */}
       <div className="flex justify-center py-10 bg-white">
         <div 

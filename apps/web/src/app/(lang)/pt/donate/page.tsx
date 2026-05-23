@@ -338,6 +338,35 @@ export default function DonatePT() {
           </Link>
         </div>
 
+        <div className="mt-8 w-full max-w-3xl">
+          <div className="rounded-3xl border border-red-200 bg-white p-6 md:p-8 shadow-[0_12px_40px_-18px_rgba(220,38,38,0.35)]">
+            <div className="grid gap-6 md:grid-cols-[1.15fr_0.85fr] md:items-center">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-red-700">Doação presencial / rápida</p>
+                <h2 className="mt-2 text-3xl font-bold text-gray-900">Escaneie o QR e doe em segundos</h2>
+                <p className="mt-3 text-gray-700">
+                  Mantivemos este QR em um ponto central da página para ser fácil de encontrar quando alguém decide doar sem procurar demais.
+                </p>
+                <p className="mt-4 text-sm text-gray-500">
+                  Se preferir, a doação continua disponível pelos botões abaixo e pelas opções online usuais.
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <div className="w-full max-w-[280px] rounded-2xl border border-gray-100 bg-gray-50 p-3">
+                  <Image
+                    src="/uploads/ansa-donation-qr.jpeg"
+                    alt="QR code para doação"
+                    width={560}
+                    height={560}
+                    className="h-auto w-full rounded-xl object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Trust Badges */}
         <div 
           style={{ 

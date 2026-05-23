@@ -12,9 +12,20 @@ export default function ContactPt() {
     subject: '',
     message: '',
   });
+  const [requestData, setRequestData] = useState({
+    institution: '',
+    city: '',
+    contactName: '',
+    contactEmail: '',
+    contactPhone: '',
+    requestSummary: '',
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [isRequestSubmitting, setIsRequestSubmitting] = useState(false);
+  const [requestSubmitted, setRequestSubmitted] = useState(false);
+  const [requestError, setRequestError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,6 +48,42 @@ export default function ContactPt() {
       setError('Falha ao enviar mensagem. Tente novamente ou envie-nos um email diretamente.');
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleRequestSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsRequestSubmitting(true);
+    setRequestError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: requestData.contactName || requestData.institution,
+          email: requestData.contactEmail,
+          subject: `Pedido de ajuda institucional - ${requestData.institution || 'ANSA'}`,
+          message: [
+            `Instituição: ${requestData.institution}`,
+            `Cidade/UF: ${requestData.city}`,
+            `Responsável: ${requestData.contactName}`,
+            `Telefone: ${requestData.contactPhone}`,
+            '',
+            requestData.requestSummary,
+          ].join('\n'),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send institutional request');
+      }
+
+      setRequestSubmitted(true);
+    } catch {
+      setRequestError('Não foi possível enviar o pedido. Tente novamente ou envie os dados por email.');
+    } finally {
+      setIsRequestSubmitting(false);
     }
   };
 
@@ -239,6 +286,130 @@ export default function ContactPt() {
                 </button>
               </form>
             )}
+
+            <div id="pedido-institucional" className="mt-12 rounded-2xl border border-amber-200 bg-amber-50 p-6 md:p-8 scroll-mt-24">
+              <div className="mb-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">Para instituições</p>
+                <h3 className="mt-2 text-2xl font-bold text-gray-900">Pedido de ajuda institucional</h3>
+                <p className="mt-3 text-gray-700">
+                  Use este espaço para iniciar a solicitação do projeto e enviar as informações básicas.
+                  Depois, a ANSA poderá orientar sobre o pacote completo com termo de compromisso, autorização de imagens e documentos de apoio.
+                </p>
+              </div>
+
+              {requestSubmitted ? (
+                <div className="rounded-xl border border-green-200 bg-green-50 p-5 text-green-800">
+                  Recebemos seu pedido inicial. Em breve, entraremos em contato com as próximas orientações.
+                </div>
+              ) : (
+                <form onSubmit={handleRequestSubmit} className="space-y-4">
+                  {requestError && (
+                    <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+                      {requestError}
+                    </div>
+                  )}
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div>
+                      <label htmlFor="institution" className="block text-sm font-semibold mb-2">
+                        Nome da instituição *
+                      </label>
+                      <input
+                        id="institution"
+                        required
+                        value={requestData.institution}
+                        onChange={(e) => setRequestData({ ...requestData, institution: e.target.value })}
+                        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-amber-500"
+                        placeholder="Ex.: Associação Comunitária..."
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="city" className="block text-sm font-semibold mb-2">
+                        Cidade / estado *
+                      </label>
+                      <input
+                        id="city"
+                        required
+                        value={requestData.city}
+                        onChange={(e) => setRequestData({ ...requestData, city: e.target.value })}
+                        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-amber-500"
+                        placeholder="Ex.: Quixadá, CE"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div>
+                      <label htmlFor="request-contact-name" className="block text-sm font-semibold mb-2">
+                        Nome do responsável *
+                      </label>
+                      <input
+                        id="request-contact-name"
+                        required
+                        value={requestData.contactName}
+                        onChange={(e) => setRequestData({ ...requestData, contactName: e.target.value })}
+                        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-amber-500"
+                        placeholder="Nome completo"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="request-contact-email" className="block text-sm font-semibold mb-2">
+                        Email para retorno *
+                      </label>
+                      <input
+                        id="request-contact-email"
+                        type="email"
+                        required
+                        value={requestData.contactEmail}
+                        onChange={(e) => setRequestData({ ...requestData, contactEmail: e.target.value })}
+                        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-amber-500"
+                        placeholder="contato@instituicao.org"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="request-contact-phone" className="block text-sm font-semibold mb-2">
+                      Telefone / WhatsApp
+                    </label>
+                    <input
+                      id="request-contact-phone"
+                      value={requestData.contactPhone}
+                      onChange={(e) => setRequestData({ ...requestData, contactPhone: e.target.value })}
+                      className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-amber-500"
+                      placeholder="(xx) xxxxx-xxxx"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="request-summary" className="block text-sm font-semibold mb-2">
+                      Resumo do pedido *
+                    </label>
+                    <textarea
+                      id="request-summary"
+                      required
+                      rows={5}
+                      value={requestData.requestSummary}
+                      onChange={(e) => setRequestData({ ...requestData, requestSummary: e.target.value })}
+                      className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-amber-500"
+                      placeholder="Descreva a necessidade principal, público atendido e como a ajuda será usada."
+                    />
+                  </div>
+
+                  <div className="rounded-lg bg-white/80 p-4 text-sm text-gray-700">
+                    O pedido completo normalmente inclui formulário, termo de compromisso, autorização de uso de imagens, registro legal da instituição, orçamento detalhado e fotos do local.
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isRequestSubmitting}
+                    className="w-full rounded-lg bg-amber-600 px-6 py-4 font-bold text-white transition-colors hover:bg-amber-700 disabled:bg-amber-300"
+                  >
+                    {isRequestSubmitting ? 'Enviando...' : 'Enviar pedido institucional'}
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </div>
