@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { isEmailConfigured, getFromContact, sendEmail } from '@/lib/mailer';
+import { getContactRecipient, isEmailConfigured, getFromContact, sendEmail } from '@/lib/mailer';
 
 export async function POST(request: Request) {
   try {
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 
     await sendEmail({
       from: getFromContact(),
-      to: 'associacaonsraa@gmail.com',
+      to: getContactRecipient(),
       replyTo: email,
       subject: subject || `Contact Form: Message from ${name}`,
       html: `
@@ -45,6 +45,5 @@ export async function POST(request: Request) {
     );
   }
 }
-
 
 

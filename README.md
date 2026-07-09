@@ -139,7 +139,14 @@ npm run web:build
 cd apps/web && npm start
 ```
 
-The build does not require `RESEND_API_KEY`; the contact form API will return 503 at runtime if that variable is not set. For production deployment, set `RESEND_API_KEY` in your environment if you use the contact form.
+The build does not require email credentials; the contact form API will return 503 at runtime if no email provider is configured. For production delivery with Resend, verify a sending domain in Resend and set `RESEND_API_KEY`, `RESEND_FROM_CONTACT`, and `RESEND_FROM_NEWSLETTER`. Do not use the default `onboarding@resend.dev` sender in production; Resend only allows that test domain to send to the Resend account owner's email address.
+
+To smoke test the contact-form provider from `apps/web/.env.local`:
+
+```bash
+cd apps/web
+npm run email:smoke
+```
 
 ## Host locally with Cloudflare Tunnel
 
@@ -180,7 +187,10 @@ git push origin main
 - `NEXT_PUBLIC_API_URL`: `https://ansa-api.onrender.com` (optional)
 - `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase URL (optional)
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase anon key (optional)
-- `RESEND_API_KEY`: Resend API key for contact form email (optional; form returns 503 if unset)
+- `RESEND_API_KEY`: Resend API key for contact/newsletter email
+- `RESEND_FROM_CONTACT`: Contact-form sender on a verified Resend domain, for example `ANSA Contact <contact@your-verified-domain.org>`
+- `RESEND_FROM_NEWSLETTER`: Newsletter sender on a verified Resend domain
+- `CONTACT_TO_EMAIL`: Primary contact-form recipient. Defaults to `associacaonsraa@gmail.com`; `info@vsol.software` is added as BCC by the app.
 
 **ansa-api** (optional):
 - `SUPABASE_URL`: Your Supabase URL

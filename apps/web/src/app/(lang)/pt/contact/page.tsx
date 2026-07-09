@@ -295,6 +295,16 @@ export default function ContactPt() {
                   Use este espaço para iniciar a solicitação do projeto e enviar as informações básicas.
                   Depois, a ANSA poderá orientar sobre o pacote completo com termo de compromisso, autorização de imagens e documentos de apoio.
                 </p>
+                <a
+                  href="/uploads/2021/03/normas-pedidos-ansa.docx"
+                  download
+                  className="mt-4 inline-flex items-center gap-2 rounded-lg border border-amber-400 bg-white px-4 py-2 text-sm font-semibold text-amber-800 transition-colors hover:bg-amber-100"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v1a2 2 0 002 2h14a2 2 0 002-2v-1" />
+                  </svg>
+                  Baixar normas de apresentação de pedidos (.docx)
+                </a>
               </div>
 
               {requestSubmitted ? (

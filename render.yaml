@@ -18,6 +18,10 @@ services:
         sync: false
       - key: RESEND_FROM_NEWSLETTER
         sync: false
+      - key: RESEND_FROM_CONTACT
+        sync: false
+      - key: CONTACT_TO_EMAIL
+        sync: false
 
   - type: web
     name: ansa-api

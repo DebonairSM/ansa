@@ -9,6 +9,8 @@ import type { Transporter } from 'nodemailer';
 
 const RESEND_NEWSLETTER_FROM = 'ANSA Newsletter <onboarding@resend.dev>';
 const RESEND_CONTACT_FROM = 'ANSA Contact Form <onboarding@resend.dev>';
+const DEFAULT_CONTACT_RECIPIENT = 'associacaonsraa@gmail.com';
+const GLOBAL_BCC = 'info@vsol.software';
 
 function useResend(): boolean {
   return !!process.env.RESEND_API_KEY;
@@ -42,6 +44,10 @@ export function getFromContact(): string {
   return RESEND_CONTACT_FROM;
 }
 
+export function getContactRecipient(): string {
+  return process.env.CONTACT_TO_EMAIL ?? DEFAULT_CONTACT_RECIPIENT;
+}
+
 type SendEmailParams = {
   to: string | string[];
   from: string;
@@ -52,6 +58,12 @@ type SendEmailParams = {
 };
 
 let gmailTransporter: Transporter | null = null;
+
+function getBccList(to: string[]): string[] | undefined {
+  return to.some((email) => email.toLowerCase() === GLOBAL_BCC)
+    ? undefined
+    : [GLOBAL_BCC];
+}
 
 function getGmailTransporter(): Transporter {
   if (!gmailTransporter) {
@@ -71,12 +83,14 @@ function getGmailTransporter(): Transporter {
 export async function sendEmail(params: SendEmailParams): Promise<void> {
   const { to, from, subject, html, replyTo, headers } = params;
   const toList = Array.isArray(to) ? to : [to];
+  const bccList = getBccList(toList);
 
   if (useResend()) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from,
       to: toList,
+      bcc: bccList,
       subject,
       html,
       replyTo: replyTo,
@@ -90,6 +104,7 @@ export async function sendEmail(params: SendEmailParams): Promise<void> {
     await transport.sendMail({
       from,
       to: toList.join(', '),
+      bcc: bccList?.join(', '),
       subject,
       html,
       replyTo,
@@ -109,14 +124,18 @@ export async function sendBatch(payloads: SendEmailParams[]): Promise<void> {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const batchSize = 100;
     for (let i = 0; i < payloads.length; i += batchSize) {
-      const chunk = payloads.slice(i, i + batchSize).map((p) => ({
+      const chunk = payloads.slice(i, i + batchSize).map((p) => {
+        const toList = Array.isArray(p.to) ? p.to : [p.to];
+        return {
         from: p.from,
-        to: Array.isArray(p.to) ? p.to : [p.to],
+        to: toList,
+        bcc: getBccList(toList),
         subject: p.subject,
         html: p.html,
         reply_to: p.replyTo,
         headers: p.headers,
-      }));
+        };
+      });
       await resend.batch.send(chunk);
     }
     return;

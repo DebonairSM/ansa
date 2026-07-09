@@ -8,7 +8,9 @@
     "start": "next start -p 4545",
     "db:migrate": "node scripts/run-newsletter-migration.js",
     "db:migrate-donations": "node scripts/run-donation-clicks-migration.js",
-    "content:check": "node scripts/content-check.js"
+    "content:check": "node scripts/content-check.js",
+    "email:smoke": "node scripts/email-smoke-test.js",
+    "test": "vitest run"
   },
   "dependencies": {
     "@react-email/components": "^0.0.31",
@@ -36,6 +38,7 @@
     "autoprefixer": "^10.4.22",
     "pg": "^8.13.1",
     "postcss": "^8.5.6",
+    "vitest": "^2.1.9",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.4.5"
   },

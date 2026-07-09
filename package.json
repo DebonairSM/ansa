@@ -18,5 +18,9 @@
     "@types/node": "^20.11.30",
     "gray-matter": "^4.0.3",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.106.1"
   }
 }
