@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/seo';
 import DonateLink from '@/components/DonateLink';
 import { getTeamMembers } from '@/lib/localTeam';
 import TeamGrid from '@/components/TeamGrid';
 
 export const metadata: Metadata = {
   title: 'About Us - ANSA Brasil',
+  alternates: localeAlternates('en', { pt: '/pt/about', en: '/en/about' }),
   description: 'Meet the volunteer team of ANSA Brasil working to help underprivileged children and women in Brazil since 1982.',
 };
 

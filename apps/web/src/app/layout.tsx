@@ -1,8 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import SessionProvider from '@/components/SessionProvider';
+import { metadataBase } from '@/lib/seo';
 
 export const metadata: Metadata = {
+  metadataBase,
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },

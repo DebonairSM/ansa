@@ -35,7 +35,7 @@ const slugMap: Record<string, { pt: string; en: string }> = {
   'sao-jose-foundation': { pt: 'fundacao-sao-jose', en: 'sao-jose-foundation' },
 };
 
-function getMappedSlug(slug: string, locale: 'pt' | 'en'): string {
+export function getMappedSlug(slug: string, locale: 'pt' | 'en'): string {
   // First, try to find the slug in the map
   const mapping = slugMap[slug];
   if (mapping) {

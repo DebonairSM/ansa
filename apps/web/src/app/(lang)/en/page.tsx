@@ -6,9 +6,11 @@ import NewsletterSignup from '@/components/newsletter/NewsletterSignup';
 import HeroCollage from '@/components/HeroCollage';
 import ScrollToNewsletter from '@/components/ScrollToNewsletter';
 import DonateLink from '@/components/DonateLink';
+import { localeAlternates } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'ANSA Brasil - Home',
+  alternates: localeAlternates('en', { pt: '/pt', en: '/en' }),
   description: 'Associação Nossa Senhora Aparecida - Helping Brazilian communities in need since 1982 through donations and volunteer work.',
   openGraph: {
     title: 'ANSA Brasil',

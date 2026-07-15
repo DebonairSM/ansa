@@ -2,10 +2,12 @@ import { getProjects } from '@/lib/localProjects';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/seo';
 import DonateLink from '@/components/DonateLink';
 
 export const metadata: Metadata = {
   title: 'Projects - ANSA Brasil',
+  alternates: localeAlternates('en', { pt: '/pt/projects', en: '/en/projects' }),
   description: 'Learn about the projects supported by ANSA Brasil that transform the lives of underprivileged children and families.',
 };
 

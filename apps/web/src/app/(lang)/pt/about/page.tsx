@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/seo';
 import DonateLink from '@/components/DonateLink';
 import { getTeamMembers } from '@/lib/localTeam';
 import TeamGrid from '@/components/TeamGrid';
 
 export const metadata: Metadata = {
   title: 'Quem Somos - ANSA Brasil',
+  alternates: localeAlternates('pt', { pt: '/pt/about', en: '/en/about' }),
   description: 'Conheça a equipe de voluntários da ANSA Brasil que trabalha para ajudar crianças e mulheres carentes no Brasil.',
 };
 
