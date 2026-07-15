@@ -4,7 +4,7 @@ import RichText from '@/components/RichText';
 import type { Metadata } from 'next';
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
@@ -15,7 +15,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const page = getPageBySlug(params.slug, 'pt');
+  const { slug } = await params;
+  const page = getPageBySlug(slug, 'pt');
   
   if (!page) {
     return {
@@ -35,8 +36,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function PageDetail({ params }: Props) {
-  const page = getPageBySlug(params.slug, 'pt');
+export default async function PageDetail({ params }: Props) {
+  const { slug } = await params;
+  const page = getPageBySlug(slug, 'pt');
   
   if (!page) {
     notFound();

@@ -8,7 +8,7 @@ import ProjectGallery from '@/components/ProjectGallery';
 import DonateLink from '@/components/DonateLink';
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
@@ -19,7 +19,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = getProjectBySlug(params.slug, 'pt');
+  const { slug } = await params;
+  const project = getProjectBySlug(slug, 'pt');
   
   if (!project) {
     return {
@@ -41,8 +42,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function ProjectDetailPt({ params }: Props) {
-  const project = getProjectBySlug(params.slug, 'pt');
+export default async function ProjectDetailPt({ params }: Props) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug, 'pt');
   
   if (!project) {
     notFound();

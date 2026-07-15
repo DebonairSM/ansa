@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getCategoryBySlug, getCategories } from '@/lib/localCategories';
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
   const categories = getCategories('pt');
@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function CategoryDetailPt({ params }: Props) {
-  const category = getCategoryBySlug(params.slug, 'pt');
+export default async function CategoryDetailPt({ params }: Props) {
+  const { slug } = await params;
+  const category = getCategoryBySlug(slug, 'pt');
   if (!category) return notFound();
   
   const categoryData = category as any;

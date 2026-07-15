@@ -19,13 +19,14 @@ async function requireAdmin() {
 
 export async function GET(
   _request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const authError = await requireAdmin();
   if (authError) return authError;
 
   try {
-    const campaign = await getCampaign(params.id);
+    const { id } = await params;
+    const campaign = await getCampaign(id);
     return NextResponse.json(campaign);
   } catch (error) {
     console.error('Get campaign error:', error);
@@ -35,19 +36,20 @@ export async function GET(
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const authError = await requireAdmin();
   if (authError) return authError;
 
   try {
+    const { id } = await params;
     const body = await request.json();
     const { title, content } = body as { title?: string; content?: NewsletterContent };
     if (!title || typeof title !== 'string' || !content?.blocks) {
       return NextResponse.json({ error: 'Invalid title or content' }, { status: 400 });
     }
 
-    await updateCampaign(params.id, content, title);
+    await updateCampaign(id, content, title);
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error('Update campaign error:', error);

@@ -1,14 +1,15 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
-export default function LangLayout({
+export default async function LangLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang?: string };
+  params: Promise<{ lang?: string }>;
 }) {
-  const locale = (params.lang || 'pt') as 'pt' | 'en';
+  const { lang } = await params;
+  const locale = (lang || 'pt') as 'pt' | 'en';
   
   return (
     <>
