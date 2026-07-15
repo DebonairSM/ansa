@@ -212,3 +212,10 @@ cloudflared/*.json
 local/
 *.local
 .claude/settings.local.json
+
+# Local visual-audit pages must never ship from the public web root.
+apps/web/public/gallery.html
+apps/web/public/hero-mockup.html
+apps/web/public/image-gallery.html
+apps/web/public/simple-gallery.html
+apps/web/public/test.txt
