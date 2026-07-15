@@ -23,7 +23,7 @@ export default async function AdminGate({ children }: AdminGateProps) {
   }
 
   const session = hasGoogle ? await getServerSession(authOptions) : null;
-  const cookieValue = cookies().get(getAdminCookieName())?.value;
+  const cookieValue = (await cookies()).get(getAdminCookieName())?.value;
   const isAuthed = isAdminAuthorized(cookieValue ?? undefined, secret ?? '', session);
 
   if (!isAuthed) {

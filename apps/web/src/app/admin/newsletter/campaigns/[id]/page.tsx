@@ -9,7 +9,7 @@ import type { NewsletterContent, NewsletterBlock } from '@/lib/newsletter/types'
 
 export const dynamic = 'force-dynamic';
 
-type Props = { params: { id: string } };
+type Props = { params: Promise<{ id: string }> };
 
 function normalizeContent(
   raw: unknown,
@@ -51,8 +51,9 @@ export default async function EditCampaignPage({ params }: Props) {
       </div>
     );
   }
+  const { id } = await params;
   try {
-    const campaign = await getCampaign(params.id);
+    const campaign = await getCampaign(id);
     if (campaign.status === 'draft') {
       redirect(`/admin/newsletter/drafts/${campaign.id}`);
     }
