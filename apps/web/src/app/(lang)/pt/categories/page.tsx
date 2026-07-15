@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/seo';
 import { getCategories } from '@/lib/localCategories';
 
 export const metadata: Metadata = {
   title: 'Categorias - ANSA Brasil',
+  alternates: localeAlternates('pt', { pt: '/pt/categories', en: '/en/categories' }),
   description: 'Navegue pelas categorias de conteúdo da ANSA Brasil para explorar nossos projetos, notícias e iniciativas.',
 };
 

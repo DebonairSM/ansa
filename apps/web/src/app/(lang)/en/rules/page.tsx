@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/seo';
 import { FaCheckCircle, FaGlobe, FaCopyright, FaHeart, FaLock, FaExternalLinkAlt, FaExclamationTriangle, FaEdit, FaEnvelope } from 'react-icons/fa';
 import DonateLink from '@/components/DonateLink';
 
 export const metadata: Metadata = {
   title: 'Terms of Use - ANSA Brasil',
+  alternates: localeAlternates('en', { pt: '/pt/rules', en: '/en/rules' }),
   description: 'Terms and conditions for using the ANSA Brasil website. Learn about our policies on donations, privacy, intellectual property, and more.',
 };
 

@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/seo';
 import DonateLink from '@/components/DonateLink';
 
 export const metadata: Metadata = {
   title: 'Doar - ANSA Brasil',
+  alternates: localeAlternates('pt', { pt: '/pt/donate' }),
   description: 'Faça uma doação para a ANSA Brasil e ajude crianças e famílias carentes em todo o Brasil.',
 };
 
