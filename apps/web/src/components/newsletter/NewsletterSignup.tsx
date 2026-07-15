@@ -29,6 +29,7 @@ type Props = {
 export default function NewsletterSignup({ locale, variant = 'footer' }: Props) {
   const content = copy[locale];
   const [email, setEmail] = useState('');
+  const [website, setWebsite] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
 
@@ -41,7 +42,7 @@ export default function NewsletterSignup({ locale, variant = 'footer' }: Props) 
       const res = await fetch('/api/newsletter/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), locale }),
+        body: JSON.stringify({ email: email.trim(), locale, website }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -67,6 +68,17 @@ export default function NewsletterSignup({ locale, variant = 'footer' }: Props) 
 
   return (
     <form className="space-y-3" onSubmit={handleSubmit}>
+      {/* Honeypot: humans never see or fill this field */}
+      <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
       <input
         type="email"
         value={email}

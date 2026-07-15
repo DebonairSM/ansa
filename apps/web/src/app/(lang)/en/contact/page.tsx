@@ -11,6 +11,7 @@ export default function ContactEn() {
     email: '',
     subject: '',
     message: '',
+    website: '',
   });
   const [requestData, setRequestData] = useState({
     institution: '',
@@ -19,6 +20,7 @@ export default function ContactEn() {
     contactEmail: '',
     contactPhone: '',
     requestSummary: '',
+    website: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -48,6 +50,7 @@ export default function ContactEn() {
             '',
             requestData.requestSummary,
           ].join('\n'),
+          website: requestData.website,
         }),
       });
 
@@ -218,6 +221,17 @@ export default function ContactEn() {
                     {error}
                   </div>
                 )}
+                {/* Honeypot: humans never see or fill this field */}
+                <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website}
+                    onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                  />
+                </div>
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold mb-2">
                     Name *
@@ -318,6 +332,18 @@ export default function ContactEn() {
                       {requestError}
                     </div>
                   )}
+
+                  {/* Honeypot: humans never see or fill this field */}
+                  <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={requestData.website}
+                      onChange={(e) => setRequestData({ ...requestData, website: e.target.value })}
+                    />
+                  </div>
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <div>

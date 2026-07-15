@@ -5,16 +5,31 @@ import ConfirmSubscription from '@/emails/ConfirmSubscription';
 import { findSubscriberByEmail, upsertSubscriber } from '@/lib/newsletter/db';
 import { generateToken, getBaseUrl } from '@/lib/newsletter/utils';
 import { isEmailConfigured, getFromNewsletter, sendEmail } from '@/lib/mailer';
+import { getClientIp, isRateLimited, normalizeEmail } from '@/lib/formSecurity';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_EMAIL_LENGTH = 254;
+const RATE_LIMIT = { limit: 5, windowMs: 10 * 60 * 1000 };
 
 export async function POST(request: Request) {
   try {
-    const { email, locale } = await request.json();
-    if (!email || !emailRegex.test(email)) {
+    if (isRateLimited(`newsletter:${getClientIp(request)}`, RATE_LIMIT)) {
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+    }
+
+    const body = await request.json();
+    const honeypot = typeof body.website === 'string' ? body.website.trim() : '';
+
+    // Honeypot filled in: almost certainly a bot. Pretend success, store nothing.
+    if (honeypot) {
+      return NextResponse.json({ ok: true, status: 'pending' });
+    }
+
+    const email = normalizeEmail(body.email);
+    if (!email || email.length > MAX_EMAIL_LENGTH || !emailRegex.test(email)) {
       return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
     }
-    const normalizedLocale = locale === 'en' ? 'en' : 'pt';
+    const normalizedLocale = body.locale === 'en' ? 'en' : 'pt';
 
     const existing = await findSubscriberByEmail(email);
     if (existing?.status === 'active') {
