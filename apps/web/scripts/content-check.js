@@ -15,6 +15,7 @@ const REQUIRED_FRONTMATTER = {
   pages: ['slug', 'title', 'locale'],
   projects: ['slug', 'title', 'locale', 'description', 'featuredImage'],
   categories: ['slug', 'title', 'locale'],
+  team: ['slug', 'name', 'role', 'image', 'order'],
 };
 
 const errors = [];
@@ -160,6 +161,7 @@ function collectImageRefs(item) {
   const refs = [];
   const d = item.data;
   if (typeof d.featuredImage === 'string') refs.push(d.featuredImage);
+  if (typeof d.image === 'string') refs.push(d.image);
   if (Array.isArray(d.gallery)) {
     for (const g of d.gallery) if (typeof g === 'string') refs.push(g);
   }
@@ -274,6 +276,7 @@ function main() {
     pages: readContent('pages'),
     projects: readContent('projects'),
     categories: readContent('categories'),
+    team: readContent('team'),
   };
 
   for (const type of Object.keys(items)) {

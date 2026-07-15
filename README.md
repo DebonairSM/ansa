@@ -161,6 +161,8 @@ For a custom domain and named tunnel, see [docs/CLOUDFLARE_TUNNEL.md](docs/CLOUD
 
 ## Deployment to Render.com
 
+See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for the authoritative build/restart flow and the required post-deploy check for profile and project images.
+
 ### Prerequisites
 
 - GitHub repository with this code
@@ -180,8 +182,15 @@ git push origin main
    - Go to Render Dashboard → New → Blueprint
    - Connect repository
    - Render will detect `render.yaml` and create services automatically
+   - Each web deploy runs the profile/project asset check, creates a fresh build, and starts a replacement process
 
-3. **Environment variables** (configure in Render Dashboard):
+3. **Verify the live images** after Render marks the deployment Live:
+
+```powershell
+npm run deploy:check-images -- https://ansabrasil.org
+```
+
+4. **Environment variables** (configure in Render Dashboard):
 
 **ansa-web**:
 - `NEXT_PUBLIC_API_URL`: `https://ansa-api.onrender.com` (optional)
@@ -221,6 +230,10 @@ npm run api:dev          # Start Express API server
 
 # Production
 npm run web:build        # Build Next.js for production
+npm run web:start        # Start the production server on port 4545
+npm run assets:check     # Validate profile/project images before a deploy
+npm run content:check    # Validate content and referenced local assets
+npm run deploy:check-images -- https://ansabrasil.org
 npm run api:build        # Build Express API
 ```
 
