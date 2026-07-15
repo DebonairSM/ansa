@@ -9,8 +9,11 @@
   "scripts": {
     "web:dev": "cd apps/web && npm run dev",
     "web:build": "cd apps/web && npm run build",
+    "web:start": "cd apps/web && npm start",
     "db:migrate": "cd apps/web && npm run db:migrate",
     "content:check": "cd apps/web && npm run content:check",
+    "assets:check": "node apps/web/scripts/check-deployed-images.js --local-only",
+    "deploy:check-images": "node apps/web/scripts/check-deployed-images.js",
     "api:dev": "cd apps/api && npm run dev",
     "api:build": "cd apps/api && npm run build"
   },

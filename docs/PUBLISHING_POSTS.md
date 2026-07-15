@@ -245,6 +245,16 @@ git commit -m "Add images for new project"
 git push
 ```
 
+4. **Verify the deployed image after Render reports the release as Live**:
+
+```powershell
+npm run deploy:check-images -- `
+  https://ansabrasil.org `
+  /uploads/2025/01/project-photo.jpg
+```
+
+For profile images, use the same command with the profile's `/uploads/...` path. Running the command without image path arguments checks all profile images and project featured images. See [DEPLOYMENT.md](DEPLOYMENT.md) for the full build/restart and troubleshooting flow.
+
 ## Best Practices
 
 ### File Naming
@@ -304,6 +314,8 @@ Check:
 
 - Wait 3-5 minutes for deployment
 - Check Render dashboard for build status
+- Wait for the new process to be marked Live, then run `npm run deploy:check-images -- https://ansabrasil.org`
+- Confirm the image is tracked with `git ls-files apps/web/public/uploads/...`
 - Clear browser cache
 - Verify commit went to main branch
 
