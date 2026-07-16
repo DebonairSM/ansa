@@ -2,7 +2,7 @@ import { notFound, redirect } from 'next/navigation';
 import Link from 'next/link';
 import React from 'react';
 import { render } from '@react-email/render';
-import { getCampaign } from '@/lib/newsletter/db';
+import { getCampaign, getCampaignMetrics } from '@/lib/newsletter/db';
 import NewsletterTemplate from '@/emails/NewsletterTemplate';
 import DbUnreachable from '@/components/admin/DbUnreachable';
 import type { NewsletterContent, NewsletterBlock } from '@/lib/newsletter/types';
@@ -61,6 +61,7 @@ export default async function EditCampaignPage({ params }: Props) {
       campaign.content_json,
       campaign.title ?? ''
     );
+    const metrics = await getCampaignMetrics(campaign.id);
     const previewHtml = looksLikeHtml(campaign.content_json)
       ? String(campaign.content_json)
       : await render(
@@ -100,6 +101,37 @@ export default async function EditCampaignPage({ params }: Props) {
                 <p className="mt-2 text-sm leading-6 text-gray-700">{content.preview}</p>
               </>
             ) : null}
+
+            <div className="mt-6 border-t border-gray-200 pt-5">
+              <h2 className="text-base font-bold text-gray-950">Engagement</h2>
+              <dl className="mt-3 grid grid-cols-2 gap-3">
+                <div className="rounded-md bg-blue-50 p-3">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-blue-800">Unique opens</dt>
+                  <dd className="mt-1 text-2xl font-bold text-blue-950">{metrics.uniqueOpens}</dd>
+                  <dd className="text-xs text-blue-800">{metrics.opens} total</dd>
+                </div>
+                <div className="rounded-md bg-violet-50 p-3">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-violet-800">Unique clicks</dt>
+                  <dd className="mt-1 text-2xl font-bold text-violet-950">{metrics.uniqueClicks}</dd>
+                  <dd className="text-xs text-violet-800">{metrics.clicks} total</dd>
+                </div>
+              </dl>
+              <p className="mt-3 text-sm text-gray-700">
+                Unsubscribes attributed to this campaign: <strong>{metrics.unsubscribes}</strong>
+              </p>
+              {metrics.recentClicks.length > 0 && (
+                <div className="mt-4">
+                  <h3 className="text-sm font-bold text-gray-900">Recent clicked links</h3>
+                  <ul className="mt-2 space-y-2">
+                    {metrics.recentClicks.map((event, index) => (
+                      <li key={`${event.subscriber_id}-${event.created_at}-${index}`} className="break-all text-xs text-gray-700">
+                        {event.url ?? 'Unknown link'}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </aside>
 
           <section className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-soft">

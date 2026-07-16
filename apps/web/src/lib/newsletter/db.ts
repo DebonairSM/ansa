@@ -178,3 +178,32 @@ export async function recordEmailEvent(payload: {
   });
   if (error) throw error;
 }
+
+export async function getCampaignMetrics(campaignId: string) {
+  const supabase = getSupabaseAdminClient();
+  const { data, error } = await supabase
+    .from('email_events')
+    .select('subscriber_id,type,url,created_at')
+    .eq('campaign_id', campaignId)
+    .order('created_at', { ascending: false });
+  if (error) throw error;
+
+  const events = data ?? [];
+  const opens = events.filter((event) => event.type === 'open');
+  const clicks = events.filter((event) => event.type === 'click');
+  const unsubscribes = events.filter((event) => event.type === 'unsubscribe');
+
+  return {
+    opens: opens.length,
+    uniqueOpens: new Set(opens.map((event) => event.subscriber_id)).size,
+    clicks: clicks.length,
+    uniqueClicks: new Set(clicks.map((event) => event.subscriber_id)).size,
+    unsubscribes: unsubscribes.length,
+    recentClicks: clicks.slice(0, 10) as Array<{
+      subscriber_id: string;
+      type: string;
+      url: string | null;
+      created_at: string;
+    }>,
+  };
+}
