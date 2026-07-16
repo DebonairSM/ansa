@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
 const copy = {
   pt: {
@@ -28,6 +28,7 @@ type Props = {
 
 export default function NewsletterSignup({ locale, variant = 'footer' }: Props) {
   const content = copy[locale];
+  const emailId = useId();
   const [email, setEmail] = useState('');
   const [website, setWebsite] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -67,7 +68,7 @@ export default function NewsletterSignup({ locale, variant = 'footer' }: Props) 
   const isFooter = variant === 'footer';
 
   return (
-    <form className="space-y-3" onSubmit={handleSubmit}>
+    <form className="space-y-3" onSubmit={handleSubmit} aria-label={content.button}>
       {/* Honeypot: humans never see or fill this field */}
       <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
         <input
@@ -77,14 +78,23 @@ export default function NewsletterSignup({ locale, variant = 'footer' }: Props) 
           autoComplete="off"
           value={website}
           onChange={(e) => setWebsite(e.target.value)}
+          aria-label={locale === 'pt' ? 'Deixe este campo em branco' : 'Leave this field blank'}
         />
       </div>
+      <label htmlFor={emailId} className="sr-only">
+        {content.placeholder}
+      </label>
       <input
+        id={emailId}
+        name="email"
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder={content.placeholder}
         disabled={status === 'loading'}
+        autoComplete="email"
+        aria-describedby={message ? `${emailId}-status` : undefined}
+        aria-invalid={status === 'error'}
         required
         className={
           isFooter
@@ -105,6 +115,9 @@ export default function NewsletterSignup({ locale, variant = 'footer' }: Props) 
       </button>
       {message && (
         <p
+          id={`${emailId}-status`}
+          role={status === 'error' ? 'alert' : 'status'}
+          aria-live="polite"
           className={`text-sm ${
             status === 'error' ? 'text-red-600' : isFooter ? 'text-gray-300' : 'text-gray-600'
           }`}

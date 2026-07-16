@@ -19,7 +19,7 @@ export default function AboutUs() {
       {/* Hero with Group Photo */}
       <section className="bg-gray-900">
         {/* Title */}
-        <div className="bg-yellow-500 text-white py-16 px-4">
+        <div className="bg-amber-300 text-gray-950 py-12 px-4 sm:py-16">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">About Us</h1>
             <p className="text-lg md:text-2xl max-w-3xl mx-auto opacity-95">

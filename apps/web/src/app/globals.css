@@ -11,6 +11,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  :where(a, button, input, textarea, select, summary):focus-visible {
+    outline: 3px solid #b45309;
+    outline-offset: 3px;
+  }
 }
 
 @layer components {
@@ -144,4 +149,9 @@
     height: 100% !important;
     padding: 4rem 2.5rem !important;
   }
+}
+
+/* Yellow at 500 is too light to support white text at accessible contrast. */
+.bg-yellow-500.text-white {
+  color: #111827;
 }

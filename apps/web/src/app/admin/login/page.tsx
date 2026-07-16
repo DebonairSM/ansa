@@ -6,7 +6,7 @@ import GoogleSignInButton from '@/components/admin/GoogleSignInButton';
 export default function AdminLoginPage() {
   const showGoogle = !!(process.env.AUTH_GOOGLE_ID && process.env.AUTH_GOOGLE_SECRET);
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12">
+    <main className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-8 sm:py-12">
       <div className="w-full max-w-md">
         <div className="flex justify-center mb-6">
           <Link href="/pt" className="inline-flex items-center">
@@ -20,7 +20,7 @@ export default function AdminLoginPage() {
             />
           </Link>
         </div>
-        <div className="bg-white border border-gray-200 rounded-lg shadow-soft p-8">
+        <div className="bg-white border border-gray-300 rounded-lg shadow-soft p-6 sm:p-8">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Newsletter admin</h1>
           <p className="text-sm text-gray-600 mb-6">
             {showGoogle
@@ -33,11 +33,11 @@ export default function AdminLoginPage() {
           </div>
         </div>
         <div className="text-center mt-6">
-          <Link href="/pt" className="text-sm text-gray-600 hover:text-yellow-600">
+          <Link href="/pt" className="inline-flex min-h-11 items-center text-sm font-medium text-gray-700 hover:text-amber-800">
             Back to site
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -46,16 +46,19 @@ export default function AdminLoginForm({ redirectTo = '/admin/newsletter' }: Adm
           type="password"
           value={secret}
           onChange={(event) => setSecret(event.target.value)}
-          className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+          className="w-full min-h-11 px-4 py-2 rounded border border-gray-400 focus:ring-2 focus:ring-amber-700 focus:border-transparent"
           placeholder="Enter secret"
+          autoComplete="current-password"
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? 'admin-login-error' : undefined}
           required
         />
       </div>
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p id="admin-login-error" role="alert" className="text-sm font-medium text-red-700">{error}</p>}
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-yellow-500 hover:bg-yellow-600 disabled:bg-yellow-300 text-white font-semibold px-4 py-2 rounded"
+        className="w-full min-h-11 bg-amber-600 hover:bg-amber-700 disabled:bg-amber-200 text-white font-semibold px-4 py-2 rounded"
       >
         {loading ? 'Signing in...' : 'Sign in'}
       </button>

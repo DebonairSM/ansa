@@ -72,24 +72,6 @@ export default function EnHome() {
             flexWrap: 'wrap'
           }}
         >
-          <DonateLink
-            cta="home-cta-primary"
-            className="group flex items-center justify-center gap-2 text-center transition-all duration-200 hover:scale-105"
-            style={{
-              background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-              color: '#ffffff',
-              fontWeight: 700,
-              fontSize: '1rem',
-              padding: '1rem 2.5rem',
-              borderRadius: '100px',
-              boxShadow: '0 8px 24px -4px rgba(245, 158, 11, 0.4), 0 2px 8px -2px rgba(0,0,0,0.1)'
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-            Donate Now
-          </DonateLink>
           <Link
             href="/en/projects"
             className="flex items-center justify-center gap-2 text-center transition-all duration-200 hover:bg-amber-50"
@@ -476,12 +458,6 @@ export default function EnHome() {
                 Donations help us promote our mission and continue to impact lives. Your
                 financial support helps keep ANSA running.
               </p>
-              <DonateLink
-                cta="home-participate"
-                className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-8 py-3 rounded-lg transition-colors"
-              >
-                DONATE
-              </DonateLink>
             </div>
           </div>
         </div>
@@ -566,12 +542,12 @@ export default function EnHome() {
             <p className="font-semibold">Address: University Dr. Fairfax, 3586, Virginia - ZIP: 22030 - USA</p>
             <p className="font-semibold">(703) 785-5159</p>
           </div>
-          <DonateLink
-            cta="home-contact"
-            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
+          <Link
+            href="/en/contact"
+            className="inline-flex min-h-11 items-center rounded-lg bg-gray-900 px-8 py-3 font-bold text-white no-underline hover:bg-gray-800"
           >
-            DONATE
-          </DonateLink>
+            Send us a message
+          </Link>
         </div>
       </section>
     </div>
