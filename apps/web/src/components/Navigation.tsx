@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -34,6 +34,13 @@ export default function Navigation() {
   const pathname = usePathname();
   const currentLocale = pathname?.startsWith('/en') ? 'en' : 'pt';
   const items = menuItems[currentLocale as keyof typeof menuItems];
+  const menuLabel = currentLocale === 'pt' ? 'Navegação principal' : 'Main navigation';
+  const openMenuLabel = currentLocale === 'pt' ? 'Abrir menu' : 'Open menu';
+  const closeMenuLabel = currentLocale === 'pt' ? 'Fechar menu' : 'Close menu';
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   const isActive = (href: string) => {
     if (href === `/${currentLocale}`) {
@@ -43,9 +50,9 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50" aria-label={menuLabel}>
       <div className="container-custom">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex min-h-16 items-center justify-between py-2 sm:min-h-18 sm:py-3">
           {/* Logo/Brand */}
           <Link href={`/${currentLocale}`} className="flex items-center no-underline">
             <Image
@@ -54,13 +61,13 @@ export default function Navigation() {
               width={140}
               height={45}
               priority
-              className="h-11 w-auto"
+              className="h-9 w-auto sm:h-11"
               style={{ height: 'auto' }}
             />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center gap-6">
             {items.map((item) => (
               <Link
                 key={item.href}
@@ -70,6 +77,7 @@ export default function Navigation() {
                     ? 'text-yellow-600'
                     : 'text-gray-700 hover:text-yellow-600'
                 }`}
+                aria-current={isActive(item.href) ? 'page' : undefined}
               >
                 {item.label}
               </Link>
@@ -99,17 +107,18 @@ export default function Navigation() {
             */}
           </div>
 
-          {/* Desktop Language Switcher - fixed so it doesn't shift under cursor on language toggle */}
-          <div className="hidden md:block w-[11rem] shrink-0" aria-hidden="true" />
-          <div className="hidden md:block md:fixed md:top-4 md:right-6 lg:right-8 md:z-[60]">
+          {/* Desktop Language Switcher */}
+          <div className="hidden lg:block">
             <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
+            className="lg:hidden inline-flex min-h-11 min-w-11 items-center justify-center rounded-md p-2 text-gray-800 hover:bg-gray-100"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileMenuOpen ? closeMenuLabel : openMenuLabel}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileMenuOpen ? (
               <FaTimes className="w-6 h-6" />
@@ -121,17 +130,18 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t">
-            <div className="flex flex-col space-y-4">
+          <div id="mobile-navigation" className="lg:hidden border-t py-3">
+            <div className="flex flex-col gap-1">
               {items.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-base font-semibold transition-colors no-underline ${
+                  className={`flex min-h-11 items-center rounded-md px-3 text-base font-semibold transition-colors no-underline ${
                     isActive(item.href)
                       ? 'text-yellow-600'
                       : 'text-gray-700 hover:text-yellow-600'
                   }`}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -140,7 +150,7 @@ export default function Navigation() {
               {currentLocale === 'pt' ? (
                 <Link
                   href="/pt/donate"
-                  className="text-base font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
+                  className="flex min-h-11 items-center rounded-md px-3 text-base font-semibold text-gray-800 no-underline hover:bg-amber-50 hover:text-amber-800"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {donateLabel[currentLocale as keyof typeof donateLabel]}
@@ -148,7 +158,7 @@ export default function Navigation() {
               ) : (
                 <DonateLink
                   cta="nav-mobile"
-                  className="text-base font-semibold text-gray-700 hover:text-yellow-600 transition-colors no-underline"
+                  className="flex min-h-11 items-center rounded-md px-3 text-base font-semibold text-gray-800 no-underline hover:bg-amber-50 hover:text-amber-800"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {donateLabel[currentLocale as keyof typeof donateLabel]}
@@ -163,7 +173,7 @@ export default function Navigation() {
                 Admin
               </Link>
               */}
-              <div className="pt-4 border-t">
+              <div className="mt-2 border-t px-3 pt-3">
                 <LanguageSwitcher />
               </div>
             </div>

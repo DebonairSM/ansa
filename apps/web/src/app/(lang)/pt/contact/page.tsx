@@ -93,10 +93,10 @@ export default function ContactPt() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="bg-yellow-500 text-white py-20 px-4">
+      <section className="bg-amber-300 text-gray-950 py-14 px-4 sm:py-20">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">Entre em Contato</h1>
-          <p className="text-2xl">Tem alguma pergunta? Adoraríamos ouvir você!</p>
+          <h1 className="text-4xl font-bold mb-6 sm:text-5xl">Entre em Contato</h1>
+          <p className="text-lg sm:text-2xl">Tem alguma pergunta? Adoraríamos ouvir você!</p>
         </div>
       </section>
 
@@ -205,7 +205,7 @@ export default function ContactPt() {
             <h2 className="text-3xl font-bold mb-8">Envie uma Mensagem</h2>
             
             {submitted ? (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
+              <div role="status" aria-live="polite" className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
                 <div className="flex justify-center mb-4">
                   <FaCheckCircle className="w-12 h-12 text-green-600" />
                 </div>
@@ -217,7 +217,7 @@ export default function ContactPt() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {error && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
+                  <div role="alert" className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
                     {error}
                   </div>
                 )}
@@ -230,6 +230,7 @@ export default function ContactPt() {
                     autoComplete="off"
                     value={formData.website}
                     onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                    aria-label="Deixe este campo em branco"
                   />
                 </div>
                 <div>
@@ -322,13 +323,13 @@ export default function ContactPt() {
               </div>
 
               {requestSubmitted ? (
-                <div className="rounded-xl border border-green-200 bg-green-50 p-5 text-green-800">
+                <div role="status" aria-live="polite" className="rounded-xl border border-green-200 bg-green-50 p-5 text-green-800">
                   Recebemos seu pedido inicial. Em breve, entraremos em contato com as próximas orientações.
                 </div>
               ) : (
                 <form onSubmit={handleRequestSubmit} className="space-y-4">
                   {requestError && (
-                    <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+                    <div role="alert" className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
                       {requestError}
                     </div>
                   )}
@@ -342,6 +343,7 @@ export default function ContactPt() {
                       autoComplete="off"
                       value={requestData.website}
                       onChange={(e) => setRequestData({ ...requestData, website: e.target.value })}
+                      aria-label="Deixe este campo em branco"
                     />
                   </div>
 

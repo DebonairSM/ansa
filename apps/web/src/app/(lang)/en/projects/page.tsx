@@ -17,10 +17,10 @@ export default function ProjectsEn() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="bg-yellow-500 text-white py-20 px-4">
+      <section className="bg-amber-300 text-gray-950 py-14 px-4 sm:py-20">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6">Our Projects</h1>
-          <p className="text-2xl">Learn about the initiatives that transform lives and communities</p>
+          <h1 className="text-4xl font-bold mb-6 sm:text-5xl">Our Projects</h1>
+          <p className="text-lg sm:text-2xl">Learn about the initiatives that transform lives and communities</p>
         </div>
       </section>
 
@@ -69,7 +69,7 @@ export default function ProjectsEn() {
           </p>
           <DonateLink
             cta="projects-list"
-            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
+            className="inline-flex min-h-11 items-center bg-amber-700 hover:bg-amber-800 text-white text-xl font-bold px-10 py-4 rounded-lg transition-colors"
           >
             DONATE NOW
           </DonateLink>

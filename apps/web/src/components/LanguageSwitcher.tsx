@@ -1,43 +1,24 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
-
-const languages = [
-  { code: 'pt', name: 'Português' },
-  { code: 'en', name: 'English' },
-];
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function LanguageSwitcher() {
   const pathname = usePathname();
-  const router = useRouter();
-
   const currentLocale = pathname?.startsWith('/en') ? 'en' : 'pt';
-
-  const switchLanguage = (newLocale: string) => {
-    if (currentLocale === newLocale) return;
-
-    // Replace current locale in pathname
-    const newPath = pathname?.replace(`/${currentLocale}`, `/${newLocale}`) || `/${newLocale}`;
-    router.push(newPath);
-  };
+  const targetLocale = currentLocale === 'en' ? 'pt' : 'en';
+  const targetName = targetLocale === 'pt' ? 'Português' : 'English';
+  const targetPath = pathname?.replace(`/${currentLocale}`, `/${targetLocale}`) || `/${targetLocale}`;
 
   return (
-    <div className="flex items-center gap-2">
-      {languages.map((lang) => (
-        <button
-          key={lang.code}
-          onClick={() => switchLanguage(lang.code)}
-          className={`min-w-[5.5rem] px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
-            currentLocale === lang.code
-              ? 'bg-brand text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-          }`}
-          aria-label={`Switch to ${lang.name}`}
-          title={lang.name}
-        >
-          {lang.name}
-        </button>
-      ))}
-    </div>
+    <Link
+      href={targetPath}
+      hrefLang={targetLocale}
+      lang={targetLocale}
+      className="inline-flex min-h-11 min-w-28 items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-semibold text-gray-800 no-underline transition-colors hover:border-amber-600 hover:bg-amber-50"
+      aria-label={`Switch language to ${targetName}`}
+    >
+      {targetName}
+    </Link>
   );
 }
